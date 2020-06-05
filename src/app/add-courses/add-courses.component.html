@@ -1,0 +1,76 @@
+<div class="site-section">
+    <div class="container ">
+        <div class="row">
+        <div class="col-md-6 mb-4" style="position: absolute; top: 150px;" >
+            <p>
+            <img src="assets/images/add-course.jpg" class="img-fluid"  >
+        </p>
+        </div>
+<div class="col-lg-5 ml-auto align-self-center">
+<h2 class="section-title-underline mb-5">
+    <span>Add Course</span>
+</h2>
+        <div class="row justify-content-center">
+            <div class="col-mb-5">
+                <div class="row">
+                  <div class="picture">
+
+                    <div >
+                      <input type='file' (change)="readUrl($event)" class="text-center center-block file-upload">
+                      <img  [src]="imgsrc" class="avatar picture-src" alt="avatar">
+                 
+                      </div><br>
+        
+        
+                </div>
+
+                    <div class="col-md-12 form-group">
+      
+                        <label for="CourseName">Course Name</label>
+                        <input type="text" class="form-control form-control-lg" id="CourseName"  >
+                      </div>
+
+                   
+                      <!-- <div class="form-group col-md-12">
+                        <label for="Category">Category </label>
+                        <input type="text" class="form-control form-control-lg" id="Category"  >
+                      </div> -->
+
+                      <div class="form-group col-md-12">
+                        <label for="Description">Description </label>
+                        <input type="text" class="form-control form-control-lg" id="Description"  >
+                      </div>
+                      
+
+                      <div class="form-group col-md-12">
+                        <label for="intervallen_dayes">intervallen Dayes </label>
+                        <input type="text" class="form-control form-control-lg" id="intervallen_dayes"  >
+                      </div>
+                      
+                      <div class="col-md-12 form-group">
+      
+                        <label for="enroll">Enrollment Key</label>
+                        <input type="text" class="form-control form-control-lg" id="enroll"  >
+                      </div>
+                      
+                      <div>
+                       
+                        <p> Today is  {{today | date:'fullDate'}}</p>
+                        <p>The time is {{today | date:'h:mm a z'}}</p>
+                      </div>
+
+
+
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <input type="submit" value="Add" class="btn btn-primary btn-lg px-5">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    </div>
+    </div>
+</div>
