@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as $ from 'jquery';
+// import * as $ from 'jquery';
+import * as $ from '../../../node_modules/jquery/dist/jquery';
 @Component({
   selector: 'app-add-courses',
   templateUrl: './add-courses.component.html',

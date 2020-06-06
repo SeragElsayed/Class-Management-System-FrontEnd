@@ -1,4 +1,49 @@
-<div class="course-1-item">
+<div class="col-lg-4 col-md-6 mb-4">
+    <div class="course-1-item">
+        <figure class="thumnail">
+        <a href="course-single.html"><img src="../../assets/images/bg_1.jpg" alt="Image" class="img-fluid"></a>
+        <div class="price">{{Course.Price}}</div>
+        <div class="category"><h3>{{Course.Category}}</h3></div>  
+        </figure>
+        <div class="course-1-content pb-4">
+        <h2>{{Course.name}}</h2>
+        <div class="rating text-center mb-3">
+            <span class="icon-star2 text-warning"></span>
+            <span class="icon-star2 text-warning"></span>
+            <span class="icon-star2 text-warning"></span>
+            <span class="icon-star2 text-warning"></span>
+            <span class="icon-star2 text-warning"></span>
+        </div>
+        <p class="desc mb-4">{{Course.Description}}</p>
+        <!-- <a class="nav-link btn btn-primary rounded-2 " style="color: white;" [routerLink]="['/course/details']" >Details</a>
+       -->
+       
+       
+        <button type="button" (click)="btnClick();" style="background-color: darkblue " class=" btn m-5" data-toggle="modal" data-target="#exampleModalCenter">
+            Details
+          </button>
+          
+     <app-enroll-key></app-enroll-key>   
+    </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- 
+
+
+
+
+
+
+<div class="course-1-item" *ngFor="let course of courselist">
     <figure class="thumnail">
     <a href="course-single.html"><img src="../../assets/images/bg_1.jpg" alt="Image" class="img-fluid"></a>
     <div class="price">{{Course.Price}}</div>
@@ -14,6 +59,7 @@
         <span class="icon-star2 text-warning"></span>
     </div>
     <p class="desc mb-4">{{Course.Description}}</p>
+    <p></p>
     <p><a href="course-single.html" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
     </div>
-</div>
+</div> -->

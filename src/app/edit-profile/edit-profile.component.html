@@ -1,0 +1,50 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn " style="background-color:   #e0e0d1;" data-toggle="modal" data-target="#exampleModalCenter">
+    Edit Profile
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Profile</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          
+            <form>
+                <div class="form-group">
+                    <div class="picture">
+                    <div >
+                        <input type='file' (change)="readUrl($event)" class="text-center center-block file-upload">
+                        <img  [src]="imgsrc" class="avatar picture-src" alt="avatar">
+                    </div>
+                    </div>
+                  <label for="exampleInputName1">Name</label>
+                  <input type="text" class="form-control" id="exampleInputName1" aria-describedby="NameHelp" placeholder="Enter Name">
+                   </div>
+                   <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                     </div>
+                     <div class="form-group">
+                        <label for="exampleInputDescription1">Description</label>
+                        <textarea name="Description" class="form-control"  form="usrform">Enter text here...</textarea>
+
+                         </div>
+                                     </form>
+
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" style="background-color: #009900;" class="btn ">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

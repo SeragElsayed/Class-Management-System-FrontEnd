@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-course-card',
@@ -7,11 +9,97 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CourseCardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
   
   @Input() Course:Object;
-
+  btnClick= function () {
+    this.router.navigateByUrl('/course/details');
+};
   ngOnInit(): void {
   }
-
+  imgsrc:any="../assets/images/bg_1.jpg";
+  courselist=[
+    {
+    img:this.imgsrc,
+    name:"c#",
+    Description:"back end language"
+    
+  
+    
+      
+    }, {
+      img:this.imgsrc,
+      name:"c#",
+      Description:"back end language"
+      
+    
+      
+        
+      }, {
+        img:this.imgsrc,
+        name:"c#",
+        Description:"back end language"
+        
+      
+        
+          
+        }, {
+          img:this.imgsrc,
+          name:"c#",
+          Description:"back end language"
+          
+        
+          
+            
+          },{
+            img:this.imgsrc,
+            name:"c#",
+            Description:"back end language"
+            
+          
+            
+              
+            },{
+              img:this.imgsrc,
+              name:"c#",
+              Description:"back end language"
+              
+            
+              
+                
+              },{
+                img:this.imgsrc,
+                name:"c#",
+                Description:"back end language"
+                
+              
+                
+                  
+                },{
+                  img:this.imgsrc,
+                  name:"c#",
+                  Description:"back end language"
+                  
+                
+                  
+                    
+                  },{
+                    img:this.imgsrc,
+                    name:"c#",
+                    Description:"back end language"
+                    
+                  
+                    
+                      
+                    },{
+                      img:this.imgsrc,
+                      name:"c#",
+                      Description:"back end language"
+                      
+                    
+                      
+                        
+                      }
+    
+  ]
 }

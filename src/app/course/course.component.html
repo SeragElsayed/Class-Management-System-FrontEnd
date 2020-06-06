@@ -1,0 +1,49 @@
+
+    <div class="site-section ftco-subscribe-1 site-blocks-cover pb-4" style="background-image: url('../../assets/images/bg_1.jpg')">
+        <div class="container">
+          <div class="row align-items-end">
+            <div class="col-lg-7">
+              <h2 class="mb-0">Course</h2>
+              <p>See all avaliable courses.</p>
+            </div>
+          </div>
+        </div>
+      </div> 
+    
+
+    <div class="custom-breadcrumns border-bottom">
+      <div class="container">
+        <a href="index.html">Home</a>
+        <span class="mx-3 icon-keyboard_arrow_right"></span>
+        <span class="current">Course</span>
+      </div>
+    </div>
+
+
+<div class="site-section">
+    <div class="container">
+      <div class="row m-1">
+        <div >
+        <p > 
+          <button type="button" class="btn btn-primary btn-primary-outline pull-right" (click)="btnClick1();"><i class="fa fa-plus"></i> Add Course</button>    
+
+        </p>
+      </div>
+      <div class=" col-4">
+        <p>
+          <button type="button" class="btn btn-success btn-primary-outline pull-right" (click)="btnClick2();" ><i class="fa fa-user"></i> Manage Students </button>    
+
+        </p>
+      </div>
+      </div>
+        <div class="row">
+         
+
+
+<!--*ngFor="let Course of courseList" [course]=Course-->
+               <app-course-card></app-course-card>
+           
+            
+        </div>
+    </div>
+</div>
