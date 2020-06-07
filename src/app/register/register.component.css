@@ -33,12 +33,15 @@
 .picture input[type="file"] {
   cursor: pointer;
   display: block;
-  height: 50%;
-  left: 0;
-  opacity: 0 !important;
   position: absolute;
-  top: 0;
-  width: 50%;
+  width: 200px;
+  height: 200px;
+  left: 44%;
+  top: 41%;
+  opacity: 0 !important;
+  /* z-index: 5; */
+  /* background-color: red; */
+  border-radius: 50%;
 }
 .picture-src {
   width: 100%;
