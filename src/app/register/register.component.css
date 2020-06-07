@@ -16,6 +16,7 @@
   text-align: center;
 }
 .picture {
+  position: relative;
   width: 200px;
   height: 200px;
   background-color: #999999;
@@ -30,15 +31,16 @@
 .picture:hover {
   border-color: #008000;
 }
+
 .picture input[type="file"] {
   cursor: pointer;
   display: block;
-  height: 50%;
+  height: 100%;
   left: 0;
   opacity: 0 !important;
   position: absolute;
   top: 0;
-  width: 50%;
+  width: 100%;
 }
 .picture-src {
   width: 100%;

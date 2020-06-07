@@ -4,6 +4,7 @@
     text-align: center;
   }
   .picture {
+    position: relative;
     width: 200px;
     height: 200px;
     background-color: #999999;
