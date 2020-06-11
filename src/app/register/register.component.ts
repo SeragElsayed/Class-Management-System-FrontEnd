@@ -1,6 +1,6 @@
 
 import { Component, OnInit, AfterViewInit  } from '@angular/core';
-import {RegisterModdel} from '../../model/RegisterModel';
+// import {RegisterModdel} from '../../model/RegisterModel';
 import{AuthenticationService} from'../../Services/Authentication/authentication.service';
 import * as $ from '../../../node_modules/jquery/dist/jquery';
 import { FormGroup, FormControl, Validators, FormBuilder }  from '@angular/forms';
@@ -52,7 +52,7 @@ console.log("in the submiit func")
   }
   
  //to handle the services
- userreg:RegisterModdel={
+ userreg:any={
    name:"",
    Email:"",
   City:"",

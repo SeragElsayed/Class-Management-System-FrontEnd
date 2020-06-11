@@ -24,10 +24,9 @@ import { PopularCoursesComponent } from './popular-courses/popular-courses.compo
 import { FooterComponent } from './footer/footer.component';
 // import { AddCourseComponent } from './add-course/add-course.component';
 import { CourseCardComponent } from './course-card/course-card.component';
-
 import { AboutOurUnivComponent } from './about-our-univ/about-our-univ.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { CarouselComponent } from './carousel/carousel.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
 import { AboutComponent } from './about/about.component';
 import { LoginComponent } from './login/login.component';
 // import {} from '';
@@ -48,7 +47,7 @@ import { CompCourseComponent } from './comp-course/comp-course.component';
 import { CourseComponent } from './course/course.component';
 import { CourseDetailsComponent } from './course-details/course-details.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { JwtModule } from '@auth0/angular-jwt';
+
 //importing the services
 import {AuthenticationService} from '../Services/Authentication/authentication.service';
 import {TokeninterceptService} from '../Services/TokenInterceptor/tokenintercept.service';
