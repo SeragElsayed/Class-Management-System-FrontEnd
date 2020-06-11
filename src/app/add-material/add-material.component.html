@@ -1,32 +1,35 @@
-<!-- Button trigger modal -->
-<button type="button" class="btn " style="background-color: #2eb82e;" data-toggle="modal" data-target="#exampleModalCenter">
-    Add Material
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Material</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
+<button type="button" class="btn  btn-lg"  style="background-color: #2eb82e;" data-toggle="modal" data-target="#myModal">Add Material</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+        <h4 class="modal-title">Material</h4>
+      </div>
         <div class="modal-body">
-           
-                <div class="form-group">
+         
+                <!-- <div class="form-group">
                   <label for="exampleInputSection1">Section</label>
                   <input type="Section" class="form-control rounded" id="exampleInputSectionCategory1" aria-describedby="SectionCategoryHelp" placeholder="Enter Section">
-                    </div>
-               
+            
+                </div> -->
+
+                <select [(ngModel)]="selectedLevel" (change)="selected()" class="form-control m-b-10">
+                  <option *ngFor="let item of data" [ngValue]="item">{{item.name}}</option>
+                </select>
+           
+               <br/>
 <!---->
 <div class="center">
     <ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)" 
     (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
         <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
           <!-- Optional custom content that replaces the the entire default content. -->
-          <button type="button" (click)="openFileSelector()">Browse Files</button>
+          <button type="button"  (click)="openFileSelector()">Browse Files</button>
         </ng-template>
     </ngx-file-drop>
     <div class="upload-table">
@@ -43,13 +46,25 @@
             </tbody>
         </table>
     </div>
-</div>
+  </div>
+ 
+
                 <!-- the submit part -->
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn " style="background-color: #2eb82e;">Save changes</button>
-        </div>
+  
+
+  <div class="modal-footer">
+    <form [formGroup]="newBlogForm" (ngSubmit)="onSubmit(newBlogForm.value)">
+      <!-- <button type="button" class="btn " style="background-color: #2eb82e;">Save changes</button> -->
+      <div class="container-login100-form-btn">
+        <button class="login100-form-btn"  style="background-color: #2eb82e;" >
+          Register
+        </button>
       </div>
-    </div>
+      </form>
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
   </div>
+</div>
+
+</div>
+</div>

@@ -9,9 +9,9 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
-import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
-import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
-import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
+// import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
+// import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
+// import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import {CourseListComponent} from './course-list/course-list.component';
 
 
@@ -47,7 +47,14 @@ import { NgxFileDropModule } from 'ngx-file-drop';
 import { CompCourseComponent } from './comp-course/comp-course.component';
 import { CourseComponent } from './course/course.component';
 import { CourseDetailsComponent } from './course-details/course-details.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { JwtModule } from '@auth0/angular-jwt';
+//importing the services
+import {AuthenticationService} from '../Services/Authentication/authentication.service';
+import {TokeninterceptService} from '../Services/TokenInterceptor/tokenintercept.service';
 
+//for the require keyword
+declare var require: any;
 @NgModule({
   declarations: [
     AddMaterialComponent,
@@ -88,7 +95,8 @@ import { CourseDetailsComponent } from './course-details/course-details.componen
     FormsModule,
     FontAwesomeModule,
     NgxFileDropModule,
-    ApiAuthorizationModule,
+    ReactiveFormsModule,
+    // ApiAuthorizationModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'about', component: AboutComponent },
@@ -102,13 +110,19 @@ import { CourseDetailsComponent } from './course-details/course-details.componen
       
       { path: 'student/details', component: StudentDetailsComponent},
       { path: 'explore/courses', component: ExploreCoursesComponent },
-      { path: 'course/details', component: CourseDetailsComponent },
-      { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
+      { path: 'course/details', component: CourseDetailsComponent }
+  
     ]),
     NgbModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }
+    AuthenticationService,
+{
+  provide:HTTP_INTERCEPTORS,
+  useClass:TokeninterceptService,
+  multi:true
+}
+   
   ],
   bootstrap: [AppComponent]
 })

@@ -22,16 +22,18 @@ export class CourseCardComponent implements OnInit {
     {
     img:this.imgsrc,
     name:"c#",
-    Description:"back end language"
-    
-  
+    Description:"back end language",
+    Price:"1000",
+    Category:"hrml"
     
       
     }, {
       img:this.imgsrc,
       name:"c#",
       Description:"back end language"
-      
+      ,
+      Price:"1000",
+    Category:"hrml"
     
       
         
@@ -39,7 +41,9 @@ export class CourseCardComponent implements OnInit {
         img:this.imgsrc,
         name:"c#",
         Description:"back end language"
-        
+        ,
+        Price:"1000",
+    Category:"hrml"
       
         
           
@@ -47,7 +51,9 @@ export class CourseCardComponent implements OnInit {
           img:this.imgsrc,
           name:"c#",
           Description:"back end language"
-          
+          ,
+          Price:"1000",
+    Category:"hrml"
         
           
             
@@ -55,7 +61,9 @@ export class CourseCardComponent implements OnInit {
             img:this.imgsrc,
             name:"c#",
             Description:"back end language"
-            
+            ,
+            Price:"1000",
+    Category:"hrml"
           
             
               
@@ -63,7 +71,9 @@ export class CourseCardComponent implements OnInit {
               img:this.imgsrc,
               name:"c#",
               Description:"back end language"
-              
+              ,
+              Price:"1000",
+    Category:"hrml"
             
               
                 
@@ -71,7 +81,9 @@ export class CourseCardComponent implements OnInit {
                 img:this.imgsrc,
                 name:"c#",
                 Description:"back end language"
-                
+                ,
+                Price:"1000",
+    Category:"hrml"
               
                 
                   
@@ -79,7 +91,9 @@ export class CourseCardComponent implements OnInit {
                   img:this.imgsrc,
                   name:"c#",
                   Description:"back end language"
-                  
+                  ,
+                  Price:"1000",
+    Category:"hrml"
                 
                   
                     
@@ -88,14 +102,18 @@ export class CourseCardComponent implements OnInit {
                     name:"c#",
                     Description:"back end language"
                     
-                  
+                    ,
+                    Price:"1000",
+                    Category:"hrml"
                     
                       
                     },{
                       img:this.imgsrc,
                       name:"c#",
                       Description:"back end language"
-                      
+                      ,
+                      Price:"1000",
+    Category:"hrml"
                     
                       
                         

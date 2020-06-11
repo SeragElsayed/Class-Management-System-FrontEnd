@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
+import {AuthenticationService} from "../../Services/Authentication/authentication.service";
+import { FormGroup, FormControl, Validators, FormBuilder }  from '@angular/forms';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
@@ -7,10 +10,76 @@ import * as $ from 'jquery';
 })
 export class EditProfileComponent implements OnInit {
   imgsrc:any="../../assets/images/avatar-01.jpg";
-  constructor() { }
+  constructor(private Auth:AuthenticationService) { }
 
-  ngOnInit(): void {
+  selectedFile: File = null;
+  UserData={
+    userName:"",
+    email:"",
+    city:"",
+    phoneNumber:""
   }
+  
+  private newBlogForm: FormGroup;
+  ngOnInit(): void {
+      //to fill the form 
+  this.newBlogForm = new FormGroup({
+    userName:  new FormControl(null),
+    ProfileImage: new FormControl(null),
+    city:  new FormControl(null),
+    phoneNumber: new FormControl(null),
+  email: new FormControl(null),
+
+  });
+   this.getdata();
+  
+  
+  }
+ getdata()
+ {
+    //to get that user data 
+    console.log("in comp get user info")
+  this.Auth.GetProfileUser().subscribe(
+
+    res=>{
+      console.log("in the response func ")
+      console.log(res);
+      this.UserData=res;
+  
+ console.log(this.UserData.userName)
+ console.log(this.UserData.email)
+ console.log(this.UserData.city)
+console.log(res.city)
+console.log("----------------------")
+  },
+  err=>{
+    console.log("in the err func")
+    console.log(err.message)
+  }
+  )
+ }
+  onSubmit(data) {
+console.log("in the submiit func")
+    const formData = new FormData();
+    console.log("the data ")
+    console.log(data.userName)
+    formData.append('UserName', data.userName);
+    formData.append('ProfileImage', data.ProfileImage);
+    formData.append('City',data.city);
+  formData.append('Email',data.email);
+  formData.append('phoneNumber',data.phoneNumber);
+  console.log(FormData);
+    this.Auth.EditProfileUser(formData).subscribe(
+      res=>{console.log("in th res func");
+     console.log(res);},
+      err=>{
+       console.log("in the error part"); 
+       console.log(err.message)}
+    )
+  
+    this.newBlogForm.reset();
+  }
+  //the upload image part
   readUrl(event:any) {
     if (event.target.files && event.target.files[0]) {
       var reader = new FileReader();
