@@ -1,0 +1,72 @@
+
+    <div class="site-section ftco-subscribe-1 site-blocks-cover pb-4" style="background-image: url('../../assets/images/bg_1.jpg')">
+        <div class="container">
+          <div class="row align-items-end">
+            <div class="col-lg-7">
+              <h2 class="mb-0">Explore</h2>
+              <p>Explore all branches tracks and courses in it,Explore all projects........................</p>
+            </div>
+          </div>
+        </div>
+      </div> 
+
+      <mat-checkbox>Check me!</mat-checkbox>
+      <mat-checkbox>Check me!</mat-checkbox>
+      <mat-checkbox>Check me!</mat-checkbox>
+
+      <!-- <mat-tree>
+        <mat-nested-tree-node>
+          parent node
+          <mat-nested-tree-node> -- child node1 </mat-nested-tree-node>
+          <mat-nested-tree-node> -- child node2 </mat-nested-tree-node>
+        </mat-nested-tree-node>
+     </mat-tree> -->
+
+      <div class="treeview w-20 border">
+        <h6 class="pt-3 pl-3">Branches</h6>
+        <hr>
+        <ul class="mb-1 pl-3 pb-2">
+          
+          <li *ngFor="let branch of MyBranches">
+            <i class="fas fa-angle-right rotate"></i>
+            <span><i class="far fa-gem ic-w mx-1"></i>{{branch.BranchName}}</span>
+            <h6 class="pt-3 pl-3">Tracks</h6>
+
+            <ul *ngFor="let track of MyTracks"  class="nested">
+              <li *ngIf="(branch.BranchId == track.BranchId)">
+                <span><i class="far fa-eye ic-w mr-1"></i>{{track.TrackName}}</span>
+
+                <h6 class="pt-3 pl-3">Courses</h6>
+
+                <ul *ngFor="let course of MyCourses"  class="nested">
+                  <li *ngIf="(course.TrackId == track.TrackId)">
+                    <span><i class="far fa-eye ic-w mr-1"></i>{{course.CourseName}}</span>
+    
+                  </li>
+                </ul>
+
+
+              </li>
+            </ul>
+            
+          </li>
+          <li>
+            
+            
+          </li>
+        </ul>
+      </div>
+
+<!-- 
+<div class="container m-t-50">
+    <div class="list-group border round m-b-10"*ngFor="let b of branches">
+        
+        <a  class="list-group-item" ><i class="fa fa-home" aria-hidden="true"></i> {{b.name}}</a>
+        <div class="list-group border round m-b-10" *ngFor="let t of tracks">
+          <a  class="list-group-item"><i class="fa fa-book" aria-hidden="true"></i>{{t.name}}</a>
+        
+        </div>
+     
+      </div>
+</div> -->
+    

@@ -35,11 +35,11 @@ import {EditProfileComponent} from './edit-profile/edit-profile.component';
 import {MangeStudentComponent} from './mange-student/mange-student.component';
 import {MatrialBoxComponent} from './matrial-box/matrial-box.component';
 import {StudentDetailsComponent} from './student-details/student-details.component';
-import {SubmitTaskComponent} from './submit-task/submit-task.component';
+import {SubmitTaskComponent} from '../app/components/submit-task/submit-task.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ContactComponent } from './contact/contact.component';
 import { register } from 'ts-node';
-import { ExploreCoursesComponent } from './explore-courses/explore-courses.component';
+import { ExploreCoursesComponent } from '../app/components/explore-courses/explore-courses.component';
 import { RegisterComponent } from './register/register.component'
 import { from } from 'rxjs';
 import { AddCoursesComponent } from './add-courses/add-courses.component';
@@ -52,6 +52,10 @@ import { JwtModule } from '@auth0/angular-jwt';
 //importing the services
 import {AuthenticationService} from '../Services/Authentication/authentication.service';
 import {TokeninterceptService} from '../Services/TokenInterceptor/tokenintercept.service';
+import {BranchService} from '../Services/BranchService/branch.service';
+import {TaskService} from '../Services/TaskService/task.service';
+import {TrackService} from '../Services/TrackService/track.service';
+/////////////////////
 
 //for the require keyword
 declare var require: any;
@@ -117,6 +121,9 @@ declare var require: any;
   ],
   providers: [
     AuthenticationService,
+    TrackService,
+    BranchService,
+    TaskService,
 {
   provide:HTTP_INTERCEPTORS,
   useClass:TokeninterceptService,
