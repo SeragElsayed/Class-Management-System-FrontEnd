@@ -18,7 +18,10 @@ export class TrackService {
    ngOnInit(){
 
    }
-
+   getAll() {
+    return this.http.get<Track[]>(`${TrackPaths.GetAllTracks}`)
+    .pipe( catchError( this.handleError ) )
+  }
   getByTrackId(TrackId:number) {
     return this.http.get<Track[]>(`${TrackPaths.GetTrackByTrackId}/${TrackId}`)
     .pipe( catchError( this.handleError ) )
