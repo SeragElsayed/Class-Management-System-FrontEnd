@@ -39,7 +39,7 @@ console.log("in the submiit func")
     formData.append('City',data.City);
   formData.append('Email',data.Email);
   formData.append('Password',data.Password);
-  console.log(FormData);
+  console.log(FormData,"hdddddddddddddddddddddddddd");
     this.Auth.registerUser(formData).subscribe(
       res=>{console.log("in th res func");
      console.log(res);},

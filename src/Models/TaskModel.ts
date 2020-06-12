@@ -1,7 +1,7 @@
 export interface Task {
     TaskId: number;
     TaskName: string;
-  //  TaskDescriptionn: string;
+    TaskDescription: string;
     DueDate:Date;
     CourseId:number
   }
