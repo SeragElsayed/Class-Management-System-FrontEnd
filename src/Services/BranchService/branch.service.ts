@@ -18,6 +18,26 @@ export class BranchService {
     .pipe( catchError( this.handleError ) )
   }
 
+
+  getByBranchId(BranchId:number) {
+    return this.http.get<Branch[]>(`${BranchPaths.GetBranchById}/${BranchId}`)
+    .pipe( catchError( this.handleError ) )
+  }
+
+ 
+
+  AddBranch(NewBranch:Branch) {
+    return this.http.post<Branch>(`${BranchPaths.AddBranch}`,NewBranch)
+    .pipe( catchError( this.handleError ) )
+  }
+  EditBranch(EditedBranch:Branch) {
+    return this.http.put<Branch>(`${BranchPaths.GetAllBranches}/${EditedBranch.BranchId}`,EditedBranch)
+    .pipe( catchError( this.handleError ) )
+  }
+  DeleteByBranchId(BranchId:number) {
+    return this.http.get<[]>(`${BranchPaths.GetAllBranches}/${BranchId}`)
+    .pipe( catchError( this.handleError ) )
+  }
  
    private handleError(errorResponse: HttpErrorResponse) {
      if (errorResponse.error instanceof ErrorEvent)
