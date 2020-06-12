@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-//import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
 import { TaskService } from 'src/Services/TaskService/task.service';
 import { Task } from 'src/Models/TaskModel';
+import {Router} from '@angular/router';
 @Component({
   selector: 'app-submit-task',
   templateUrl: './submit-task.component.html',
@@ -11,8 +11,14 @@ export class SubmitTaskComponent implements OnInit {
 
   MyTasks:Task[]
   MyTask:Task
-  NewTask:any
-  constructor(private MyTaskService:TaskService) { 
+  PassedTask:Task= {
+    TaskName:"Enter Task Name",
+    TaskId:0,
+    TaskDescription:"Enter Task Desc.",
+    CourseId:0,
+    DueDate:new Date(),
+  }
+  constructor(private MyTaskService:TaskService,private router: Router) { 
 
   }
 
@@ -22,21 +28,20 @@ export class SubmitTaskComponent implements OnInit {
   }
 
 
-  onSubmit(){
-    console.log(this.NewTask)
+  OnEdit($event:Event,Task:Task):void{
+    this.router.navigate([`/Task/Edit/${Task.TaskId}`])
+   
   }
-
+  OnAddTask($event){
+    this.router.navigate(['/Task/Add'])
+  }
   OnDelete($event:Event,Task:Task):void{
-    let IndexOfTask=this.MyTasks.indexOf(Task)
-    this.MyTasks.splice(IndexOfTask,1)
+    
     
     this.MyTaskService.DeleteById(Task.TaskId)
     .subscribe(
-        null,
-        (error)=>{
-        this.MyTasks.splice(IndexOfTask,0,Task)
-        }
-      );
+        res=>{let IndexOfTask=this.MyTasks.indexOf(Task)
+        this.MyTasks.splice(IndexOfTask,1)} );
   }
 }
 

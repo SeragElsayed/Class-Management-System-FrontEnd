@@ -34,7 +34,7 @@ import {EditProfileComponent} from './edit-profile/edit-profile.component';
 import {MangeStudentComponent} from './mange-student/mange-student.component';
 import {MatrialBoxComponent} from './matrial-box/matrial-box.component';
 import {StudentDetailsComponent} from './student-details/student-details.component';
-import {SubmitTaskComponent} from '../app/components/submit-task/submit-task.component';
+import {SubmitTaskComponent} from './components/TaskComponents/submit-task/submit-task.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ContactComponent } from './contact/contact.component';
 import { register } from 'ts-node';
@@ -54,6 +54,10 @@ import {TokeninterceptService} from '../Services/TokenInterceptor/tokenintercept
 import {BranchService} from '../Services/BranchService/branch.service';
 import {TaskService} from '../Services/TaskService/task.service';
 import {TrackService} from '../Services/TrackService/track.service';
+import { AddTaskFormComponent } from './components/TaskComponents/add-task-form/add-task-form.component';
+import { EditTaskFormComponent } from './components/TaskComponents/edit-task-form/edit-task-form.component';
+import { TaskDetailsComponent } from './components/TaskComponents/task-details/task-details.component';
+import { TaskCardComponent } from './components/TaskComponents/task-card/task-card.component';
 /////////////////////
 
 //for the require keyword
@@ -90,7 +94,11 @@ declare var require: any;
     RegisterComponent,
     AddCoursesComponent,
     CourseComponent,
-    CourseDetailsComponent
+    CourseDetailsComponent,
+    AddTaskFormComponent,
+    EditTaskFormComponent,
+    TaskDetailsComponent,
+    TaskCardComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -110,6 +118,8 @@ declare var require: any;
       { path: 'profile', component: ProfileComponent },
       { path: 'contact', component: ContactComponent },
       { path: 'course', component: CourseComponent },
+      { path: 'Task/Add', component: AddTaskFormComponent },
+      { path: 'Task/Edit/:TaskId', component: EditTaskFormComponent },
       
       { path: 'student/details', component: StudentDetailsComponent},
       { path: 'explore/courses', component: ExploreCoursesComponent },
