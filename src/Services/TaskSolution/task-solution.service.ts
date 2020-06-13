@@ -19,14 +19,14 @@ export class TaskSolutionService {
   addTaskSolution(taskSolution){
     
     // return this.http.post(`https://localhost:44374/api/course/tasksStd/${this.StudentId}/${this.TaskId}/${this.CourseId}`, JSON.stringify(taskSolution))
-    return this.http.post(`https://localhost:44374/api/course/tasksStd/1/1/1`, JSON.stringify(taskSolution))
+    return this.http.post('https://localhost:44374/api/course/tasksStd/1/50/5', taskSolution)
 
   }
 
-  updateTaskSolution(taskSolution){
-    return this.http.patch(`https://localhost:44374/api/course/tasksStd/${this.StudentId}/${this.TaskId}/${this.CourseId}`,JSON.stringify({isRead:true}));
+  // updateTaskSolution(taskSolution){
+  //   return this.http.patch(`https://localhost:44374/api/course/tasksStd/${this.StudentId}/${this.TaskId}/${this.CourseId}`,JSON.stringify({isRead:true}));
 
-  }
+  // }
 
   deleteTaskSolution(){
     return this.http.delete(`https://localhost:44374/api/course/tasksStd/${this.TaskSolutionId}`)

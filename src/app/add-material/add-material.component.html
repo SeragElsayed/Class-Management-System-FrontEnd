@@ -18,7 +18,7 @@
             
                 </div> -->
 
-                <select [(ngModel)]="selectedLevel" (change)="selected()" class="form-control m-b-10">
+                <select [(ngModel)]="data" (change)="selected()" class="form-control m-b-10">
                   <option *ngFor="let item of data" [ngValue]="item">{{item.name}}</option>
                 </select>
            

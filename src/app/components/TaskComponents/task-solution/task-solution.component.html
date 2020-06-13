@@ -27,9 +27,9 @@
   <button type="button" class="btn btn-primary" (click)="deleteTaskSolution()">
     Delete Task Solution
   </button>||
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" value="">
+  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" value="">
     Update Task Solution
-  </button>
+  </button> -->
   
 </div>
   <!-- Modal -->
@@ -70,7 +70,7 @@
               </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="deleteTaskSolution()">Close</button>
           <button type="button" class="btn btn-primary" (click)=addTaskSolution(taskSolution) #taskSolution>ADD</button>
         </div>
       </div>
