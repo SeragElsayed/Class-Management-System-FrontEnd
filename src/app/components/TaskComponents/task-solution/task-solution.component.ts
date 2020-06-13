@@ -46,13 +46,13 @@ addTaskSolution(input){
     console.log("filename:  ",droppedFile.relativePath);
     input=droppedFile.relativePath;
 
-console.log("input",input)
-
+console.log("input",input);
         this.service.addTaskSolution(input)
         .subscribe(res=>{
+          input.push(input);
 
-          input['id']=res.json().id;
-          console.log("res",res.json())
+          // input['id']=res.json().id;
+          // console.log("res",res.json())
           this.files.splice(0,0,input);
           console.log("this",this.files.splice(0,0,input));
         }),
