@@ -1,0 +1,17 @@
+
+<div class="input-group mb-3">
+    <input [(ngModel)]="ColabEmailToBeAdded" type="text" class="form-control" placeholder="Enter Email" aria-label="Recipient's username" aria-describedby="basic-addon2">
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" type="button" (click)="OnAddColab()">Add</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div *ngFor="let colab of MyColaborators ">
+  <app-colaborator-item [MyColaborator]="colab"></app-colaborator-item>
+
+      <button class="btn-danger" (click)="OnRemove($event,colab)"> Remove</button>
+      <button class="btn-primary" (click)="OnMakeOwner($event,colab)"> Make Owner</button>
+    </div>
+  
+  </div>

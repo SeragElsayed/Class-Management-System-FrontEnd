@@ -1,0 +1,11 @@
+
+<button>Create Project</button>
+
+<div class="container">
+
+    
+    <div class="row category" *ngFor="let project of MyProjects">
+        
+        <app-project-card [MyProject]="project"></app-project-card>
+    </div>
+</div>

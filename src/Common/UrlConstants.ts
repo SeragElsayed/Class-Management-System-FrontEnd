@@ -78,3 +78,36 @@ DeleteCollabByUserId: `${BaseURL}${ProjectManagActions.DeleteCollabByUserId}`,
 MakeOwnerByUserId: `${BaseURL}${ProjectManagActions.MakeOwnerByUserId}`,
 AddCollabByUserEmail: `${BaseURL}${ProjectManagActions.AddCollabByUserEmail}`,
 }
+
+const ProjectActions = {
+  GetProjectById: 'Project',
+  GetProjectByTrackId: 'Project/Track',
+  GetProjectByStudentId: 'Project/Student',
+  AddProjectByTrackId: 'Project/Add/Track',
+  UpdateProject: 'Project/Edit',
+  DeleteProjectById: 'Project/Delete',
+ 
+};
+export const ProjectPaths={
+  // GetAllBranches:`${BaseURL}${EndPoints.Branch}${BranchActions.GetAllBranches}`
+  GetProjectById:`${BaseURL}${ProjectActions.GetProjectById}`,
+   GetProjectByTrackId:`${BaseURL}${ProjectActions.GetProjectByTrackId}`,
+   GetProjectByStudentId:`${BaseURL}${ProjectActions.GetProjectByStudentId}`,
+   AddProjectByTrackId:`${BaseURL}${ProjectActions.AddProjectByTrackId}`,
+   UpdateProject:`${BaseURL}${ProjectActions.UpdateProject}`,
+   DeleteProjectById:`${BaseURL}${ProjectActions.DeleteProjectById}`,
+ }
+ 
+const ProjectMaterialActions = {
+  UploadByProjectById: 'ProjectMaterial/Upload',
+  DownloadById: 'ProjectMaterial/Download',
+  DeleteByFileName: 'ProjectMaterial/Delete',
+  
+ 
+};
+export const ProjectMaterialPaths={
+  // GetAllBranches:`${BaseURL}${EndPoints.Branch}${BranchActions.GetAllBranches}`
+  UploadByProjectById:`${BaseURL}${ProjectMaterialActions.UploadByProjectById}`,
+  DownloadById:`${BaseURL}${ProjectMaterialActions.DownloadById}`,
+  DeleteByFileName:`${BaseURL}${ProjectMaterialActions.DeleteByFileName}`,
+ }
