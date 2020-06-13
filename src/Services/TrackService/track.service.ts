@@ -18,9 +18,30 @@ export class TrackService {
    ngOnInit(){
 
    }
+   getAll() {
+    return this.http.get<Track[]>(`${TrackPaths.GetAllTracks}`)
+    .pipe( catchError( this.handleError ) )
+  }
+  getByTrackId(TrackId:number) {
+    return this.http.get<Track[]>(`${TrackPaths.GetTrackByTrackId}/${TrackId}`)
+    .pipe( catchError( this.handleError ) )
+  }
 
-  getAll() {
-    return this.http.get<Track[]>(TrackPaths.GetAllTracks)
+  getTracksByBranchId(BranchId:number) {
+    return this.http.get<Track[]>(`${TrackPaths.GetTrackByBranchId}/${BranchId}`)
+    .pipe( catchError( this.handleError ) )
+  }
+
+  AddTrack(NewTrack:Track) {
+    return this.http.post<Track>(`${TrackPaths.AddTrack}`,NewTrack)
+    .pipe( catchError( this.handleError ) )
+  }
+  EditTrack(EditedTrack:Track) {
+    return this.http.put<Track>(`${TrackPaths.GetAllTracks}/${EditedTrack.TrackId}`,EditedTrack)
+    .pipe( catchError( this.handleError ) )
+  }
+  DeleteByTrackId(TrackId:number) {
+    return this.http.get<[]>(`${TrackPaths.GetAllTracks}/${TrackId}`)
     .pipe( catchError( this.handleError ) )
   }
 

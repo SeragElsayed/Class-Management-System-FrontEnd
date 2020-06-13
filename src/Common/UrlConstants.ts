@@ -9,13 +9,39 @@ const EndPoints = {
 
  const TrackActions = {
     GetAllTracks: 'Tracks',
-   
-  };
-  const BranchActions = {
-    GetAllBranches: 'Branches',
-   
+    GetTrackByTrackId: 'Track',
+    GetTrackByBranchId: 'Track/Branch',
+    AddTrack: 'Add',
+    UpdateTrack: 'Edit',
+    DeleteTrackById: 'Delete',
   };
 
+  export const TrackPaths={
+    //GetAllTracks:`${BaseURL}${EndPoints.Track}${TrackActions.GetAllTracks}`
+    GetAllTracks:`${BaseURL}${TrackActions.GetAllTracks}`,
+    GetTrackByTrackId:`${BaseURL}${TrackActions.GetTrackByTrackId}`,
+    GetTrackByBranchId:`${BaseURL}${TrackActions.GetTrackByBranchId}`,
+    AddTrack:`${BaseURL}${TrackActions.AddTrack}`,
+    UpdateTrack:`${BaseURL}${TrackActions.UpdateTrack}`,
+    DeleteTrackById:`${BaseURL}${TrackActions.DeleteTrackById}`,
+  }
+  
+  const BranchActions = {
+    GetAllBranches: 'Branches',
+    GetBranchById: 'Branch',
+    AddBranch: 'Add',
+    UpdateBranch: 'Edit',
+    DeleteBranchById: 'Delete',
+   
+  };
+  export const BranchPaths={
+    // GetAllBranches:`${BaseURL}${EndPoints.Branch}${BranchActions.GetAllBranches}`
+     GetAllBranches:`${BaseURL}${BranchActions.GetAllBranches}`,
+     GetBranchById:`${BaseURL}${BranchActions.GetBranchById}`,
+     AddBranch:`${BaseURL}${BranchActions.AddBranch}`,
+     UpdateBranch:`${BaseURL}${BranchActions.UpdateBranch}`,
+     DeleteBranchById:`${BaseURL}${BranchActions.DeleteBranchById}`,
+   }
   const TaskActions = {
     GetAllTasks: 'Tasks',
     GetTaskById: 'Task',
@@ -25,15 +51,6 @@ const EndPoints = {
    
   };
 
-export const TrackPaths={
-  //GetAllTracks:`${BaseURL}${EndPoints.Track}${TrackActions.GetAllTracks}`
-  GetAllTracks:`${BaseURL}${TrackActions.GetAllTracks}`
-}
-
-export const BranchPaths={
- // GetAllBranches:`${BaseURL}${EndPoints.Branch}${BranchActions.GetAllBranches}`
-  GetAllBranches:`${BaseURL}${BranchActions.GetAllBranches}`
-}
 export const TaskPaths={
   // GetAllTasks:`${BaseURL}${EndPoints.Task}${TaskActions.GetAllTasks}`,
   // GetTaskById: `${BaseURL}${EndPoints.Task}${TaskActions.GetTaskById}`,
@@ -46,3 +63,51 @@ export const TaskPaths={
   UpdateTaskById: `${BaseURL}${TaskActions.UpdateTaskById}`,
   AddTask: `${BaseURL}${TaskActions.AddTask}`,
 }
+
+const ProjectManagActions = {
+  GetCollabByProjId: 'PM',
+  DeleteCollabByUserId: 'Delete',
+  MakeOwnerByUserId: 'MakeOwner',
+  AddCollabByUserEmail: 'Add',
+ 
+};
+
+export const ProjectManagPaths={
+GetCollabByProjId:`${BaseURL}${ProjectManagActions.GetCollabByProjId}`,
+DeleteCollabByUserId: `${BaseURL}${ProjectManagActions.DeleteCollabByUserId}`,
+MakeOwnerByUserId: `${BaseURL}${ProjectManagActions.MakeOwnerByUserId}`,
+AddCollabByUserEmail: `${BaseURL}${ProjectManagActions.AddCollabByUserEmail}`,
+}
+
+const ProjectActions = {
+  GetProjectById: 'Project',
+  GetProjectByTrackId: 'Project/Track',
+  GetProjectByStudentId: 'Project/Student',
+  AddProjectByTrackId: 'Project/Add/Track',
+  UpdateProject: 'Project/Edit',
+  DeleteProjectById: 'Project/Delete',
+ 
+};
+export const ProjectPaths={
+  // GetAllBranches:`${BaseURL}${EndPoints.Branch}${BranchActions.GetAllBranches}`
+  GetProjectById:`${BaseURL}${ProjectActions.GetProjectById}`,
+   GetProjectByTrackId:`${BaseURL}${ProjectActions.GetProjectByTrackId}`,
+   GetProjectByStudentId:`${BaseURL}${ProjectActions.GetProjectByStudentId}`,
+   AddProjectByTrackId:`${BaseURL}${ProjectActions.AddProjectByTrackId}`,
+   UpdateProject:`${BaseURL}${ProjectActions.UpdateProject}`,
+   DeleteProjectById:`${BaseURL}${ProjectActions.DeleteProjectById}`,
+ }
+ 
+const ProjectMaterialActions = {
+  UploadByProjectById: 'ProjectMaterial/Upload',
+  DownloadById: 'ProjectMaterial/Download',
+  DeleteByFileName: 'ProjectMaterial/Delete',
+  
+ 
+};
+export const ProjectMaterialPaths={
+  // GetAllBranches:`${BaseURL}${EndPoints.Branch}${BranchActions.GetAllBranches}`
+  UploadByProjectById:`${BaseURL}${ProjectMaterialActions.UploadByProjectById}`,
+  DownloadById:`${BaseURL}${ProjectMaterialActions.DownloadById}`,
+  DeleteByFileName:`${BaseURL}${ProjectMaterialActions.DeleteByFileName}`,
+ }

@@ -58,11 +58,17 @@ import { AddTaskFormComponent } from './components/TaskComponents/add-task-form/
 import { EditTaskFormComponent } from './components/TaskComponents/edit-task-form/edit-task-form.component';
 import { TaskDetailsComponent } from './components/TaskComponents/task-details/task-details.component';
 import { TaskCardComponent } from './components/TaskComponents/task-card/task-card.component';
+import { ProjectDetailsComponent } from './components/ProjectManagementComponents/project-details/project-details.component';
+import { ColaboratorListComponent } from './components/ProjectManagementComponents/colaborator-list/colaborator-list.component';
+import { ProjectDetailsFormComponent } from './components/ProjectManagementComponents/project-details-form/project-details-form.component';
+import { ProjectMaterialListComponent } from './components/ProjectManagementComponents/project-material-list/project-material-list.component';
+import { ProjectsListComponent } from './components/ProjectManagementComponents/projects-list/projects-list.component';
+import { ProjectCardComponent } from './components/ProjectManagementComponents/project-card/project-card.component';
+import { ProjectsMaterialItemComponent } from './components/ProjectManagementComponents/projects-material-item/projects-material-item.component';
+import { ColabboratorItemComponent } from './components/ProjectManagementComponents/colabborator-item/colabborator-item.component';
 import { TaskSolutionComponent } from './components/TaskComponents/task-solution/task-solution.component';
 import { EditTasksolutionComponent } from './components/TaskComponents/edit-tasksolution/edit-tasksolution.component';
 import { DeleteTasksolutionComponent } from './components/TaskComponents/delete-tasksolution/delete-tasksolution.component';
-/////////////////////
-
 //for the require keyword
 declare var require: any;
 @NgModule({
@@ -102,6 +108,15 @@ declare var require: any;
     EditTaskFormComponent,
     TaskDetailsComponent,
     TaskCardComponent,
+    ProjectDetailsComponent,
+    ColaboratorListComponent,
+    ProjectDetailsFormComponent,
+    ProjectMaterialListComponent,
+    ProjectsListComponent,
+    ProjectCardComponent,
+    ProjectsMaterialItemComponent,
+    ColabboratorItemComponent
+
     TaskSolutionComponent,
     EditTasksolutionComponent,
     DeleteTasksolutionComponent
@@ -129,7 +144,10 @@ declare var require: any;
       
       { path: 'student/details', component: StudentDetailsComponent},
       { path: 'explore/courses', component: ExploreCoursesComponent },
+      { path: 'Project', component: ProjectsListComponent },
+      { path: 'Project/Details/:ProjectId', component: ProjectDetailsComponent },
       { path: 'course/details', component: CourseDetailsComponent }
+      
   
     ]),
     NgbModule
