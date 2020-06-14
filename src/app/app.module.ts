@@ -71,6 +71,7 @@ import { EditTasksolutionComponent } from './components/TaskComponents/edit-task
 import { DeleteTasksolutionComponent } from './components/TaskComponents/delete-tasksolution/delete-tasksolution.component';
 import { CreateProjectComponent } from './components/ProjectManagementComponents/create-project/create-project.component';
 import { UpdateProjectComponent } from './components/ProjectManagementComponents/update-project/update-project.component';
+import { ExploreProjectsComponent } from './components/ProjectManagementComponents/explore-projects/explore-projects.component';
 //for the require keyword
 declare var require: any;
 @NgModule({
@@ -123,7 +124,8 @@ declare var require: any;
     EditTasksolutionComponent,
     DeleteTasksolutionComponent,
     CreateProjectComponent,
-    UpdateProjectComponent
+    UpdateProjectComponent,
+    ExploreProjectsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -147,6 +149,7 @@ declare var require: any;
       { path: 'Task/Edit/:TaskId', component: EditTaskFormComponent },
       
       { path: 'student/details', component: StudentDetailsComponent},
+      { path: 'explore/projects', component: ExploreProjectsComponent},
       { path: 'explore/courses', component: ExploreCoursesComponent },
       { path: 'Project', component: ProjectsListComponent },
       { path: 'Project/Details/:ProjectId', component: ProjectDetailsComponent },
