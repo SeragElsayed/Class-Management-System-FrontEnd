@@ -66,8 +66,9 @@ import { ProjectsListComponent } from './components/ProjectManagementComponents/
 import { ProjectCardComponent } from './components/ProjectManagementComponents/project-card/project-card.component';
 import { ProjectsMaterialItemComponent } from './components/ProjectManagementComponents/projects-material-item/projects-material-item.component';
 import { ColabboratorItemComponent } from './components/ProjectManagementComponents/colabborator-item/colabborator-item.component';
-/////////////////////
-
+import { TaskSolutionComponent } from './components/TaskComponents/task-solution/task-solution.component';
+import { EditTasksolutionComponent } from './components/TaskComponents/edit-tasksolution/edit-tasksolution.component';
+import { DeleteTasksolutionComponent } from './components/TaskComponents/delete-tasksolution/delete-tasksolution.component';
 //for the require keyword
 declare var require: any;
 @NgModule({
@@ -115,6 +116,10 @@ declare var require: any;
     ProjectCardComponent,
     ProjectsMaterialItemComponent,
     ColabboratorItemComponent
+
+    TaskSolutionComponent,
+    EditTasksolutionComponent,
+    DeleteTasksolutionComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
