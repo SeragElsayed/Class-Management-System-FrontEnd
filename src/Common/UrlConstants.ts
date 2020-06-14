@@ -1,4 +1,5 @@
-export const BaseURL='http://localhost:3000/'
+export const BaseURL='https://localhost:44374/'
+// export const BaseURL='http://localhost:3000/'
 
 const EndPoints = {
   Track: 'Track/',
@@ -80,12 +81,12 @@ AddCollabByUserEmail: `${BaseURL}${ProjectManagActions.AddCollabByUserEmail}`,
 }
 
 const ProjectActions = {
-  GetProjectById: 'Project',
-  GetProjectByTrackId: 'Project/Track',
-  GetProjectByStudentId: 'Project/Student',
-  AddProjectByTrackId: 'Project/Add/Track',
-  UpdateProject: 'Project/Edit',
-  DeleteProjectById: 'Project/Delete',
+  GetProjectById: 'api/Project/Project',
+  GetProjectByTrackId: 'api/Project/Track',
+  GetProjectByStudentId: 'api/Project/Student',
+  AddProjectByTrackId: 'api/Project/Add',
+  UpdateProject: 'api/Project/Edit',
+  DeleteProjectById: 'api/Project/Delete',
  
 };
 export const ProjectPaths={
@@ -99,9 +100,9 @@ export const ProjectPaths={
  }
  
 const ProjectMaterialActions = {
-  UploadByProjectById: 'ProjectMaterial/Upload',
-  DownloadById: 'ProjectMaterial/Download',
-  DeleteByFileName: 'ProjectMaterial/Delete',
+  UploadByProjectById: 'api/ProjectMaterial/Upload',
+  DownloadById: 'api/ProjectMaterial/Download',
+  DeleteByFileName: 'api/ProjectMaterial/Delete',
   
  
 };
