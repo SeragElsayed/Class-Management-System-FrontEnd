@@ -33,7 +33,9 @@ export class ProjectService {
     // if (UserId=="")
       //throwError();
 
-    // return this.http.get<Project[]>(`${ProjectPaths.GetProjectByStudentId}`)
+     // console.log("fffffffffffffffffffffffffffffffff",`${ProjectPaths.GetProjectByStudentId}`)
+      // return this.http.get<Project[]>(`${ProjectPaths.GetProjectByStudentId}`)
+      // return this.http.get<Project[]>(`https://localhost:44374/api/Project/Student`)
     return this.http.get<Project[]>(`http://localhost:3000/projects`)
     .pipe( catchError( this.handleError ) )
   }
