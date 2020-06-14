@@ -37,6 +37,7 @@ private ProjectMaterial: FormGroup;
     for(let i=0 ; i < event.target.files.length ; i++){
 
       formData.append(`file[]`, event.target.files[i], event.target.files[i].name);  
+      this.currentInput.push(event.target.files[i].name)
     }
     console.log(formData)
 
@@ -52,5 +53,6 @@ private ProjectMaterial: FormGroup;
         })
    
     this.ProjectMaterial.reset();
+    this.currentInput=null;
   }
 }
