@@ -115,7 +115,7 @@ declare var require: any;
     ProjectsListComponent,
     ProjectCardComponent,
     ProjectsMaterialItemComponent,
-    ColabboratorItemComponent
+    ColabboratorItemComponent,
 
     TaskSolutionComponent,
     EditTasksolutionComponent,
