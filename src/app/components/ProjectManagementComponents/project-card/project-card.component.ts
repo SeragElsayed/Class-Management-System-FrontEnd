@@ -11,6 +11,8 @@ import { ProjectService } from 'src/Services/project.service';
 export class ProjectCardComponent implements OnInit {
 
   @Input() MyProject:Project;
+ 
+  
 
   constructor(private router:Router,private MyProjectService:ProjectService) { }
 
@@ -28,4 +30,5 @@ export class ProjectCardComponent implements OnInit {
 
     this.MyProjectService.DeleteProject(this.MyProject.ProjectId);
   }
+ 
 }

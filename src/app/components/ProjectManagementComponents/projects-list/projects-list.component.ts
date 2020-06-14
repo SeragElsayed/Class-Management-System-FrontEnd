@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Project } from 'src/Models/ProjectModel';
 import { ProjectService } from 'src/Services/project.service';
 
@@ -10,6 +10,7 @@ import { ProjectService } from 'src/Services/project.service';
 export class ProjectsListComponent implements OnInit {
 
   constructor(private MyProjectService: ProjectService) { }
+  @Input() projects
 
   MyProjects:Project[];
 
@@ -26,5 +27,10 @@ export class ProjectsListComponent implements OnInit {
     )
   }
   
+  
+  tas(t){
+    console.log(t)
+    this.MyProjects.push(t)
 
+  }
 }

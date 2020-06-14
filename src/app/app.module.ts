@@ -69,6 +69,8 @@ import { ColabboratorItemComponent } from './components/ProjectManagementCompone
 import { TaskSolutionComponent } from './components/TaskComponents/task-solution/task-solution.component';
 import { EditTasksolutionComponent } from './components/TaskComponents/edit-tasksolution/edit-tasksolution.component';
 import { DeleteTasksolutionComponent } from './components/TaskComponents/delete-tasksolution/delete-tasksolution.component';
+import { CreateProjectComponent } from './components/ProjectManagementComponents/create-project/create-project.component';
+import { UpdateProjectComponent } from './components/ProjectManagementComponents/update-project/update-project.component';
 //for the require keyword
 declare var require: any;
 @NgModule({
@@ -119,7 +121,9 @@ declare var require: any;
 
     TaskSolutionComponent,
     EditTasksolutionComponent,
-    DeleteTasksolutionComponent
+    DeleteTasksolutionComponent,
+    CreateProjectComponent,
+    UpdateProjectComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

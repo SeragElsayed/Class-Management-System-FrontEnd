@@ -1,11 +1,13 @@
 
-<button>Create Project</button>
+<!-- <button>Create Project</button> -->
 
+<app-create-project  (myEvent)="tas($event)"></app-create-project>
+<!-- //jkjkjkjkjj -->
 <div class="container">
 
     
     <div class="row category" *ngFor="let project of MyProjects">
         
-        <app-project-card [MyProject]="project"></app-project-card>
+        <app-project-card [MyProject]="project" [projects]="projects" ></app-project-card>
     </div>
 </div>

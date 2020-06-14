@@ -10,19 +10,20 @@ import { Project } from 'src/Models/ProjectModel';
 })
 export class ProjectDetailsFormComponent implements OnInit {
 
-  MyProject:Project;
+   MyProject:Project;
   httMyProject:Project;
   ProjectId:number;
 
 
   constructor(private MyProjectService:ProjectService,private RouteProjectId:ActivatedRoute) { 
-    this.getProject();
+    //this.getProject();
     console.log(this.MyProject,"inside details form on constructor")
 
   }
  
 
   ngOnInit(): void {
+    this.getProject();
   }
 
   getProject(){
@@ -33,7 +34,8 @@ export class ProjectDetailsFormComponent implements OnInit {
 
     this.MyProjectService.getProjectProjectId(this.ProjectId).subscribe(
       res=>{
-        this.httMyProject=res;
+        this.MyProject=res;
+        console.log(this.MyProject,"afterrrrrrrrrrrr cal ")
 
       })
   }
