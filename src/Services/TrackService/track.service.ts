@@ -18,27 +18,30 @@ export class TrackService {
    ngOnInit(){
 
    }
-
-  getByTrackId(TrackId:number) {
-    return this.http.get<Track[]>(`${TrackPaths.GetTrackByTrackId}/${TrackId}`)
+getAll()
+{
+  return this.http.get<any>("https://localhost:44374/api/Track");
+}
+  getByTrackId(TrackId) {
+    return this.http.get<any>(`${TrackPaths.GetTrackByTrackId}/${TrackId}`)
     .pipe( catchError( this.handleError ) )
   }
 
-  getTracksByBranchId(BranchId:number) {
-    return this.http.get<Track[]>(`${TrackPaths.GetTrackByBranchId}/${BranchId}`)
+  getTracksByBranchId(BranchId) {
+    return this.http.get<any>(`${TrackPaths.GetTrackByBranchId}/${BranchId}`)
     .pipe( catchError( this.handleError ) )
   }
 
-  AddTrack(NewTrack:Track) {
-    return this.http.post<Track>(`${TrackPaths.AddTrack}`,NewTrack)
+  AddTrack(NewTrack) {
+    return this.http.post<any>(`${TrackPaths.AddTrack}`,NewTrack)
     .pipe( catchError( this.handleError ) )
   }
-  EditTrack(EditedTrack:Track) {
-    return this.http.put<Track>(`${TrackPaths.GetAllTracks}/${EditedTrack.TrackId}`,EditedTrack)
+  EditTrack(EditedTrack) {
+    return this.http.put<any>(`${TrackPaths.GetAllTracks}/${EditedTrack.TrackId}`,EditedTrack)
     .pipe( catchError( this.handleError ) )
   }
-  DeleteByTrackId(TrackId:number) {
-    return this.http.get<[]>(`${TrackPaths.GetAllTracks}/${TrackId}`)
+  DeleteByTrackId(TrackId) {
+    return this.http.delete<any>(`${TrackPaths.DeleteTrackById}/${TrackId}`)
     .pipe( catchError( this.handleError ) )
   }
 

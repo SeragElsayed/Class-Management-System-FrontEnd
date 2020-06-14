@@ -1,5 +1,3 @@
-
-
 import { HttpClient ,HttpErrorResponse} from '@angular/common/http';
 import { Injectable} from '@angular/core';
 import {BranchPaths} from '../../Common/UrlConstants'
@@ -14,29 +12,33 @@ export class BranchService {
    }
 
   getAll() {
-    return this.http.get<Branch[]>(BranchPaths.GetAllBranches)//http://localhots:8080/api/branches
-    .pipe( catchError( this.handleError ) )
+    console.log("get all services")
+    return this.http.get<any>(BranchPaths.GetAllBranches)//http://localhots:8080/api/branches
+  
   }
 
 
-  getByBranchId(BranchId:number) {
-    return this.http.get<Branch[]>(`${BranchPaths.GetBranchById}/${BranchId}`)
-    .pipe( catchError( this.handleError ) )
+  getByBranchId(BranchId) {
+    return this.http.get<any>(`${BranchPaths.GetBranchById}/${BranchId}`)
+
   }
 
  
 
-  AddBranch(NewBranch:Branch) {
-    return this.http.post<Branch>(`${BranchPaths.AddBranch}`,NewBranch)
-    .pipe( catchError( this.handleError ) )
+  AddBranch(NewBranch) {
+    console.log("in the services name")
+    console.log(NewBranch.get('BranchName'))
+    console.log(BranchPaths.AddBranch)
+    return this.http.post<any>(`${BranchPaths.AddBranch}`,NewBranch)
+     
   }
-  EditBranch(EditedBranch:Branch) {
-    return this.http.put<Branch>(`${BranchPaths.GetAllBranches}/${EditedBranch.BranchId}`,EditedBranch)
-    .pipe( catchError( this.handleError ) )
+  EditBranch(EditedBranch) {
+    return this.http.put<any>(`${BranchPaths.GetAllBranches}/${EditedBranch.BranchId}`,EditedBranch)
+     
   }
-  DeleteByBranchId(BranchId:number) {
-    return this.http.get<[]>(`${BranchPaths.GetAllBranches}/${BranchId}`)
-    .pipe( catchError( this.handleError ) )
+  DeleteByBranchId(BranchId) {
+    return this.http.delete<any>(`${BranchPaths.GetAllBranches}/${BranchId}`)
+  
   }
  
    private handleError(errorResponse: HttpErrorResponse) {

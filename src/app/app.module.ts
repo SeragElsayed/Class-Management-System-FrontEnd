@@ -58,7 +58,19 @@ import { AddTaskFormComponent } from './components/TaskComponents/add-task-form/
 import { EditTaskFormComponent } from './components/TaskComponents/edit-task-form/edit-task-form.component';
 import { TaskDetailsComponent } from './components/TaskComponents/task-details/task-details.component';
 import { TaskCardComponent } from './components/TaskComponents/task-card/task-card.component';
+import { AdminSideBarComponent } from './components/admindashboard/admin-side-bar/admin-side-bar.component';
+import { AdminDashboardComponent } from './components/AdminDashboard/admin-dashboard/admin-dashboard.component';
+import { AddBranchComponent } from './components/AdminDashboard/branch/add-branch/add-branch.component';
+import { AllBranchComponent } from './components/AdminDashboard/branch/all-branch/all-branch.component';
+import { EditTrackComponent } from './components/admindashboard/track/edit-track/edit-track.component';
+import { AddTrackComponent } from './components/admindashboard/track/add-track/add-track.component';
+import { AllTracksComponent } from './components/admindashboard/track/all-tracks/all-tracks.component';
+import { AllInstructorsComponent } from './components/admindashboard/instructor/all-instructors/all-instructors.component';
+import { AddInstructorsComponent } from './components/admindashboard/instructor/add-instructors/add-instructors.component';
+import { EditInstructorsComponent } from './components/admindashboard/instructor/edit-instructors/edit-instructors.component';
+import { DashboardComponent } from './components/adminDashboard/dashboard/dashboard.component';
 /////////////////////
+import { ChartsModule } from 'ng2-charts';
 
 //for the require keyword
 declare var require: any;
@@ -98,7 +110,17 @@ declare var require: any;
     AddTaskFormComponent,
     EditTaskFormComponent,
     TaskDetailsComponent,
-    TaskCardComponent
+    TaskCardComponent,
+    AdminSideBarComponent,
+    AddBranchComponent,
+    AllBranchComponent,
+    EditTrackComponent,
+    AddTrackComponent,
+    AllTracksComponent,
+    AllInstructorsComponent,
+    AddInstructorsComponent,
+    EditInstructorsComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -107,6 +129,7 @@ declare var require: any;
     FontAwesomeModule,
     NgxFileDropModule,
     ReactiveFormsModule,
+    ChartsModule,
     // ApiAuthorizationModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -120,11 +143,13 @@ declare var require: any;
       { path: 'course', component: CourseComponent },
       { path: 'Task/Add', component: AddTaskFormComponent },
       { path: 'Task/Edit/:TaskId', component: EditTaskFormComponent },
-      
+      { path: 'admin', component:DashboardComponent},
       { path: 'student/details', component: StudentDetailsComponent},
       { path: 'explore/courses', component: ExploreCoursesComponent },
-      { path: 'course/details', component: CourseDetailsComponent }
-  
+      { path: 'course/details', component: CourseDetailsComponent },
+      { path: 'admin/tracks', component: AllTracksComponent},
+      { path: 'admin/branches', component: AllBranchComponent },
+      { path: 'admin/instructors', component: AllInstructorsComponent }
     ]),
     NgbModule
   ],
