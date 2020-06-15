@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { TaskSolution } from 'src/Models/TaskSolution';
+import { throwError } from 'rxjs';
+import { catchError,map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -7,28 +10,37 @@ import { HttpClient } from '@angular/common/http';
 export class TaskSolutionService {
 
   constructor(private http:HttpClient) { }
-  tasksolutionId:any;
-  StudentId:any;
-  TaskId:any;
-  CourseId:any;
-  TaskSolutionId:any;
-  getAllTasksSolution(){
-    return this.http.get(`https://localhost:44374/api/course/tasksStd/${this.tasksolutionId}`);
+ 
+
+  getAll() {
+    return this.http.get<TaskSolution[]>('https://localhost:44374/api/course/tasksStd')
+    .pipe( catchError( this.handleError ) )
   }
 
-  addTaskSolution(taskSolution){
-    
-    // return this.http.post(`https://localhost:44374/api/course/tasksStd/${this.StudentId}/${this.TaskId}/${this.CourseId}`, JSON.stringify(taskSolution))
-    return this.http.post('https://localhost:44374/api/course/tasksStd/1/50/5', taskSolution)
-
+  getByTaskSolutionId(TaskSolution:number) {
+    return this.http.get<TaskSolution[]>(`https://localhost:44374/api/course/tasksStd/${TaskSolution}`)
+    .pipe( catchError( this.handleError ) )
   }
 
-  // updateTaskSolution(taskSolution){
-  //   return this.http.patch(`https://localhost:44374/api/course/tasksStd/${this.StudentId}/${this.TaskId}/${this.CourseId}`,JSON.stringify({isRead:true}));
-
-  // }
-
-  deleteTaskSolution(){
-    return this.http.delete(`https://localhost:44374/api/course/tasksStd/${this.TaskSolutionId}`)
+  addTaskSolution(NewTaskSolution:TaskSolution) {
+    return this.http.post<TaskSolution>(`https://localhost:44374/api/course/tasksStd/`,NewTaskSolution)
+    .pipe( catchError( this.handleError ) )
   }
+
+
+  deleteTaskSolution(TaskSolutionId:number) {
+    return this.http.get<[]>(`https://localhost:44374/api/course/tasksStd/${TaskSolutionId}`)
+    .pipe( catchError( this.handleError ) )
+  }
+
+
+ 
+  private handleError(errorResponse: HttpErrorResponse) {
+    if (errorResponse.error instanceof ErrorEvent)
+       console.log(errorResponse.error.message);
+     else
+       console.log(errorResponse.error);
+     
+       return throwError("dfdfd");
+ }
 }
