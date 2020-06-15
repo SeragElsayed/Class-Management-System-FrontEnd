@@ -69,9 +69,6 @@ import { ColabboratorItemComponent } from './components/ProjectManagementCompone
 import { TaskSolutionComponent } from './components/TaskComponents/task-solution/task-solution.component';
 import { EditTasksolutionComponent } from './components/TaskComponents/edit-tasksolution/edit-tasksolution.component';
 import { DeleteTasksolutionComponent } from './components/TaskComponents/delete-tasksolution/delete-tasksolution.component';
-import { CreateProjectComponent } from './components/ProjectManagementComponents/create-project/create-project.component';
-import { UpdateProjectComponent } from './components/ProjectManagementComponents/update-project/update-project.component';
-import { ExploreProjectsComponent } from './components/ProjectManagementComponents/explore-projects/explore-projects.component';
 //for the require keyword
 declare var require: any;
 @NgModule({
@@ -122,10 +119,7 @@ declare var require: any;
 
     TaskSolutionComponent,
     EditTasksolutionComponent,
-    DeleteTasksolutionComponent,
-    CreateProjectComponent,
-    UpdateProjectComponent,
-    ExploreProjectsComponent
+    DeleteTasksolutionComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -140,16 +134,15 @@ declare var require: any;
       { path: 'about', component: AboutComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
+      { path: 'course', component: CourseListComponent },
       { path: 'course/add', component: AddCoursesComponent },
       { path: 'course/student', component: MangeStudentComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'contact', component: ContactComponent },
-      { path: 'course', component: CourseComponent },
       { path: 'Task/Add', component: AddTaskFormComponent },
       { path: 'Task/Edit/:TaskId', component: EditTaskFormComponent },
       
       { path: 'student/details', component: StudentDetailsComponent},
-      { path: 'explore/projects', component: ExploreProjectsComponent},
       { path: 'explore/courses', component: ExploreCoursesComponent },
       { path: 'Project', component: ProjectsListComponent },
       { path: 'Project/Details/:ProjectId', component: ProjectDetailsComponent },
