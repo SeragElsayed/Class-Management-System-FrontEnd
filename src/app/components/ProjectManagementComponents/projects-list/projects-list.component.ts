@@ -3,6 +3,7 @@ import { Project } from 'src/Models/ProjectModel';
 import { ProjectService } from 'src/Services/project.service';
 
 @Component({
+  
   selector: 'app-projects-list',
   templateUrl: './projects-list.component.html',
   styleUrls: ['./projects-list.component.css']

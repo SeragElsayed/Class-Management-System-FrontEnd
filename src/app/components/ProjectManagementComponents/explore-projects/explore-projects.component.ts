@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { ExploreProjectService } from 'src/Services/explore-project.service';
+import { Project } from 'src/Models/ProjectModel';
 
 @Component({
   selector: 'app-explore-projects',
@@ -7,12 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExploreProjectsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private services:ExploreProjectService ) { }
+  MyProjects:Project;
 
   ngOnInit(): void {
+   console.log( this.getAllProjects());
+    
   }
+  @Output() Projects
+  getAllProjects(){
+    this.services.getAllProjects().subscribe(
+      res=>{
+        console.log(res)
+        this.MyProjects=res;
+      // this.MyProjects.push(res);
+        console.log(this.MyProjects)
+      }
+    )
+  }
+  
 
-  project=[
+  projects=[
     {
       name:"project1",
       desc:"any thing"

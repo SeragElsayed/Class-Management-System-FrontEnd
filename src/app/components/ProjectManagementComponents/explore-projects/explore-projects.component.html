@@ -16,18 +16,18 @@
 	<div class="row">
 	
 	<!--team-1-->
-	<div class="col-4" *ngFor="let p of project">
+	<div class="col-6" *ngFor="let p of MyProjects">
 	<div class="our-team-main" >
 	
 	<div class="team-front"  >
-	<img src="http://placehold.it/110x110/9c27b0/fff?text=project" class="img-fluid" />
-	<h3>{{p.name}}</h3>
+        <img src="http://placehold.it/110x110/4caf50/fff?text=p" class="img-fluid" />
+	<h3>{{p.ProjectName}}</h3>
 	
 	</div>
 	
 	<div class="team-back">
 	<span>
-	{{p.desc}}
+	{{p.ProjectDescription}}
 	</span>
 	</div>
 	
