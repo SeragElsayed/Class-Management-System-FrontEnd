@@ -20,20 +20,23 @@ export class ProjectManagementService {
   }
 
   PostAddCollaboratorByEmail(ProjectId:number,Email:string) {
+    console.log("from service add cola",ProjectId,Email)
+    let c;
     // return this.http.get<any>(`${ProjectManagPaths}/${ProjectId}/${Email}`)
-    return this.http.get<any>(`api/PM/${ProjectId}/${Email}`)
+    return this.http.post<any>(`api/PM/${ProjectId}/${Email}`,c)
     .pipe( catchError( this.handleError ) )
   }
 
   MakeCollaboratorOwnerByUserId(CollabId:number) {
     // return this.http.get(`${ProjectManagPaths.MakeOwnerByUserId}/${CollabId}`)
-    return this.http.get(`api/PM/MakeOwner/${CollabId}`)
+    let c;
+    return this.http.post(`api/PM/MakeOwner/${CollabId}`,c)
     .pipe( catchError( this.handleError ) )
   }
 
   DeleteCollaboratorByUserId(UserId:string){
     // return this.http.get(`${ProjectManagPaths.DeleteCollabByUserId}/${UserId}`)
-    return this.http.get(`api/PM/Remove/${UserId}`)
+    return this.http.delete(`api/PM/Remove/${UserId}`)
     .pipe( catchError( this.handleError ) )
   }
 
