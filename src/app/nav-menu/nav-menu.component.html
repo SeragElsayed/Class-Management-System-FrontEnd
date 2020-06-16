@@ -46,19 +46,19 @@
       <li class="nav-item" >
         <a class="nav-link" [routerLink]="['/contact']">Contact</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="role==='Admin'"  >
         <a class="nav-link" [routerLink]="['/admin']" >Admin</a>
       </li>
 
-      <li class="nav-item" >
-      <li class="nav-item" *ngIf="role==='Admin'">
+      <!-- *ngIf="role==='Admin'" -->
+      <li class="nav-item" *ngIf="role==='Admin'" >
 
         <a class="nav-link" [routerLink]="['/admin/instructors']" >Instructor</a>
       </li>
-      <li class="nav-item" >
+      <li class="nav-item" *ngIf="role==='Admin'">
         <a class="nav-link" [routerLink]="['/admin/branches']" >Branch</a>
       </li>
-      <li class="nav-item" >
+      <li class="nav-item" *ngIf="role==='Admin'">
         <a class="nav-link" [routerLink]="['/admin/tracks']" >Track</a>
       </li>
       

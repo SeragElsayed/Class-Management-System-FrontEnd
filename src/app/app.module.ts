@@ -138,7 +138,7 @@ declare var require: any;
     AllInstructorsComponent,
     AddInstructorsComponent,
     EditInstructorsComponent,
-    DashboardComponent
+    DashboardComponent,
 
     ProjectDetailsComponent,
     ColaboratorListComponent,
@@ -190,7 +190,7 @@ declare var require: any;
       { path: 'admin/branches', component: AllBranchComponent },
       { path: 'admin/instructors', component: AllInstructorsComponent },
       { path: 'track/edit', component: EditTrackComponent },
-      { path: 'branch/edit', component: EditBranchComponent }
+      { path: 'branch/edit', component: EditBranchComponent },
 
       { path: 'Project', component: ProjectsListComponent },
       { path: 'Project/Details/:ProjectId', component: ProjectDetailsComponent },

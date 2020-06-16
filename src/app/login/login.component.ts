@@ -44,7 +44,10 @@ console.log("in the submiit func")
 
  localStorage.setItem("role",res.userrole)
  console.log(localStorage.getItem("role"))
- this.router.navigateByUrl('/course')
+ this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+  this.router.navigateByUrl('/course')
+});
+
   },
      err=>{
       console.log("in the error part"); 
