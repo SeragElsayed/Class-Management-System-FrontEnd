@@ -18,12 +18,14 @@ export class TrackService {
    ngOnInit(){
 
    }
+
 getAll()
 {
   return this.http.get<any>("https://localhost:44374/api/Track");
 }
   getByTrackId(TrackId) {
     return this.http.get<any>(`${TrackPaths.GetTrackByTrackId}/${TrackId}`)
+
     .pipe( catchError( this.handleError ) )
   }
 

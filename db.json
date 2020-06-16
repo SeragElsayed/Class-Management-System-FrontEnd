@@ -55,5 +55,29 @@
       "DueDate": "2/2/2000",
       "CourseId": 37
     }
+  ],
+
+  "Projects": [
+    {
+      "id": 0,
+      "ProjectId": 12,
+      "TrackId": 21,
+      "ProjectName": "Peck",
+      "ProjectDescription": "Pollard"
+    },
+    {
+      "id": 1,
+      "ProjectId": 19,
+      "TrackId": 21,
+      "ProjectName": "Byrd",
+      "ProjectDescription": "Yesenia"
+    },
+    {
+      "id": 2,
+      "ProjectId": 13,
+      "TrackId": 33,
+      "ProjectName": "Farmer",
+      "ProjectDescription": "Kelsey"
+    }
   ]
 }
