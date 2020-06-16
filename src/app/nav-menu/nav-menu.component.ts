@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class NavMenuComponent {
   isExpanded = false;
+role=localStorage.getItem("userrole")
 
   collapse() {
     this.isExpanded = false;
