@@ -12,17 +12,14 @@
         <div class="md-form mb-5">
           <i class=" prefix grey-text"></i>
           <label data-error="wrong" data-success="right" >Project Name</label>
-
-          <!-- <input type="text"[(ngModel)]="name"  class="form-control validate" > -->
-          <input type="text" #name  class="form-control validate" >
+          <input type="text" #ProjectName  class="form-control validate" >
         </div>
 
         <div class="md-form mb-5">
             <i class=" prefix grey-text"></i>
             <label data-error="wrong" data-success="right" >Description</label>
   
-            <!-- <input type="text" [(ngModel)]="description"  class="form-control validate"> -->
-            <input type="text" #description  class="form-control validate">
+            <input type="text" #ProjectDescription  class="form-control validate">
           </div>
 <div class="md-form mb-5">
     <label data-error="wrong" data-success="right" >Track Name</label>
@@ -37,7 +34,7 @@
 
       </div>
       <div class="modal-footer d-flex justify-content-center">
-        <button class="btn btn-outline-primary" (click)="add(name.value,description.value)">ADD</button>
+        <button data-toggle="modal" data-target="#modalLoginForm" class="btn btn-outline-primary" (click)="add(ProjectName.value,ProjectDescription.value)">ADD</button>
       </div>
     </div>
   </div>

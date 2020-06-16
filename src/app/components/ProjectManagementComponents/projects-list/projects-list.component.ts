@@ -30,12 +30,9 @@ export class ProjectsListComponent implements OnInit {
   
   
   tas(t){
-    console.log(t)
-    
-    //this.MyProjects.push(t)
     this.MyProjectService.AddProjectByTrackId(t).subscribe(
       res=>{
-        console.log(res,"response after add")
+        this.getProjectsByStudentId();
       }
     )
 
