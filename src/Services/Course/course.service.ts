@@ -4,30 +4,22 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import * as _ from 'lodash';
 
 
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { Course } from 'src/Models/CourseModel';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CourseService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  // courseList: AngularFireList<any>;
 
-	// [CourseName] [nvarchar](max) NOT NULL,
-	// [Description] [nvarchar](max) NOT NULL,
-	// [IntervalInDays] [int] NOT NULL,
-	// [StartingDate] [datetime2](7) NOT NULL,
-	// [EnrollmentKey] [nvarchar](max) NOT NULL,
-	// [TopicId] [int] NULL,
-  // [TrackId] [int] NULL,
-  
 
   form: FormGroup = new FormGroup({
-  
+
     CourseName: new FormControl('', Validators.required),
-    Description: new FormControl('', Validators.required),
+    Description: new FormControl('', [Validators.required, Validators.maxLength(100)]),
     IntervalInDays: new FormControl('', Validators.required),
     // StartingDate: new FormControl(''),
     EnrollmentKey: new FormControl('', Validators.required),
@@ -37,60 +29,43 @@ export class CourseService {
 
   initializeFormGroup() {
     this.form.setValue({
-    
+
       CourseName: '',
       Description: '',
       IntervalInDays: '',
       // StartingDate: Date.now, ////create in db 
       EnrollmentKey: '',
-   
-     
+
+
     });
   }
 
 
-   getCourses() {
-  //   this.courseList = this.firebase.list('courses');
-  return this.http.get<any[]>(`https://localhost:44374/api/Course/GetCourses`);
-  
+  getCourses() {
+    //   this.courseList = this.firebase.list('courses');
+    return this.http.get<Course[]>(`https://localhost:44374/api/Course/GetCourses`);
+
   }
 
   insertCourse(course) {
-    // this.courseList.push({
-    //   CourseName: course.CourseName,
-    //   email: course.email,
-    //   mobile: course.mobile,
-    //   city: course.city,
-    //   gender: course.gender,
-    //   department: course.department,
-    //    // tslint:disable-next-line: triple-equals
-    //    hireDate: course.hireDate == '' ? '' : this.datePipe.transform(course.hireDate, 'yyyy-MM-dd'),
-    //   isPermanent: course.isPermanent
-    // });
-console.log(course)
 
-   return this.http.post<any>("https://localhost:44374/api/Course/Add",course);
-   
+    console.log(course)
+
+    return this.http.post<Course>("https://localhost:44374/api/Course/Add", course);
+
   }
 
-  updateCourse(course) {
-    // this.courseList.update(course.$key,
-    //   {
-    //     CourseName: course.CourseName,
-    //     email: course.email,
-    //     mobile: course.mobile,
-    //     city: course.city,
-    //     gender: course.gender,
-    //     department: course.department,
-    //      // tslint:disable-next-line: triple-equals
-    //      hireDate: course.hireDate == '' ? '' : this.datePipe.transform(course.hireDate, 'yyyy-MM-dd'),
-    //     isPermanent: course.isPermanent
-    //   });
+  DeleteCourse(CourseId:number) {
+    console.log("service course id",CourseId)
+    return this.http.delete<Course>(`https://localhost:44374/api/Course/Delete/${CourseId}`)
+  
   }
 
-  deleteCourse($key: string) {
-    // this.courseList.remove($key);
+  updateCourse(course:Course) {
+    return this.http.put<Course>(`https://localhost:44374/api/Course/Edit/${course.CourseId}`,course)
   }
+
+
 
   populateForm(course) {
     // this.form.setValue(_.omit(course, 'departmentName'));
