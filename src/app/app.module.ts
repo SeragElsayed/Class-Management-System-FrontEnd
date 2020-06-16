@@ -138,7 +138,7 @@ declare var require: any;
     AllInstructorsComponent,
     AddInstructorsComponent,
     EditInstructorsComponent,
-    DashboardComponent
+    DashboardComponent,
 
     ProjectDetailsComponent,
     ColaboratorListComponent,
