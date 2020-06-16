@@ -19,8 +19,8 @@ export class ExploreCoursesComponent implements OnInit {
     this.MyBranchService.getAll()
       .subscribe((branches) => {this.MyBranches = branches;console.log(this.MyBranches)});
 
-    this.MyTrackService.getAll()
-      .subscribe(tracks => this.MyTracks = tracks);
+    // this.MyTrackService.getAll()
+    //   .subscribe(tracks => this.MyTracks = tracks);
   }
   
 
