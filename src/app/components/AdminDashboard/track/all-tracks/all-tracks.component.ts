@@ -15,9 +15,9 @@ export class AllTracksComponent implements OnInit {
     this.GetAllTracks()
   }
   tracks=[{
-    "id":"0",
-    "name":"lala",
-    "branch":"smart"
+    "id":"",
+    "name":"",
+    "branch":""
   }]
 
   deleteTrack(i)
@@ -26,9 +26,17 @@ export class AllTracksComponent implements OnInit {
     var id =this.tracks[i].id;
     console.log(this.tracks[i].id)
     this.track.DeleteByTrackId(id).subscribe(
-      res=>{console.log("success")},
+      res=>{console.log("success")
+      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.router.navigateByUrl('/admin/tracks')
+    });
+    },
     err=>{console.log("error part"),
-  console.log(err)}
+  console.log(err)
+  this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+    this.router.navigateByUrl('/admin/tracks')
+});
+}
     )
   }
   trackid
@@ -44,7 +52,10 @@ export class AllTracksComponent implements OnInit {
              console.log(res.trackId)
                 localStorage.setItem("trackval",res.trackId)
                 localStorage.setItem("trackname",res.trackName)
-                this.router.navigateByUrl('/track/edit')
+             
+                this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+                  this.router.navigateByUrl('/track/edit')
+              });
               }
               ,err=>{
                 console.log("error")

@@ -79,5 +79,34 @@
       "ProjectName": "Farmer",
       "ProjectDescription": "Kelsey"
     }
+  ],
+  "UserProject": [
+    {
+      "id": 0,
+     "User":
+      {
+        "Email":"a@a.com"
+      },
+      "UserProject":
+        {
+          "UserId":123,
+          "ProjectId":123,
+          "IsOwner":true
+        }
+    },
+    {
+      "id": 1,
+     "User":
+      {
+        "Email":"b@b.com"
+      },
+      "UserProject":
+        {
+          "UserId":123,
+          "ProjectId":123,
+          "IsOwner":false
+        }
+    }
   ]
+
 }

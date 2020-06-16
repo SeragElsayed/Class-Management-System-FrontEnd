@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder }  from '@angular/forms';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {TrackService} from '../../../../../Services/TrackService/track.service';
 import {BranchService} from '../../../../../Services/BranchService/branch.service';
 import {InstructorServiceService} from '../../../../../Services/InstructorService/instructor-service.service';
+import {Router} from '@angular/router'
 @Component({
   selector: 'app-add-instructors',
   templateUrl: './add-instructors.component.html',
@@ -11,7 +12,7 @@ import {InstructorServiceService} from '../../../../../Services/InstructorServic
 })
 export class AddInstructorsComponent implements OnInit {
 
-  constructor(private track:TrackService,private branch:BranchService,private instructor:InstructorServiceService) { }
+  constructor(private track:TrackService,private router:Router,private branch:BranchService,private instructor:InstructorServiceService) { }
   private newBlogForm: FormGroup;
   ngOnInit(): void {
     this.GetAllBranches()
@@ -27,6 +28,7 @@ export class AddInstructorsComponent implements OnInit {
     });
   }
   ///////////////////////////////////////////////submit part//////////////////////////////////////////
+  @ViewChild('closebutton') closebutton;
   onSubmit(data) {
     console.log("in the submiit func")
         const formData = new FormData();
@@ -41,7 +43,12 @@ export class AddInstructorsComponent implements OnInit {
       console.log(formData.get("UserName"))
               this.instructor.AddInstructor(formData).subscribe(
           res=>{console.log("in th res func");
-         console.log(res);},
+         console.log(res);
+         this.closebutton.nativeElement.click();
+         this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          this.router.navigateByUrl('/admin/instructors')
+      });
+        },
           err=>{
            console.log("in the error part"); 
            console.log(err)}
