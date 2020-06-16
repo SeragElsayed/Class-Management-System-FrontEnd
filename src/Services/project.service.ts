@@ -29,19 +29,20 @@ export class ProjectService {
     .pipe( catchError( this.handleError ) )
   }
   GetProjectByStudentId() {
-    // let UserId:string="fsffsfs"//import from local storage
+    //  let UserId:string=localStorage.getItem('token')//import from local storage
     // if (UserId=="")
-      //throwError();
+    //   throwError();
 
      // console.log("fffffffffffffffffffffffffffffffff",`${ProjectPaths.GetProjectByStudentId}`)
       // return this.http.get<Project[]>(`${ProjectPaths.GetProjectByStudentId}`)
-      // return this.http.get<Project[]>(`https://localhost:44374/api/Project/Student`)
-    return this.http.get<Project[]>(`http://localhost:3000/projects`)
+       return this.http.get<Project[]>(`https://localhost:44374/api/Project/Student`)
+    // return this.http.get<Project[]>(`http://localhost:3000/projects`)
     .pipe( catchError( this.handleError ) )
   }
 
   AddProjectByTrackId(Project:Project) {
-    return this.http.post<Project>(`${ProjectPaths.AddProjectByTrackId}`,Project)
+    //return this.http.post<Project>(`${ProjectPaths.AddProjectByTrackId}`,Project)
+    return this.http.post<Project>(`https://localhost:44374/api/Project/Add/1`,Project)
     .pipe( catchError( this.handleError ) )
   }
   UpdateProject(Project:Project) {

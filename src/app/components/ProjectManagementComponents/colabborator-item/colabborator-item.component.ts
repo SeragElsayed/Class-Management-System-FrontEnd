@@ -8,10 +8,14 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ColabboratorItemComponent implements OnInit {
 
   @Input() MyColaborator:any;
+  email;
   
   constructor() { }
 
   ngOnInit(): void {
+    // this.MyColaborator//['Email'];
+    // console.log(this.email,"ffff",this.MyColaborator,"in innit")
+    
   }
 
 }

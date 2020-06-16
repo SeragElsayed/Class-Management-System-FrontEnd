@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Project } from 'src/Models/ProjectModel';
 import { ProjectService } from 'src/Services/project.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-projects-list',
@@ -30,7 +31,13 @@ export class ProjectsListComponent implements OnInit {
   
   tas(t){
     console.log(t)
-    this.MyProjects.push(t)
+    
+    //this.MyProjects.push(t)
+    this.MyProjectService.AddProjectByTrackId(t).subscribe(
+      res=>{
+        console.log(res,"response after add")
+      }
+    )
 
   }
 }

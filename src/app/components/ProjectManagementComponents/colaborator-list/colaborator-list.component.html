@@ -16,10 +16,13 @@
 
   <div class="row">
     <div *ngFor="let colab of MyColaborators ">
-  <app-colaborator-item [MyColaborator]="colab"></app-colaborator-item>
+  <app-colabborator-item [MyColaborator]="colab"></app-colabborator-item>
 
       <button class="btn-danger" (click)="OnRemove($event,colab)"> Remove</button>
-      <button class="btn-primary" (click)="OnMakeOwner($event,colab)"> Make Owner</button>
+      <div *ngIf="colab.UserProject.IsOwner">
+
+        <button class="btn-primary" (click)="OnMakeOwner($event,colab)"> Make Owner</button>
+      </div>
     </div>
   
   </div>
