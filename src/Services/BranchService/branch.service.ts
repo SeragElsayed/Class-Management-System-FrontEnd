@@ -33,7 +33,9 @@ export class BranchService {
      
   }
   EditBranch(EditedBranch) {
-    return this.http.put<any>(`${BranchPaths.GetAllBranches}/${EditedBranch.BranchId}`,EditedBranch)
+    console.log("services")
+    console.log(`${BranchPaths.UpdateBranch}/${EditedBranch.BranchId}`)
+    return this.http.put<any>(`${BranchPaths.UpdateBranch}/${EditedBranch.BranchId}`,EditedBranch)
      
   }
   DeleteByBranchId(BranchId) {

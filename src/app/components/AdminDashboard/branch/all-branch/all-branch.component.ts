@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {BranchService} from '../../../../../Services/BranchService/branch.service'
+import {BranchService} from '../../../../../Services/BranchService/branch.service';
+import {Router} from '@angular/router'
 @Component({
   selector: 'app-all-branch',
   templateUrl: './all-branch.component.html',
@@ -7,13 +8,35 @@ import {BranchService} from '../../../../../Services/BranchService/branch.servic
 })
 export class AllBranchComponent implements OnInit {
 
-  constructor(private branch :BranchService) { }
+  constructor(private branch :BranchService ,private router:Router) { }
 branches=[{
   "id":"0",
   "name":"",
   "mail":"",
   "phone":""
 }]
+
+bid
+getid(id)
+{
+   console.log("to get the clicked id ")
+   console.log(id)
+
+   
+          this.branch.getByBranchId(id).subscribe(
+            res=>{
+              console.log("success");
+           
+              localStorage.setItem("branchval",res.branchId)
+              localStorage.setItem("branchname",res.branchName)
+              this.router.navigateByUrl('/branch/edit');
+            }
+            ,err=>{
+              console.log("error")
+            }
+          )
+        
+}
   ngOnInit(): void {
     this.GetAllBranches();
   }

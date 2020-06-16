@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder }  from '@angular/forms';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {BranchService} from '../../../../../Services/BranchService/branch.service'
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-branch',
   templateUrl: './add-branch.component.html',
@@ -9,7 +10,7 @@ import {BranchService} from '../../../../../Services/BranchService/branch.servic
 })
 export class AddBranchComponent implements OnInit {
 
-  constructor(private branch:BranchService) { }
+  constructor(private branch:BranchService,private router:Router) { }
   private newBlogForm: FormGroup;
   ngOnInit(): void {
     this.newBlogForm = new FormGroup({
@@ -30,7 +31,9 @@ export class AddBranchComponent implements OnInit {
    
         this.branch.AddBranch(formData).subscribe(
           res=>{console.log("in th res func");
-         console.log(res);},
+         console.log(res);
+        // this.router.navigateByUrl('/admin/branches')
+        },
           err=>{
            console.log("in the error part"); 
            console.log(err)}

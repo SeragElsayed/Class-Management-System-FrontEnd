@@ -37,7 +37,9 @@ getAll()
     .pipe( catchError( this.handleError ) )
   }
   EditTrack(EditedTrack) {
-    return this.http.put<any>(`${TrackPaths.GetAllTracks}/${EditedTrack.TrackId}`,EditedTrack)
+    console.log("edited track")
+    console.log(EditedTrack)
+    return this.http.put<any>(`${TrackPaths.UpdateTrack}/${EditedTrack.TrackId}`,EditedTrack)
     .pipe( catchError( this.handleError ) )
   }
   DeleteByTrackId(TrackId) {

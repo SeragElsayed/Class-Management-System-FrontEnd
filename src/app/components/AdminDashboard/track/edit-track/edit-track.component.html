@@ -1,9 +1,9 @@
-<!-- Button trigger modal -->
+<!-- 
 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
     Edit Track
    </button>
    
-   <!-- Modal -->
+ 
    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
      <div class="modal-dialog" role="document">
        <div class="modal-content">
@@ -12,31 +12,39 @@
            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
              <span aria-hidden="true">&times;</span>
            </button>
-         </div>
-         <div class="modal-body">
+         </div> -->
+         <div class="container">
              <!---------------------------->
-             <form>
+           
+             <div class="form-group">
+              <label for="exampleFormControlSelect1">Track Branch</label>
+          
+              <select [(ngModel)]="val" class="form-control"  (ngModelChange)="selectChange($event)">
+                <option *ngFor="let item of branches" [value]="item.id" >
+                  {{item.name}}
+                </option>
+              </select>
+
+            </div>
+
+             <form [formGroup]="newBlogForm" (ngSubmit)="onSubmit(newBlogForm.value)">
               <div class="form-group">
                 <label for="exampleFormControlInput1">Track Name</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Name">
+                <!--value={{tracks.name}}-->
+                <input type="text" class="form-control" formControlName="TrackName" [value]="trackname" placeholder="Enter Name">
               </div>
-              <div class="form-group">
-                <label for="exampleFormControlSelect1">Track Branch</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
+              <div class="container-login100-form-btn m-b-10">
+                <button class="login100-form-btn btn-success m-b-10 text-center rounded" >
+                  Save changes
+                </button>
               </div>
              </form>
             <!--------------------------------->
          </div>
-         <div class="modal-footer">
+         <!-- <div class="modal-footer">
            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
            <button type="button" class="btn btn-primary">Save changes</button>
          </div>
        </div>
      </div>
-   </div>
+   </div> -->

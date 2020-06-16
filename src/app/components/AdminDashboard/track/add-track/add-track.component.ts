@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators, FormBuilder }  from '@angular/forms
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {TrackService} from '../../../../../Services/TrackService/track.service';
 import {BranchService} from '../../../../../Services/BranchService/branch.service';
-
+import {Router} from'@angular/router'
 @Component({
   selector: 'app-add-track',
   templateUrl: './add-track.component.html',
@@ -11,7 +11,7 @@ import {BranchService} from '../../../../../Services/BranchService/branch.servic
 })
 export class AddTrackComponent implements OnInit {
 
-  constructor(private track:TrackService,private branch:BranchService) { }
+  constructor(private track:TrackService,private branch:BranchService,private router:Router) { }
 branches=[{}]
 val=2;
 branchId;
@@ -19,7 +19,8 @@ branchId;
   ngOnInit(): void {
     this.GetAllBranches()
     this.newBlogForm = new FormGroup({
-      TrackName: new FormControl(null)
+      TrackName: new FormControl(null),
+      bId: new FormControl(null)
     });
   }
   onSubmit(data) {
@@ -31,10 +32,15 @@ branchId;
 
         this.track.AddTrack(formData).subscribe(
           res=>{console.log("in th res func");
-         console.log(res);},
+         console.log(res);
+         this.router.navigateByUrl('/admin/tracks')
+        },
           err=>{
            console.log("in the error part"); 
-           console.log(err)}
+           console.log(err)
+     
+
+          }
         )
       
         this.newBlogForm.reset();

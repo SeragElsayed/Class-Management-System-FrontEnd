@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {InstructorServiceService} from '../../../../../Services/InstructorService/instructor-service.service'
+import { BranchService } from 'src/Services/BranchService/branch.service';
 @Component({
   selector: 'app-all-instructors',
   templateUrl: './all-instructors.component.html',
@@ -7,7 +8,7 @@ import {InstructorServiceService} from '../../../../../Services/InstructorServic
 })
 export class AllInstructorsComponent implements OnInit {
 
-  constructor(private instructor:InstructorServiceService) { }
+  constructor(private instructor:InstructorServiceService,private branch:BranchService) { }
 
   ngOnInit(): void {
     this.GetAllInstructors();
@@ -46,15 +47,33 @@ GetAllInstructors()
       for(let i=0;i<res.length;i++)
       {
        console.log(res[i].id)
-        this.instructors.push(
+        // this.instructors.push(
+        //   {
+        //     "id":res[i].id,
+        //     "name":res[i].userName,
+        // "mail":res[i].email,
+        // "phone":res[i].phoneNumber,
+        // "track":res[i].trackId,
+        // "branch":res[i].branchId
+        // })
+
+        this.branch.getByBranchId(res[i].branchId).subscribe(
+          response=>
           {
-            "id":res[i].id,
-            "name":res[i].userName,
-        "mail":res[i].email,
-        "phone":res[i].phoneNumber,
-        "track":res[i].trackId,
-        "branch":res[i].branchId
-        })
+            this.instructors.push(
+              {
+                "id":res[i].id,
+                "name":res[i].userName,
+            "mail":res[i].email,
+            "phone":res[i].phoneNumber,
+            "track":res[i].trackId,
+            "branch":response.branchName
+            
+            })
+          }
+        )
+
+
 
       }
       console.log(this.instructors)

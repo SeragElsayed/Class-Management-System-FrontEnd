@@ -71,6 +71,7 @@ import { EditInstructorsComponent } from './components/admindashboard/instructor
 import { DashboardComponent } from './components/adminDashboard/dashboard/dashboard.component';
 /////////////////////
 import { ChartsModule } from 'ng2-charts';
+import { EditBranchComponent } from './components/AdminDashboard/branch/edit-branch/edit-branch.component';
 
 //for the require keyword
 declare var require: any;
@@ -126,6 +127,7 @@ declare var require: any;
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     FontAwesomeModule,
     NgxFileDropModule,
     ReactiveFormsModule,
@@ -134,6 +136,7 @@ declare var require: any;
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'about', component: AboutComponent },
+     
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
       { path: 'course/add', component: AddCoursesComponent },
@@ -149,7 +152,9 @@ declare var require: any;
       { path: 'course/details', component: CourseDetailsComponent },
       { path: 'admin/tracks', component: AllTracksComponent},
       { path: 'admin/branches', component: AllBranchComponent },
-      { path: 'admin/instructors', component: AllInstructorsComponent }
+      { path: 'admin/instructors', component: AllInstructorsComponent },
+      { path: 'track/edit', component: EditTrackComponent },
+      { path: 'branch/edit', component: EditBranchComponent }
     ]),
     NgbModule
   ],
