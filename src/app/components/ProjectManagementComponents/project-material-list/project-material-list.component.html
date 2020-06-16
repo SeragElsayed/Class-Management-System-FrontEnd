@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row align-items-end">
+    <!-- <div class="col-lg-5"> -->
+
+      <h4 class="mb-0">Add Documentaionn</h4>
+      
+    </div>
+  </div>
+<br>
+<form [formGroup]="ProjectMaterial" (ngSubmit)="onSubmit(ProjectMaterial.value)">
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <button type="submit" class="input-group-text" id="inputGroupFileAddon01"></button>
+    </div>
+    <div class="custom-file">
+      <input [(ngModel)]="currentInput" size="5" multiple="multiple" formControlName="MaterialFiles" (change)="onSelectFile($event)" 
+       type="file" class="custom-file-input" id="files" aria-describedby="inputGroupFileAddon01">
+
+      <label class="custom-file-label" for="inputGroupFile01">{{currentInput}}</label>
+    </div>
+</div>
+</form>
+
+<div class="row">
+  <div *ngFor="let mater of MyMaterial  ">
+    <app-projects-material-item [MyMaterial]="mater"></app-projects-material-item>
+    <button class="btn-danger"> Delete</button>
+  </div>
+
+</div>
+

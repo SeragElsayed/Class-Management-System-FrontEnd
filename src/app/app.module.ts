@@ -58,6 +58,7 @@ import { AddTaskFormComponent } from './components/TaskComponents/add-task-form/
 import { EditTaskFormComponent } from './components/TaskComponents/edit-task-form/edit-task-form.component';
 import { TaskDetailsComponent } from './components/TaskComponents/task-details/task-details.component';
 import { TaskCardComponent } from './components/TaskComponents/task-card/task-card.component';
+
 import { AdminSideBarComponent } from './components/admindashboard/admin-side-bar/admin-side-bar.component';
 import { AdminDashboardComponent } from './components/AdminDashboard/admin-dashboard/admin-dashboard.component';
 import { AddBranchComponent } from './components/AdminDashboard/branch/add-branch/add-branch.component';
@@ -72,6 +73,21 @@ import { DashboardComponent } from './components/adminDashboard/dashboard/dashbo
 /////////////////////
 import { ChartsModule } from 'ng2-charts';
 import { EditBranchComponent } from './components/AdminDashboard/branch/edit-branch/edit-branch.component';
+
+import { ProjectDetailsComponent } from './components/ProjectManagementComponents/project-details/project-details.component';
+import { ColaboratorListComponent } from './components/ProjectManagementComponents/colaborator-list/colaborator-list.component';
+import { ProjectDetailsFormComponent } from './components/ProjectManagementComponents/project-details-form/project-details-form.component';
+import { ProjectMaterialListComponent } from './components/ProjectManagementComponents/project-material-list/project-material-list.component';
+import { ProjectsListComponent } from './components/ProjectManagementComponents/projects-list/projects-list.component';
+import { ProjectCardComponent } from './components/ProjectManagementComponents/project-card/project-card.component';
+import { ProjectsMaterialItemComponent } from './components/ProjectManagementComponents/projects-material-item/projects-material-item.component';
+import { ColabboratorItemComponent } from './components/ProjectManagementComponents/colabborator-item/colabborator-item.component';
+import { TaskSolutionComponent } from './components/TaskComponents/task-solution/task-solution.component';
+import { EditTasksolutionComponent } from './components/TaskComponents/edit-tasksolution/edit-tasksolution.component';
+import { DeleteTasksolutionComponent } from './components/TaskComponents/delete-tasksolution/delete-tasksolution.component';
+import { CreateProjectComponent } from './components/ProjectManagementComponents/create-project/create-project.component';
+import { UpdateProjectComponent } from './components/ProjectManagementComponents/update-project/update-project.component';
+import { ExploreProjectsComponent } from './components/ProjectManagementComponents/explore-projects/explore-projects.component';
 
 //for the require keyword
 declare var require: any;
@@ -112,6 +128,7 @@ declare var require: any;
     EditTaskFormComponent,
     TaskDetailsComponent,
     TaskCardComponent,
+
     AdminSideBarComponent,
     AddBranchComponent,
     AllBranchComponent,
@@ -122,6 +139,23 @@ declare var require: any;
     AddInstructorsComponent,
     EditInstructorsComponent,
     DashboardComponent
+
+    ProjectDetailsComponent,
+    ColaboratorListComponent,
+    ProjectDetailsFormComponent,
+    ProjectMaterialListComponent,
+    ProjectsListComponent,
+    ProjectCardComponent,
+    ProjectsMaterialItemComponent,
+    ColabboratorItemComponent,
+
+    TaskSolutionComponent,
+    EditTasksolutionComponent,
+    DeleteTasksolutionComponent,
+    CreateProjectComponent,
+    UpdateProjectComponent,
+    ExploreProjectsComponent
+
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -148,13 +182,22 @@ declare var require: any;
       { path: 'Task/Edit/:TaskId', component: EditTaskFormComponent },
       { path: 'admin', component:DashboardComponent},
       { path: 'student/details', component: StudentDetailsComponent},
+      { path: 'explore/projects', component: ExploreProjectsComponent},
       { path: 'explore/courses', component: ExploreCoursesComponent },
+
       { path: 'course/details', component: CourseDetailsComponent },
       { path: 'admin/tracks', component: AllTracksComponent},
       { path: 'admin/branches', component: AllBranchComponent },
       { path: 'admin/instructors', component: AllInstructorsComponent },
       { path: 'track/edit', component: EditTrackComponent },
       { path: 'branch/edit', component: EditBranchComponent }
+
+      { path: 'Project', component: ProjectsListComponent },
+      { path: 'Project/Details/:ProjectId', component: ProjectDetailsComponent },
+      { path: 'course/details', component: CourseDetailsComponent }
+      
+  
+
     ]),
     NgbModule
   ],

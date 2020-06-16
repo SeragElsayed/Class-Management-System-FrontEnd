@@ -1,5 +1,7 @@
 export const BaseURL='https://localhost:44374/'
 
+
+
 const EndPoints = {
   Track: 'Track/',
   Task: 'Task/',
@@ -78,3 +80,36 @@ DeleteCollabByUserId: `${BaseURL}${ProjectManagActions.DeleteCollabByUserId}`,
 MakeOwnerByUserId: `${BaseURL}${ProjectManagActions.MakeOwnerByUserId}`,
 AddCollabByUserEmail: `${BaseURL}${ProjectManagActions.AddCollabByUserEmail}`,
 }
+
+const ProjectActions = {
+  GetProjectById: 'api/Project/Project',
+  GetProjectByTrackId: 'api/Project/Track',
+  GetProjectByStudentId: 'api/Project/Student',
+  AddProjectByTrackId: 'api/Project/Add',
+  UpdateProject: 'api/Project/Edit',
+  DeleteProjectById: 'api/Project/Delete',
+ 
+};
+export const ProjectPaths={
+  // GetAllBranches:`${BaseURL}${EndPoints.Branch}${BranchActions.GetAllBranches}`
+  GetProjectById:`${BaseURL}${ProjectActions.GetProjectById}`,
+   GetProjectByTrackId:`${BaseURL}${ProjectActions.GetProjectByTrackId}`,
+   GetProjectByStudentId:`${BaseURL}${ProjectActions.GetProjectByStudentId}`,
+   AddProjectByTrackId:`${BaseURL}${ProjectActions.AddProjectByTrackId}`,
+   UpdateProject:`${BaseURL}${ProjectActions.UpdateProject}`,
+   DeleteProjectById:`${BaseURL}${ProjectActions.DeleteProjectById}`,
+ }
+ 
+const ProjectMaterialActions = {
+  UploadByProjectById: 'api/ProjectMaterial/Upload',
+  DownloadById: 'api/ProjectMaterial/Download',
+  DeleteByFileName: 'api/ProjectMaterial/Delete',
+  
+ 
+};
+export const ProjectMaterialPaths={
+  // GetAllBranches:`${BaseURL}${EndPoints.Branch}${BranchActions.GetAllBranches}`
+  UploadByProjectById:`${BaseURL}${ProjectMaterialActions.UploadByProjectById}`,
+  DownloadById:`${BaseURL}${ProjectMaterialActions.DownloadById}`,
+  DeleteByFileName:`${BaseURL}${ProjectMaterialActions.DeleteByFileName}`,
+ }
