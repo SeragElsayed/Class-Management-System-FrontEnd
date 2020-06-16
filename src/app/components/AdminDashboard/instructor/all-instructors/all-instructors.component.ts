@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {InstructorServiceService} from '../../../../../Services/InstructorService/instructor-service.service'
 import { BranchService } from 'src/Services/BranchService/branch.service';
+import {Router} from '@angular/router'
 @Component({
   selector: 'app-all-instructors',
   templateUrl: './all-instructors.component.html',
@@ -8,7 +9,7 @@ import { BranchService } from 'src/Services/BranchService/branch.service';
 })
 export class AllInstructorsComponent implements OnInit {
 
-  constructor(private instructor:InstructorServiceService,private branch:BranchService) { }
+  constructor(private instructor:InstructorServiceService,private branch:BranchService,private router:Router) { }
 
   ngOnInit(): void {
     this.GetAllInstructors();
@@ -31,9 +32,13 @@ deleteinstructor(i)
   var id =this.instructors[i].id;
   console.log(this.instructors[i].name)
   this.instructor.DeleteByInstructorId(id).subscribe(
-    res=>{console.log("success"),
+    res=>{console.log("success")
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigateByUrl('/admin/instructors')
+  });
+  },
   err=>{console.log("error part"),
-console.log(err)}}
+console.log(err)}
   )
 }
 

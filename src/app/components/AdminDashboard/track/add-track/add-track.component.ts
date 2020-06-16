@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,ViewChild} from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder }  from '@angular/forms';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {TrackService} from '../../../../../Services/TrackService/track.service';
@@ -23,6 +23,7 @@ branchId;
       bId: new FormControl(null)
     });
   }
+  @ViewChild('closebutton') closebutton;
   onSubmit(data) {
     console.log("in the submiit func")
         const formData = new FormData();
@@ -33,7 +34,11 @@ branchId;
         this.track.AddTrack(formData).subscribe(
           res=>{console.log("in th res func");
          console.log(res);
-         this.router.navigateByUrl('/admin/tracks')
+   
+         this.closebutton.nativeElement.click();
+         this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          this.router.navigateByUrl('/admin/tracks')
+      });
         },
           err=>{
            console.log("in the error part"); 
