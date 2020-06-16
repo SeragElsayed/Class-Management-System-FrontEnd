@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { CourseService } from '../../Services/Course/course.service';
 
 
 @Component({
@@ -9,115 +10,36 @@ import { Router } from '@angular/router';
 })
 export class CourseCardComponent implements OnInit {
 
-  constructor(private router: Router) { }
-  
-  @Input() Course:Object;
+  constructor(private router:Router,private coursesService:CourseService) { }
+  @Input() Course;
+
+
   btnClick= function () {
     this.router.navigateByUrl('/course/details');
-};
-  ngOnInit(): void {
+
+  };
+
+  DeleteCourseCard = function () {
+  console.log("course id",this.Course.courseId)
+  this.coursesService.DeleteCourse(this.Course.courseId);
+  this.router.navigateByUrl('course');
+    
   }
-  imgsrc:any="../assets/images/bg_1.jpg";
-  courselist=[
-    {
-    img:this.imgsrc,
-    name:"c#",
-    Description:"back end language",
-    Price:"1000",
-    Category:"hrml"
-    
-      
-    }, {
-      img:this.imgsrc,
-      name:"c#",
-      Description:"back end language"
-      ,
-      Price:"1000",
-    Category:"hrml"
-    
-      
-        
-      }, {
-        img:this.imgsrc,
-        name:"c#",
-        Description:"back end language"
-        ,
-        Price:"1000",
-    Category:"hrml"
-      
-        
-          
-        }, {
-          img:this.imgsrc,
-          name:"c#",
-          Description:"back end language"
-          ,
-          Price:"1000",
-    Category:"hrml"
-        
-          
-            
-          },{
-            img:this.imgsrc,
-            name:"c#",
-            Description:"back end language"
-            ,
-            Price:"1000",
-    Category:"hrml"
-          
-            
-              
-            },{
-              img:this.imgsrc,
-              name:"c#",
-              Description:"back end language"
-              ,
-              Price:"1000",
-    Category:"hrml"
-            
-              
-                
-              },{
-                img:this.imgsrc,
-                name:"c#",
-                Description:"back end language"
-                ,
-                Price:"1000",
-    Category:"hrml"
-              
-                
-                  
-                },{
-                  img:this.imgsrc,
-                  name:"c#",
-                  Description:"back end language"
-                  ,
-                  Price:"1000",
-    Category:"hrml"
-                
-                  
-                    
-                  },{
-                    img:this.imgsrc,
-                    name:"c#",
-                    Description:"back end language"
-                    
-                    ,
-                    Price:"1000",
-                    Category:"hrml"
-                    
-                      
-                    },{
-                      img:this.imgsrc,
-                      name:"c#",
-                      Description:"back end language"
-                      ,
-                      Price:"1000",
-    Category:"hrml"
-                    
-                      
-                        
-                      }
-    
-  ]
+
+
+
+  ngOnInit(): void {
+
+console.log("in oninit",this.Course);
+
+
+  }
+
+
+  
+ 
+
+
+
+
 }

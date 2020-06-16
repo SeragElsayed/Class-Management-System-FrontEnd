@@ -1,8 +1,11 @@
 export interface Course {
-    CourseId : number;
+
+    CourseId: number;
     CourseName: string;
-    TrackId: number;
-   
+    Description: string;
+    IntervalInDays: number;
+    EnrollmentKey:number;
+    StartingDate:Date;
+TrackId: number;
   }
 
-  
