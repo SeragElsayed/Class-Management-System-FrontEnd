@@ -18,7 +18,10 @@ export class TrackService {
    ngOnInit(){
 
    }
-
+getcoursesbytrackid()
+{
+ return this.http.get<any>(`https://localhost:44374/api/Course/GetCourses`);
+}
 getAll()
 {
   return this.http.get<any>("https://localhost:44374/api/Track");
