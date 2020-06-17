@@ -15,6 +15,10 @@ export class ProjectMaterialService {
   UploadMaterialByProjectId(ProjectId:number,files) {
     const fd=new FormData();
     let fileName
+    
+    let headers = new HttpHeaders();
+headers = headers.set('Content-Type', 'multipart/form-data');
+
     files.forEach(element => {
       for(let key in element){
           if (key == 'name'){
@@ -36,7 +40,7 @@ export class ProjectMaterialService {
     // formData.append(key, extraData[key])
     // });
 
-    return this.http.post<ProjectMaterial[]>(`https://localhost:44374/api/ProjectMaterial/Upload/${ProjectId}`,files)
+    return this.http.post<ProjectMaterial[]>(`https://localhost:44374/api/ProjectMaterial/Upload/${ProjectId}`,files,{headers})
     // return this.http.post<ProjectMaterial[]>(`${ProjectMaterialPaths.UploadByProjectById}/${ProjectId}`,Files)
     .pipe( catchError( this.handleError ) )
   }
