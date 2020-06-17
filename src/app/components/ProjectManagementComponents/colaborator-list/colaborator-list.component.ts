@@ -10,7 +10,7 @@ import { ProjectManagPaths } from 'src/Common/UrlConstants';
 })
 export class ColaboratorListComponent implements OnInit {
 
-  ColabEmailToBeAdded:string;
+  ColabEmailToBeAdded:string="";
   MyColaborators:any;
   ProjectId:number;
 
@@ -21,8 +21,14 @@ export class ColaboratorListComponent implements OnInit {
       this.ProjectId=Number.parseInt(params["ProjectId"])
     })
 
+    this.getProjectColab()
+    
+  }
+
+  getProjectColab(){
     this.ProjManagService.getProjectCollaboratorByProjectId(this.ProjectId).subscribe(
       res=>{
+        console.log("inside call colab list",res)
         this.MyColaborators=res;
 
       })
@@ -30,16 +36,30 @@ export class ColaboratorListComponent implements OnInit {
 
   OnAddColab(){
     if(this.ColabEmailToBeAdded=="")
-    return
+    return;
+
+    let IsAlreadyAdded:boolean;
+    this.MyColaborators.forEach(element => {
+      if(element['user']['email'].toLowerCase()==this.ColabEmailToBeAdded.toLowerCase()){
+       IsAlreadyAdded=true;
+        this.ColabEmailToBeAdded=""
+        return;
+      }
+    });
+
+    if(IsAlreadyAdded)
+      return;
 
     this.ProjManagService.PostAddCollaboratorByEmail(this.ProjectId,this.ColabEmailToBeAdded)
       .subscribe(res=>{
-        alert("added");
+        this.ColabEmailToBeAdded=="";
+        this.getProjectColab();
       })
   }
 
   OnRemove($event,colab){
-    this.ProjManagService.DeleteCollaboratorByUserId(colab["Id"]).subscribe(
+    console.log(colab,"from remove colab",colab["user"]["id"])
+    this.ProjManagService.DeleteCollaboratorByUserId(colab["user"]["id"]).subscribe(
       res=>{
         const index = this.MyColaborators.indexOf(colab);
         if (index > -1) {
@@ -50,9 +70,9 @@ export class ColaboratorListComponent implements OnInit {
 
 
   OnMakeOwner($event,colab){
-    this.ProjManagService.MakeCollaboratorOwnerByUserId(colab["Id"]).subscribe(
+    this.ProjManagService.MakeCollaboratorOwnerByUserId(colab["user"]["id"]).subscribe(
       res=>{
-        alert("added");
+        this.getProjectColab();
       }
     )
   }

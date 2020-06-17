@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Project } from 'src/Models/ProjectModel';
 import { ProjectService } from 'src/Services/project.service';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-update-project',
@@ -9,15 +8,25 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./update-project.component.css']
 })
 export class UpdateProjectComponent implements OnInit {
-  MyProject:Project;
-  httMyProject:Project;
-  ProjectId:number;
-  constructor(private MyProjectService:ProjectService,private RouteProjectId:ActivatedRoute) { }
+  @Input() MyProject:Project;
+ 
+  constructor(private ProjectService:ProjectService) { }
 
   ngOnInit(): void {
-    this.getProject();
+  }
+
+  OnEdit(){
+    console.log("myproject from update project ",this.MyProject)
+    this.ProjectService.UpdateProject(this.MyProject).subscribe(
+      res=>{
+        console.log(res);
+        
+        console.log(this.MyProject,"afterrrrrrrrrrrr cal ")
+      }
+    );
 
   }
+
   SelectedOption
  
  
@@ -34,21 +43,9 @@ export class UpdateProjectComponent implements OnInit {
         console.log($event.target.value);
       }
 
-  //for the file section
-  getProject(){
-
-    this.RouteProjectId.params.subscribe(params=>{
-      this.ProjectId=Number.parseInt(params["ProjectId"])
-    })
-
-    this.MyProjectService.getProjectProjectId(this.ProjectId).subscribe(
-      res=>{
-        this.MyProject=res;
-        console.log(this.MyProject,"afterrrrrrrrrrrr cal ")
-
-      })
+  
   }
  
   
 
-}
+

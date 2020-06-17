@@ -35,7 +35,6 @@ export class ProjectDetailsFormComponent implements OnInit {
     this.MyProjectService.getProjectProjectId(this.ProjectId).subscribe(
       res=>{
         this.MyProject=res;
-        console.log(this.MyProject,"afterrrrrrrrrrrr cal ")
 
       })
   }

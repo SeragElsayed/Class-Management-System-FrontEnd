@@ -11,46 +11,41 @@ import { Project } from 'src/Models/ProjectModel';
 export class ProjectService {
 
   constructor(private http: HttpClient) { }
-  // const ProjectActions = {
  
-  //   AddProjectByTrackId: 'Project/Add/Track',
-  //   UpdateProject: 'Project/Edit',
-  //   DeleteProjectById: 'Project/Delete',
-   
-  // };
   
   getProjectProjectId(ProjectId:number) {
-    // return this.http.get<Project>(`${ProjectPaths.DeleteProjectById}/${ProjectId}`)
-    return this.http.get<Project>(`${`http://localhost:3000/projects`}/${ProjectId}`)
+    // return this.http.get<Project>(`${`http://localhost:3000/projects`}/${ProjectId}`)
+     return this.http.get<Project>(`https://localhost:44374/api/Project/Project/${ProjectId}`)
     .pipe( catchError( this.handleError ) )
   }
   GetProjectByTrackId(TrackId:number) {
-    return this.http.get<Project[]>(`${ProjectPaths.GetProjectByTrackId}/${TrackId}`)
+    // return this.http.get<Project[]>(`${ProjectPaths.GetProjectByTrackId}/${TrackId}`)
+    return this.http.get<Project[]>(`https://localhost:44374/api/Project/Track/${TrackId}`)
     .pipe( catchError( this.handleError ) )
   }
   GetProjectByStudentId() {
-    //  let UserId:string=localStorage.getItem('token')//import from local storage
-    // if (UserId=="")
-    //   throwError();
-
-     // console.log("fffffffffffffffffffffffffffffffff",`${ProjectPaths.GetProjectByStudentId}`)
+ 
       // return this.http.get<Project[]>(`${ProjectPaths.GetProjectByStudentId}`)
+      // return this.http.get<Project[]>(`http://localhost:3000/projects`)
+      console.log(ProjectPaths,"project paths")
        return this.http.get<Project[]>(`https://localhost:44374/api/Project/Student`)
-    // return this.http.get<Project[]>(`http://localhost:3000/projects`)
     .pipe( catchError( this.handleError ) )
   }
 
-  AddProjectByTrackId(Project:Project) {
+  AddProjectByTrackId(Project) {
     //return this.http.post<Project>(`${ProjectPaths.AddProjectByTrackId}`,Project)
+    
     return this.http.post<Project>(`https://localhost:44374/api/Project/Add/1`,Project)
     .pipe( catchError( this.handleError ) )
   }
   UpdateProject(Project:Project) {
-    return this.http.put<Project>(`${ProjectPaths.UpdateProject}`,Project)
+    // return this.http.put<Project>(`${ProjectPaths.UpdateProject}`,Project)
+    return this.http.put<Project>(`https://localhost:44374/api/Project/Edit`,Project)
     .pipe( catchError( this.handleError ) )
   }
   DeleteProject(ProjectId:number) {
-    return this.http.delete<Project>(`${ProjectPaths.UpdateProject}/${ProjectId}`)
+    // return this.http.delete<Project>(`${ProjectPaths.UpdateProject}/${ProjectId}`)
+    return this.http.delete<Project>(`https://localhost:44374/api/Project/Delete/${ProjectId}`)
     .pipe( catchError( this.handleError ) )
   }
    private handleError(errorResponse: HttpErrorResponse) {
