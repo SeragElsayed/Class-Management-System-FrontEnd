@@ -10,7 +10,7 @@ import { catchError } from 'rxjs/operators';
 export class ExploreProjectService {
 
   constructor(private http:HttpClient) { }
-url='http://localhost:3000/projects'
+url='https://localhost:44374/api/selectProjects'
   getAllProjects() {
     return this.http.get<Project>(this.url)
     .pipe( catchError( this.handleError ) )
