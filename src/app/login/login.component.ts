@@ -4,6 +4,7 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import{AuthenticationService} from'../../Services/Authentication/authentication.service';
 import "../../vendor/select2/select2.min.js";
 // import "../../vendor/countdowntime/countdowntime";
+import {Router} from '@angular/router'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,7 +12,7 @@ import "../../vendor/select2/select2.min.js";
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private   Auth: AuthenticationService){}
+  constructor(private   Auth: AuthenticationService,private router:Router){}
 
  //the form part
 
@@ -40,10 +41,20 @@ console.log("in the submiit func")
     localStorage.setItem('token',res.token)
     console.log("the token ",res.token)
  console.log( this.Auth.getToken())
+
+ localStorage.setItem("role",res.userrole)
+ console.log(localStorage.getItem("role"))
+ this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+  this.router.navigateByUrl('/course')
+});
+
   },
      err=>{
       console.log("in the error part"); 
-      console.log(err.message)}
+      console.log(err.message)
+      
+      this.router.navigateByUrl('/login')
+    }
    )
  
    this.newBlogForm.reset();

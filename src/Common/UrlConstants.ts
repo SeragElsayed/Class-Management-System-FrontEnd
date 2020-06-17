@@ -1,5 +1,6 @@
 export const BaseURL='https://localhost:44374/'
-// export const BaseURL='http://localhost:3000/'
+
+
 
 const EndPoints = {
   Track: 'Track/',
@@ -9,12 +10,12 @@ const EndPoints = {
 };
 
  const TrackActions = {
-    GetAllTracks: 'Tracks',
-    GetTrackByTrackId: 'Track',
-    GetTrackByBranchId: 'Track/Branch',
-    AddTrack: 'Add',
-    UpdateTrack: 'Edit',
-    DeleteTrackById: 'Delete',
+    GetAllTracks: 'api/Track',
+    GetTrackByTrackId: 'api/Track/track',
+    GetTrackByBranchId: 'api/Track',
+    AddTrack: 'api/Track/Add',
+    UpdateTrack: 'api/Track/Edit',
+    DeleteTrackById: 'api/Track/Delete',
   };
 
   export const TrackPaths={
@@ -28,11 +29,11 @@ const EndPoints = {
   }
   
   const BranchActions = {
-    GetAllBranches: 'Branches',
-    GetBranchById: 'Branch',
-    AddBranch: 'Add',
-    UpdateBranch: 'Edit',
-    DeleteBranchById: 'Delete',
+    GetAllBranches: 'api/branch',
+    GetBranchById: 'api/branch',
+    AddBranch: 'api/branch/Add',
+    UpdateBranch: 'api/branch/Edit',
+    DeleteBranchById: 'api/branch/Delete',
    
   };
   export const BranchPaths={

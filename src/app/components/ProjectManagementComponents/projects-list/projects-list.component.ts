@@ -4,6 +4,7 @@ import { ProjectService } from 'src/Services/project.service';
 import { Router } from '@angular/router';
 
 @Component({
+  
   selector: 'app-projects-list',
   templateUrl: './projects-list.component.html',
   styleUrls: ['./projects-list.component.css']
