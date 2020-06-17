@@ -13,7 +13,7 @@ export class ProjectManagementService {
   constructor(private http: HttpClient) { }
 
   
-  getProjectCollaboratorByProjectId(ProjectId:number) {
+  getProjectCollaboratorByProjectIdAndProjectId(ProjectId:number) {
     // return this.http.get<any[]>(ProjectManagPaths.GetCollabByProjId)
     return this.http.get<any[]>(`https://localhost:44374/api/PM/${ProjectId}`)
     .pipe( catchError( this.handleError ) )
@@ -27,16 +27,16 @@ export class ProjectManagementService {
     .pipe( catchError( this.handleError ) )
   }
 
-  MakeCollaboratorOwnerByUserId(CollabId:number) {
+  MakeCollaboratorOwnerByUserId(CollabId:number,ProjectId:number) {
     // return this.http.get(`${ProjectManagPaths.MakeOwnerByUserId}/${CollabId}`)
     let c;
-    return this.http.post(`api/PM/MakeOwner/${CollabId}`,c)
+    return this.http.post(`api/PM/MakeOwner/${CollabId}/${ProjectId}`,c)
     .pipe( catchError( this.handleError ) )
   }
 
-  DeleteCollaboratorByUserId(UserId:string){
+  DeleteCollaboratorByUserId(UserId:string,ProjectId:number){
     // return this.http.get(`${ProjectManagPaths.DeleteCollabByUserId}/${UserId}`)
-    return this.http.delete(`api/PM/Remove/${UserId}`)
+    return this.http.delete(`api/PM/Remove/${UserId}/${ProjectId}`)
     .pipe( catchError( this.handleError ) )
   }
 
