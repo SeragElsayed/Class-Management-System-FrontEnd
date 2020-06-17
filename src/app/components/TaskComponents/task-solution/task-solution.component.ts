@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
 import { TaskSolutionService } from 'src/Services/TaskSolution/task-solution.service';
+import { TaskSolution } from 'src/Models/TaskSolution';
 
 
 
@@ -14,18 +15,46 @@ export class TaskSolutionComponent implements OnInit {
   constructor(private service:TaskSolutionService) { 
     
   }
-
+myTaskSolution:TaskSolution[];
+input:any
+id:any
   ngOnInit(): void {
 
     
   }
-//   addTaskSolution(){
 
-//     for (const droppedFile of this.files) {
-//       var task=droppedFile.relativePath;
-//     console.log("filename:  ",droppedFile.relativePath);
-//     }
-// }
+  getAll(){
+    this.service.getAll().subscribe(
+      res=>{
+        console.log(res)
+        this.myTaskSolution=res;
+    
+       
+      }
+    )
+  }
+Add(){
+  this.service.addTaskSolution(this.input)  
+      .subscribe(data => {  
+       console.log(data)
+      },  
+      error => {  
+        console.log("error")  
+      });
+}
+
+  getByTaskSolutionId(id){
+    this.service.getByTaskSolutionId(id).subscribe(
+      res=>{
+         this.myTaskSolution=res;
+      },error => {  
+        console.log("error")  
+      });
+    
+  }
+
+  
+
 deleteTaskSolution(){
   for (const droppedFile of this.files) {
     console.log("filename:  ",droppedFile.relativePath);
@@ -50,6 +79,7 @@ console.log("input",input);
         this.service.addTaskSolution(input)
         .subscribe(res=>{
           input.push(input);
+
 
           // input['id']=res.json().id;
           // console.log("res",res.json())
