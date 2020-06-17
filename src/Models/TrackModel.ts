@@ -1,5 +1,6 @@
 export interface Track {
-    TrackId: number;
+    trackId: number;
     TrackName: string;
-    BranchId: number
+    BranchId: number;
+    BranchName:string;
   }

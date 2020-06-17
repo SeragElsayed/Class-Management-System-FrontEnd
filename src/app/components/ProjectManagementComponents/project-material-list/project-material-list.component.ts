@@ -13,8 +13,9 @@ export class ProjectMaterialListComponent implements OnInit {
 
   MyMaterial:ProjectMaterial[];
   ProjectId:number;
-  currentInput
-  selectedFile
+  currentInput:string[]
+  selectedFile=new Array();
+  FilesNames=new Array();
 private ProjectMaterial: FormGroup;
 
   constructor(private ProjMatService:ProjectMaterialService,private RouteProjectId:ActivatedRoute) {
@@ -32,20 +33,25 @@ private ProjectMaterial: FormGroup;
   }
 
   onSelectFile(event) {
-     const formData: FormData = new FormData();
-
+    //  const formData: FormData = new FormData();
+     
+    //  formData.append(`file`, event.target.files[0], event.target.files[0].name);
+    //  this.FilesNames.push(event.target.files[0].name);
     for(let i=0 ; i < event.target.files.length ; i++){
+      // console.log(event.target.files[i].name)
 
-      formData.append(`file[]`, event.target.files[i], event.target.files[i].name);  
-      this.currentInput.push(event.target.files[i].name)
-    }
-    console.log(formData)
-
-    this.selectedFile=formData;
+      this.FilesNames.push(event.target.files[i].name);
+      this.selectedFile.push(event.target.files[i]);
+      // formData.append(`file[]`, event.target.files[i], event.target.files[i].name);  
+     }
+    
+    // this.selectedFile=formData;
+    console.log(this.FilesNames,this.selectedFile)
  
   }
 
   onSubmit(data) {
+    console.log("data on submit",data)
      this.ProjMatService.UploadMaterialByProjectId(this.ProjectId,this.selectedFile).subscribe(
       res => {
         this.MyMaterial=res;

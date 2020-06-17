@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,ViewChild} from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder }  from '@angular/forms';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {BranchService} from '../../../../../Services/BranchService/branch.service'
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-add-branch',
   templateUrl: './add-branch.component.html',
   styleUrls: ['./add-branch.component.css']
 })
+
 export class AddBranchComponent implements OnInit {
 
   constructor(private branch:BranchService,private router:Router) { }
@@ -19,6 +21,7 @@ export class AddBranchComponent implements OnInit {
       BranchTelephone: new FormControl(null),
     });
   }
+  @ViewChild('closebutton') closebutton;
   onSubmit(data) {
     console.log("in the submiit func")
         const formData = new FormData();
@@ -32,11 +35,16 @@ export class AddBranchComponent implements OnInit {
         this.branch.AddBranch(formData).subscribe(
           res=>{console.log("in th res func");
          console.log(res);
-        // this.router.navigateByUrl('/admin/branches')
+         this.closebutton.nativeElement.click();
+         this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          this.router.navigateByUrl('/admin/branches')
+      });
         },
           err=>{
            console.log("in the error part"); 
-           console.log(err)}
+           console.log(err)
+          
+          }
         )
       
         this.newBlogForm.reset();

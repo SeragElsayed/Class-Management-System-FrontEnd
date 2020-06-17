@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from '../../Services/Authentication/authentication.service';
+
  
 @Component({
   selector: 'app-profile',
@@ -7,7 +8,7 @@ import {AuthenticationService} from '../../Services/Authentication/authenticatio
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-
+  profileimage='../../assets/images/personprofile.png'
   constructor(private Auth: AuthenticationService) { }
   UserData={
     userName:"",

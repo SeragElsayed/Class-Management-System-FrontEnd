@@ -173,16 +173,15 @@ declare var require: any;
      
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
+      { path: 'course', component: CourseComponent },
       { path: 'course/add', component: AddCoursesComponent },
       { path: 'course/student', component: MangeStudentComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'contact', component: ContactComponent },
-      { path: 'course', component: CourseComponent },
       { path: 'Task/Add', component: AddTaskFormComponent },
       { path: 'Task/Edit/:TaskId', component: EditTaskFormComponent },
       { path: 'admin', component:DashboardComponent},
       { path: 'student/details', component: StudentDetailsComponent},
-      { path: 'explore/projects', component: ExploreProjectsComponent},
       { path: 'explore/courses', component: ExploreCoursesComponent },
 
       { path: 'course/details', component: CourseDetailsComponent },

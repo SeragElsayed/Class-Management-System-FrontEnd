@@ -23,15 +23,19 @@
      
 
 
+      <li class="nav-item dropdown" >
 
-      <li class="nav-item dropdown" *ngIf="role==='Student'">
+
+<!--*ngIf="role==='Student'"-->
+      <li class="nav-item dropdown" >
+
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
           Explore
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" [routerLink]="['/explore/courses']" >Courses</a>
-          <a class="dropdown-item" href="#">Projects</a>
+          <a class="dropdown-item" [routerLink]="['/']">Projects</a>
           <!-- <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a> -->
         </div>
@@ -42,16 +46,19 @@
       <li class="nav-item" >
         <a class="nav-link" [routerLink]="['/contact']">Contact</a>
       </li>
-      <li class="nav-item" *ngIf="role==='Admin'">
+      <li class="nav-item"  >
         <a class="nav-link" [routerLink]="['/admin']" >Admin</a>
       </li>
-      <li class="nav-item" *ngIf="role==='Admin'">
+
+      <!-- *ngIf="role==='Admin'" -->
+      <li class="nav-item" >
+
         <a class="nav-link" [routerLink]="['/admin/instructors']" >Instructor</a>
       </li>
-      <li class="nav-item" *ngIf="role==='Admin'">
+      <li class="nav-item"  >
         <a class="nav-link" [routerLink]="['/admin/branches']" >Branch</a>
       </li>
-      <li class="nav-item" *ngIf="role==='Admin'">
+      <li class="nav-item"  >
         <a class="nav-link" [routerLink]="['/admin/tracks']" >Track</a>
       </li>
       

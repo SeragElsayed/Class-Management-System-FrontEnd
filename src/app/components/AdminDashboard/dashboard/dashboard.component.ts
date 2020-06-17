@@ -27,7 +27,7 @@ export class DashboardComponent implements OnInit {
       },
     }
   };
-  public pieChartLabels: Label[] = [['Download', 'Sales'], ['In', 'Store', 'Sales'], 'Mail Sales'];
+  public pieChartLabels: Label[] = [['Smart', 'Tracks'], ['Naser', 'City', 'Tracks'], 'Ismailia Tracks'];
   public pieChartData: number[] = [300, 500, 100];
   public pieChartType: ChartType = 'pie';
   public pieChartLegend = true;
@@ -85,14 +85,14 @@ export class DashboardComponent implements OnInit {
       }
     }
   };
-  public barChartLabels: Label[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+  public barChartLabels: Label[] = ['Ismaila', 'Smart', 'Naser', 'Mansora', 'Aswan', 'Alex', 'monofia'];
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
   public barChartPlugins = [pluginDataLabels];
 
   public barChartData: ChartDataSets[] = [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
-    { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' }
+    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Tracks' },
+    { data: [28, 48, 40, 19, 86, 27, 90], label: 'Courses' }
   ];
 
   constructor() { }

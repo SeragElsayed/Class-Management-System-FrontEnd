@@ -1,5 +1,5 @@
 export interface Branch {
-    BranchId: number;
+    branchId: number;
     BranchName: string;
     BranchEmail: string;
     BranchTelephone: string;

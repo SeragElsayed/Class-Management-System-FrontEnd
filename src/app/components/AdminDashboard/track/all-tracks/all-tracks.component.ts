@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {BranchService} from '../../../../../Services/BranchService/branch.service';
 import {TrackService} from '../../../../../Services/TrackService/track.service';
-import {Router} from '@angular/router'
+import {Router} from '@angular/router';
+import { Track } from 'src/Models/TrackModel';
 @Component({
   selector: 'app-all-tracks',
   templateUrl: './all-tracks.component.html',
@@ -14,21 +15,27 @@ export class AllTracksComponent implements OnInit {
   ngOnInit(): void {
     this.GetAllTracks()
   }
-  tracks=[{
-    "id":"0",
-    "name":"lala",
-    "branch":"smart"
-  }]
-
+ 
+  tracks:Track[];
   deleteTrack(i)
   {
+
     console.log("the id to del")
-    var id =this.tracks[i].id;
-    console.log(this.tracks[i].id)
+    console.log(i)
+    var id =this.tracks[i].trackId;
+    console.log(this.tracks[i])
     this.track.DeleteByTrackId(id).subscribe(
-      res=>{console.log("success")},
+      res=>{console.log("success")
+      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.router.navigateByUrl('/admin/tracks')
+    });
+    },
     err=>{console.log("error part"),
-  console.log(err)}
+  console.log(err)
+  this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+    this.router.navigateByUrl('/admin/tracks')
+});
+}
     )
   }
   trackid
@@ -44,7 +51,10 @@ export class AllTracksComponent implements OnInit {
              console.log(res.trackId)
                 localStorage.setItem("trackval",res.trackId)
                 localStorage.setItem("trackname",res.trackName)
-                this.router.navigateByUrl('/track/edit')
+             
+                this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+                  this.router.navigateByUrl('/track/edit')
+              });
               }
               ,err=>{
                 console.log("error")
@@ -58,18 +68,24 @@ export class AllTracksComponent implements OnInit {
       res=>{
         console.log("the response")
         console.log(res)
+        this.tracks=res;
         for(let i=0;i<res.length;i++)
         {
+          
            this.branch.getByBranchId(res[i].branchId).subscribe(
               response=>
               {
-                this.tracks.push(
-                  {
-                    "id":res[i].trackId,
-                    "name":res[i].trackName,
-                "branch":response.branchName
+                // this.tracks.push(
+                //   {
+                //     "TrackId":res[i].trackId,
+                //     "TrackName":res[i].trackName,
+                // "BranchName":
                 
-                })
+                // })
+                
+                console.log(this.tracks[i])
+                this.tracks[i].BranchName=response.branchName
+                console.log(this.tracks[i])
               }
             )
           
