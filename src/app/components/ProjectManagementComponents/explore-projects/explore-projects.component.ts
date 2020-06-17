@@ -14,6 +14,7 @@ export class ExploreProjectsComponent implements OnInit {
 
   ngOnInit(): void {
    console.log( this.getAllProjects());
+   console.log("dffdfdfd")
     
   }
   @Output() Projects
