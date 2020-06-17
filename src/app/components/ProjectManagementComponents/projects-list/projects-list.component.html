@@ -1,5 +1,4 @@
 
-<!-- <button>Create Project</button> -->
 <div class="site-section ftco-subscribe-1 site-blocks-cover pb-4" style="background-image: url('../../assets/images/bg_1.jpg')">
     <div class="container">
       <div class="row align-items-end">
@@ -10,14 +9,18 @@
       </div>
     </div>
   </div> 
-
-<app-create-project  (myEvent)="tas($event)"></app-create-project>
-<!-- //jkjkjkjkjj -->
-<div class="container">
+<br>
+<br>
+<br>
+<div class="text-center">
+  <app-create-project  (myEvent)="tas($event)"></app-create-project>
+</div>
+<div class="m-y-5 d-flex justify-content-around  flex-wrap align-content-start">
 
     
-    <div class="row category" *ngFor="let project of MyProjects">
+    <div class=" col-3 " *ngFor="let project of MyProjects">
         
-        <app-project-card [MyProject]="project" [projects]="projects" ></app-project-card>
+        <app-project-card [MyProject]="project" ></app-project-card>
+        <br>
     </div>
 </div>

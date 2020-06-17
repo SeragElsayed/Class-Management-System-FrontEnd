@@ -39,12 +39,15 @@ console.log("in the submiit func")
        console.log("in th response func");
     console.log(res.token);
     localStorage.setItem('token',res.token)
-    console.log("the token ")
+    console.log("the token ",res.token)
  console.log( this.Auth.getToken())
 
  localStorage.setItem("role",res.userrole)
  console.log(localStorage.getItem("role"))
- this.router.navigateByUrl('/course')
+ this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+  this.router.navigateByUrl('/course')
+});
+
   },
      err=>{
       console.log("in the error part"); 

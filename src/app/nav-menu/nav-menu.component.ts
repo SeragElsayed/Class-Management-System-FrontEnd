@@ -7,7 +7,11 @@ import { Component } from '@angular/core';
 })
 export class NavMenuComponent {
   isExpanded = false;
-role=localStorage.getItem("userrole")
+role;
+ngOnInit(): void {
+  this.role=localStorage.getItem("role")
+  console.log(this.role)
+}
 
   collapse() {
     this.isExpanded = false;

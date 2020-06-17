@@ -17,7 +17,7 @@ export class ProjectDetailsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.getProject();
+    // this.getProject();
   }
 
   getProject(){

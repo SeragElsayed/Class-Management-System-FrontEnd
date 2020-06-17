@@ -38,10 +38,10 @@
     <tbody>
       <tr *ngFor="let item of tracks ;let i=index">
       
-        <td>{{item.name}}</td>
-        <td>{{item.branch}}</td>
+        <td>{{item.trackName}}</td>
+        <td>{{item.BranchName}}</td>
         <td>
-          <input value="Edit" class="btn btn-success" (click)="getid(item.id)"/>
+          <input value="Edit" class="btn btn-success" (click)="getid(item.trackId)"/>
         </td>
         <td>
           <!-- <input class="btn btn-success" value="Delete" (click)="deleteTrack(i)"> -->

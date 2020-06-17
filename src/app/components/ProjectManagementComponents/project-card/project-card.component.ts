@@ -17,13 +17,11 @@ export class ProjectCardComponent implements OnInit {
   constructor(private router:Router,private MyProjectService:ProjectService) { }
 
   ngOnInit(): void {
+    console.log("inside project card", this.MyProject)
   }
 
   OnClickDetails(){
-    console.log("proooooooooooooject card")
-
-    // this.router.navigate([`/Project/Details/${this.MyProject.ProjectId}`]);
-    this.router.navigate([`/Project/Details/${this.MyProject["id"]}`]);
+    this.router.navigate([`/Project/Details/${this.MyProject["projectModelId"]}`]);
   }
 
   OnClickDelete(){

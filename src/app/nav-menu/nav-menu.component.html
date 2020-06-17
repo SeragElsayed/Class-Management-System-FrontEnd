@@ -23,15 +23,41 @@
      
 
 
+      <li class="nav-item dropdown" >
 
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- dfdfdf -->
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/course']" >Courses</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/Project']" >Projects</a>
+        </li>
+
+<!--*ngIf="role==='Student'"-->
+      <li class="nav-item dropdown" >
+
+<<<<<<< HEAD
       <!-- <li class="nav-item dropdown" *ngIf="role==='Student'"> -->
         <li class="nav-item dropdown" >
+=======
+>>>>>>> 95c150e0e01e77ff0614eb99c4ca0e53f6ffda46
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
           Explore
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+<<<<<<< HEAD
           <a class="dropdown-item"  [routerLink]="['explore/projects']">Projects</a>
+=======
+          <a class="dropdown-item" [routerLink]="['/explore/courses']" >Courses</a>
+          <a class="dropdown-item" [routerLink]="['/explore/project']">Projects</a>
+>>>>>>> 95c150e0e01e77ff0614eb99c4ca0e53f6ffda46
           <!-- <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a> -->
         </div>
@@ -42,16 +68,19 @@
       <li class="nav-item" >
         <a class="nav-link" [routerLink]="['/contact']">Contact</a>
       </li>
-      <li class="nav-item" *ngIf="role==='Admin'">
+      <li class="nav-item"  >
         <a class="nav-link" [routerLink]="['/admin']" >Admin</a>
       </li>
-      <li class="nav-item" *ngIf="role==='Admin'">
+
+      <!-- *ngIf="role==='Admin'" -->
+      <li class="nav-item" >
+
         <a class="nav-link" [routerLink]="['/admin/instructors']" >Instructor</a>
       </li>
-      <li class="nav-item" *ngIf="role==='Admin'">
+      <li class="nav-item"  >
         <a class="nav-link" [routerLink]="['/admin/branches']" >Branch</a>
       </li>
-      <li class="nav-item" *ngIf="role==='Admin'">
+      <li class="nav-item"  >
         <a class="nav-link" [routerLink]="['/admin/tracks']" >Track</a>
       </li>
       

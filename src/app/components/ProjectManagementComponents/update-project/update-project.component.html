@@ -1,9 +1,11 @@
+<div *ngIf="MyProject">
+
 <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Updata Project</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Edit Project</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -13,37 +15,29 @@
           <i class=" prefix grey-text"></i>
           <label data-error="wrong" data-success="right" >Project Name</label>
 
-          <input type="text"  class="form-control validate" value={{MyProject.ProjectName}} >
+          <input type="text"  class="form-control validate" [(ngModel)]="MyProject.projectName" >
         </div>
 
         <div class="md-form mb-5">
             <i class=" prefix grey-text"></i>
             <label data-error="wrong" data-success="right" >Description</label>
   
-            <input type="text"  class="form-control validate" value={{MyProject.ProjectDescription}}>
+            <input type="text"  class="form-control validate" [(ngModel)]=MyProject.projectDescription>
           </div>
-<!-- <div class="md-form mb-5">
-    <label data-error="wrong" data-success="right" >Track Name {{MyProject.TrackId}} </label>
-    
-          <select [(ngModel)]="SelectedOption"  (change)="selected($event)" class="form-control m-b-10">
-            <option *ngFor="let item of data" [value]="item.name" value={{MyProject.TrackId}}  >{{item.name}}</option>
-          </select>
-        </div> -->
 
-        <input class="form-control" type="number" placeholder=" TrackId is {{MyProject.TrackId}} " readonly>
 
-  
-
-        
+        <input class="form-control" type="number" placeholder=" TrackId is {{MyProject.trackId}} " readonly>
 
       </div>
       <div class="modal-footer d-flex justify-content-center">
-        <button class="btn btn-outline-primary" (click)="add()">ADD</button>
+        <button data-toggle="modal" data-target="#modalLoginForm" class="btn btn-outline-primary" (click)="OnEdit()">Edit</button>
       </div>
     </div>
   </div>
 </div>
 
 <div class="text-center">
-  <button class="btn btn-primary mb-4" data-toggle="modal" data-target="#modalLoginForm">Update Project</button>
+  <button class="btn btn-primary mb-4" data-toggle="modal" data-target="#modalLoginForm">Edit Project</button>
+</div>
+
 </div>

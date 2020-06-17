@@ -1,0 +1,7 @@
+.content {
+    margin:10px;
+    max-width: 300px;
+    border:1px dotted black;
+    display:block;
+    word-break: break-all;
+  }

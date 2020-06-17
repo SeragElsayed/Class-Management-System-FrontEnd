@@ -13,24 +13,43 @@ export class ProjectMaterialService {
   constructor(private http: HttpClient) { }
   
   UploadMaterialByProjectId(ProjectId:number,files) {
-   
+    const fd=new FormData();
+    let fileName
+    files.forEach(element => {
+      for(let key in element){
+          if (key == 'name'){
+            fileName = element[key]
+            console.log(fileName)
+          }
+          console.log(key)
 
+        fd.append(key, files[key])
+        }
+    
+    });
+    console.log(files ,"from service")
+  
+    // for(let key in files) => {
+    //   if (key == 'fileName'){
+    //     fileName = extraData[key]
+    //   }
+    // formData.append(key, extraData[key])
+    // });
 
-
-    return this.http.post<ProjectMaterial[]>
-    (`https://localhost:44374/api/ProjectMaterial/api/ProjectMaterial/Upload/1`,
-    files)
+    return this.http.post<ProjectMaterial[]>(`https://localhost:44374/api/ProjectMaterial/Upload/${ProjectId}`,files)
     // return this.http.post<ProjectMaterial[]>(`${ProjectMaterialPaths.UploadByProjectById}/${ProjectId}`,Files)
     .pipe( catchError( this.handleError ) )
   }
 
   DownloadMaterialById(MaterialId:number) {
-    return this.http.get<any>(`${ProjectMaterialPaths.UploadByProjectById}/${MaterialId}`)
+    // return this.http.get<any>(`${ProjectMaterialPaths.UploadByProjectById}/${MaterialId}`)
+    return this.http.get<any>(`https://localhost:44374//api/ProjectMaterial/${MaterialId}`)
     .pipe( catchError( this.handleError ) )
   }
 
   DeleteByName(MaterialName:string) {
-    return this.http.delete<any>(`${ProjectMaterialPaths.UploadByProjectById}/${MaterialName}`)
+    // return this.http.delete<any>(`${ProjectMaterialPaths.UploadByProjectById}/${MaterialName}`)
+    return this.http.delete<any>(`https://localhost:44374//api/ProjectMaterial/${MaterialName}`)
     .pipe( catchError( this.handleError ) )
   }
 

@@ -1,36 +1,24 @@
+<div *ngIf="MyProject">
+  <!-- <div *ngIf="MyProject | async"> -->
+
 <div >
 
-  <!-- <form>
-    <div class="form-group row">
-      <label for="ProjectName" class="col-sm-2 col-form-label">Project Name</label>
-      <div class="col-sm-10"> -->
-        
-        <input class="form-control" type="text"  placeholder=" Project Name is {{MyProject.ProjectName}} " readonly>
+  <label for="ProjectName">Project Name:</label>
+        <input id="ProjectName" class="form-control" type="text"  placeholder="{{MyProject.projectName}} " readonly>
 <br>
 <br>
 
         
-        <!-- <input type="text" readonly class="form-control-plaintext" id="ProjectName" [(ngModel)]="MyProject.ProjectName" [ngModelOptions]="{standalone: true}"> -->
-      <!-- </div>
-    </div>
-    
+<label for="ProjectDescription">Project Description:</label>
 
-    <div class="form-group row">
-        <label for="ProjectDescription" class="col-sm-2 col-form-label">Project Description</label>
-        <div class="col-sm-10"> -->
-
-          <input class="form-control" type="text" placeholder=" Project Description is {{MyProject.ProjectDescription}} " readonly>
         
-          <!-- <input type="text" readonly class="form-control-plaintext" id="ProjectDescription" [(ngModel)]="MyProject.ProjectDescription" [ngModelOptions]="{standalone: true}"> -->
-        <!-- </div>
-      </div>
 
-      
-    </form> -->
 
   </div>
   <br>
   <br>
   
+</div>
 
-  <app-update-project></app-update-project>
+  <app-update-project [MyProject]="MyProject"></app-update-project>
+
