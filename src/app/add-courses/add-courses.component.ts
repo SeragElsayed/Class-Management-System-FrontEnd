@@ -1,16 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 // import * as $ from 'jquery';
 import * as $ from '../../../node_modules/jquery/dist/jquery';
+import { importType } from '@angular/compiler/src/output/output_ast';
+import{CourseService} from '../../Services/Course/course.service'
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-courses',
   templateUrl: './add-courses.component.html',
   styleUrls: ['./add-courses.component.css']
 })
 export class AddCoursesComponent implements OnInit {
+
+
   today: number = Date.now();
 
   imgsrc:any="assets/images/book.jpg";
-  constructor() { 
+  constructor(private service: CourseService,private router:Router) { 
   
   }
   
@@ -71,5 +76,25 @@ clicked(event) {
     $(".alert").show();
     $(".alert").text(text).addClass("loading");
 }
-
+/////////////////////////
+onSubmit() {
+  if (this.service.form.valid) {
+    this.service.insertCourse(this.service.form.value).subscribe(
+      res=>{
+        this.router.navigate(["/course"])
+      },
+      err=>{
+        this.FadeInAlert("Try again later");
+        console.log(err);
+      }
+    );
+    this.service.form.reset();
+    this.service.initializeFormGroup();
+    // this.notificationService.success(':: Submitted successfully');
+    // this.onClose();
+  }
 }
+}
+
+
+///////////////////////////

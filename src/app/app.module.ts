@@ -58,6 +58,22 @@ import { AddTaskFormComponent } from './components/TaskComponents/add-task-form/
 import { EditTaskFormComponent } from './components/TaskComponents/edit-task-form/edit-task-form.component';
 import { TaskDetailsComponent } from './components/TaskComponents/task-details/task-details.component';
 import { TaskCardComponent } from './components/TaskComponents/task-card/task-card.component';
+
+import { AdminSideBarComponent } from './components/admindashboard/admin-side-bar/admin-side-bar.component';
+import { AdminDashboardComponent } from './components/AdminDashboard/admin-dashboard/admin-dashboard.component';
+import { AddBranchComponent } from './components/AdminDashboard/branch/add-branch/add-branch.component';
+import { AllBranchComponent } from './components/AdminDashboard/branch/all-branch/all-branch.component';
+import { EditTrackComponent } from './components/admindashboard/track/edit-track/edit-track.component';
+import { AddTrackComponent } from './components/admindashboard/track/add-track/add-track.component';
+import { AllTracksComponent } from './components/admindashboard/track/all-tracks/all-tracks.component';
+import { AllInstructorsComponent } from './components/admindashboard/instructor/all-instructors/all-instructors.component';
+import { AddInstructorsComponent } from './components/admindashboard/instructor/add-instructors/add-instructors.component';
+import { EditInstructorsComponent } from './components/admindashboard/instructor/edit-instructors/edit-instructors.component';
+import { DashboardComponent } from './components/adminDashboard/dashboard/dashboard.component';
+/////////////////////
+import { ChartsModule } from 'ng2-charts';
+import { EditBranchComponent } from './components/AdminDashboard/branch/edit-branch/edit-branch.component';
+
 import { ProjectDetailsComponent } from './components/ProjectManagementComponents/project-details/project-details.component';
 import { ColaboratorListComponent } from './components/ProjectManagementComponents/colaborator-list/colaborator-list.component';
 import { ProjectDetailsFormComponent } from './components/ProjectManagementComponents/project-details-form/project-details-form.component';
@@ -71,6 +87,8 @@ import { EditTasksolutionComponent } from './components/TaskComponents/edit-task
 import { DeleteTasksolutionComponent } from './components/TaskComponents/delete-tasksolution/delete-tasksolution.component';
 import { CreateProjectComponent } from './components/ProjectManagementComponents/create-project/create-project.component';
 import { UpdateProjectComponent } from './components/ProjectManagementComponents/update-project/update-project.component';
+import { ExploreProjectsComponent } from './components/ProjectManagementComponents/explore-projects/explore-projects.component';
+
 //for the require keyword
 declare var require: any;
 @NgModule({
@@ -110,6 +128,18 @@ declare var require: any;
     EditTaskFormComponent,
     TaskDetailsComponent,
     TaskCardComponent,
+
+    AdminSideBarComponent,
+    AddBranchComponent,
+    AllBranchComponent,
+    EditTrackComponent,
+    AddTrackComponent,
+    AllTracksComponent,
+    AllInstructorsComponent,
+    AddInstructorsComponent,
+    EditInstructorsComponent,
+    DashboardComponent,
+
     ProjectDetailsComponent,
     ColaboratorListComponent,
     ProjectDetailsFormComponent,
@@ -123,36 +153,50 @@ declare var require: any;
     EditTasksolutionComponent,
     DeleteTasksolutionComponent,
     CreateProjectComponent,
-    UpdateProjectComponent
+    UpdateProjectComponent,
+    ExploreProjectsComponent
+
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     FontAwesomeModule,
     NgxFileDropModule,
     ReactiveFormsModule,
+    ChartsModule,
     // ApiAuthorizationModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'about', component: AboutComponent },
+     
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
+      { path: 'course', component: CourseComponent },
       { path: 'course/add', component: AddCoursesComponent },
       { path: 'course/student', component: MangeStudentComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'contact', component: ContactComponent },
-      { path: 'course', component: CourseComponent },
       { path: 'Task/Add', component: AddTaskFormComponent },
       { path: 'Task/Edit/:TaskId', component: EditTaskFormComponent },
-      
+      { path: 'admin', component:DashboardComponent},
       { path: 'student/details', component: StudentDetailsComponent},
       { path: 'explore/courses', component: ExploreCoursesComponent },
+
+      { path: 'course/details', component: CourseDetailsComponent },
+      { path: 'admin/tracks', component: AllTracksComponent},
+      { path: 'admin/branches', component: AllBranchComponent },
+      { path: 'admin/instructors', component: AllInstructorsComponent },
+      { path: 'track/edit', component: EditTrackComponent },
+      { path: 'branch/edit', component: EditBranchComponent },
+
       { path: 'Project', component: ProjectsListComponent },
       { path: 'Project/Details/:ProjectId', component: ProjectDetailsComponent },
       { path: 'course/details', component: CourseDetailsComponent }
       
   
+
     ]),
     NgbModule
   ],
