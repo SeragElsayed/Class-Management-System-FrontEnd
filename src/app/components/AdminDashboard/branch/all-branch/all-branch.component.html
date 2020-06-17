@@ -37,11 +37,11 @@
           <tbody>
             <tr *ngFor="let item of branches;let i =index">
               
-              <td>{{item.name}}</td>
-              <td>{{item.mail}}</td>
-              <td>{{item.phone}}</td>
+              <td>{{item.branchName}}</td>
+              <td>{{item.branchEmail}}</td>
+              <td>{{item.branchTelephone}}</td>
               <td>
-                <input value="Edit" (click)="getid(item.id)" class="btn btn-success"/>
+                <input value="Edit" (click)="getid(item.branchId)" class="btn btn-success"/>
               </td>
               <td>
                 <!-- <input class="btn btn-success" value="Delete" (click)="deletebranch(i)"/> -->

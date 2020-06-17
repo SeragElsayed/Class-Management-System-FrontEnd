@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {BranchService} from '../../../../../Services/BranchService/branch.service';
-import {Router} from '@angular/router'
+import {Router} from '@angular/router';
+import { Branch } from 'src/Models/BranchModel';
 @Component({
   selector: 'app-all-branch',
   templateUrl: './all-branch.component.html',
@@ -9,12 +10,8 @@ import {Router} from '@angular/router'
 export class AllBranchComponent implements OnInit {
 
   constructor(private branch :BranchService ,private router:Router) { }
-branches=[{
-  "id":"0",
-  "name":"",
-  "mail":"",
-  "phone":""
-}]
+
+branches:Branch[];
 
 bid
 getid(id)
@@ -46,8 +43,8 @@ getid(id)
   deletebranchs(i)
   {
     console.log("the id to del")
-    var id =this.branches[i].id;
-    console.log(this.branches[i].id)
+    var id =this.branches[i].branchId;
+    console.log(this.branches[i].branchId)
     this.branch.DeleteByBranchId(id).subscribe(
       res=>{console.log("success")
       this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
@@ -68,17 +65,18 @@ GetAllBranches()
     res=>{
       console.log("the response")
       console.log(res)
-      for(let i=0;i<res.length;i++)
-      {
+      // for(let i=0;i<res.length;i++)
+      // {
        
-        this.branches.push(
-          {"id":res[i].branchId,
-            "name":res[i].branchName,
-        "mail":res[i].branchEmail,
-        "phone":res[i].branchTelephone
-        })
+        // this.branches.push(
+        //   {"":res[i].branchId,
+        //     "name":res[i].branchName,
+        // "mail":res[i].branchEmail,
+        // "phone":res[i].branchTelephone
+        // })
+        this.branches=res
 
-      }
+     // }
       console.log(this.branches)
     },
     err=>

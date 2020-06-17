@@ -41,11 +41,11 @@
             </thead>
             <tbody>
               <tr *ngFor="let item of instructors;let i =index">
-                <th scope="row">{{item.name}}</th>
-                <td>{{item.mail}}</td>
-                <td>{{item.phone}}</td>
-                <td>{{item.branch}}</td>
-                <td>{{item.track}}</td>
+                <th scope="row">{{item.userName}}</th>
+                <td>{{item.email}}</td>
+                <td>{{item.phoneNumber}}</td>
+                <td>{{item.branchName}}</td>
+                <td>{{item.trackId}}</td>
              
                 <td>
                   <!-- <input value="Delete"class="btn btn-success" (click)="deleteinstructor(i)"/> -->
