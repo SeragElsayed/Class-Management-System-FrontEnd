@@ -47,6 +47,7 @@ getid(id)
     console.log(this.branches[i].branchId)
     this.branch.DeleteByBranchId(id).subscribe(
       res=>{console.log("success")
+      console.log(res)
       this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
         this.router.navigateByUrl('/admin/branches')
     });

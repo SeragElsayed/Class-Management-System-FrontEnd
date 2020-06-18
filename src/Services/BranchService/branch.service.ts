@@ -39,7 +39,9 @@ export class BranchService {
      
   }
   DeleteByBranchId(BranchId) {
-    return this.http.delete<any>(`${BranchPaths.GetAllBranches}/${BranchId}`)
+    console.log(BranchId)
+    console.log("in services")
+    return this.http.get<any>(`${BranchPaths.DeleteBranchById}/${BranchId}`)
   
   }
  
