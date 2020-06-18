@@ -14,33 +14,10 @@ export class ProjectMaterialService {
   
   UploadMaterialByProjectId(ProjectId:number,files) {
     const fd=new FormData();
-    let fileName
-    
-    let headers = new HttpHeaders();
-headers = headers.set('Content-Type', 'multipart/form-data');
-
-    files.forEach(element => {
-      for(let key in element){
-          if (key == 'name'){
-            fileName = element[key]
-            console.log(fileName)
-          }
-          console.log(key)
-
-        fd.append(key, files[key])
-        }
-    
-    });
-    console.log(files ,"from service")
-  
-    // for(let key in files) => {
-    //   if (key == 'fileName'){
-    //     fileName = extraData[key]
-    //   }
-    // formData.append(key, extraData[key])
-    // });
-
-    return this.http.post<ProjectMaterial[]>(`https://localhost:44374/api/ProjectMaterial/Upload/${ProjectId}`,files,{headers})
+    for(let i =0; i < files.length; i++){
+      fd.append("uploads[]", files[0], files[0]['name']);
+    }
+    return this.http.post<ProjectMaterial[]>(`https://localhost:44374/api/ProjectMaterial/Upload/${ProjectId}`,fd)
     // return this.http.post<ProjectMaterial[]>(`${ProjectMaterialPaths.UploadByProjectById}/${ProjectId}`,Files)
     .pipe( catchError( this.handleError ) )
   }
