@@ -3,14 +3,96 @@ import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import { Label } from 'ng2-charts';
-
+import {Router} from '@angular/router';
+import {AdminService} from '../../../../Services/Admin/admin.service'
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+///////////////////////////////////services part ///////////////////////
+constructor(private router:Router,private admin:AdminService) { }
 
+  ngOnInit() {
+
+    this.getallbranches();
+    this.getallcourses();
+    this.getallinstructors();
+    this.getalltracks();
+  }
+  //variable to carru data 
+  branches;
+  tracks;
+  instructors;
+  courses;
+  Projects;
+//get all branches
+ getallbranches()
+{
+  console.log("all branches")
+  this.admin.GetAllBranches().subscribe(
+    res=>{
+      console.log("in response")
+      console.log(res)
+     this.branches=res;
+      }
+      ,
+      err=>{
+        console.log("in error")
+        console.log(err)
+      }
+  )
+}
+//get all tracks
+getalltracks()
+{
+ 
+  this.admin.GetAllTracks().subscribe(
+    res=>{
+      console.log("in response")
+      console.log(res)
+     this.tracks=res;
+      }
+      ,
+      err=>{
+        console.log("in error")
+        console.log(err)
+      }
+  )
+}
+//get all instructors
+getallinstructors()
+{
+  this.admin.GetAllInstructors().subscribe(
+    res=>{
+      console.log("in response")
+      console.log(res)
+     this.instructors=res;
+      }
+      ,
+      err=>{
+        console.log("in error")
+        console.log(err)
+      }
+  )
+}
+//get all coursess
+getallcourses()
+{
+  this.admin.GetAllCourses().subscribe(
+    res=>{
+      console.log("in response")
+      console.log(res)
+     this.courses=res;
+      }
+      ,
+      err=>{
+        console.log("in error")
+        console.log(err)
+      }
+  )
+}
   //////////////////////////////bie chart /////////////////////////////////
    // Pie
    public pieChartOptions: ChartOptions = {
@@ -95,11 +177,7 @@ export class DashboardComponent implements OnInit {
     { data: [28, 48, 40, 19, 86, 27, 90], label: 'Courses' }
   ];
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  
   // events
   public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
     console.log(event, active);
