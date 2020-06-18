@@ -6,6 +6,7 @@ import * as _ from 'lodash';
 
 import { HttpClient } from '@angular/common/http';
 import { Course } from 'src/Models/CourseModel';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -40,6 +41,12 @@ export class CourseService {
     });
   }
 
+  
+
+  getCourseByCourseId(CourseId:number) {
+    return this.http.get(`https://localhost:44374/api/Course/ByCourseId/${CourseId}`);
+
+  }
 
   getCourses() {
     //   this.courseList = this.firebase.list('courses');

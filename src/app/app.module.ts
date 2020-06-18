@@ -187,7 +187,7 @@ declare var require: any;
       { path: 'explore/courses', component: ExploreCoursesComponent },
       { path: 'explore/project', component: ExploreProjectsComponent },
 
-      { path: 'course/details', component: CourseDetailsComponent },
+      { path: 'course/details/:CourseId', component: CourseDetailsComponent },
       { path: 'admin/tracks', component: AllTracksComponent},
       { path: 'admin/branches', component: AllBranchComponent },
       { path: 'admin/instructors', component: AllInstructorsComponent },
@@ -196,7 +196,7 @@ declare var require: any;
 
       { path: 'Project', component: ProjectsListComponent },
       { path: 'Project/Details/:ProjectId', component: ProjectDetailsComponent },
-      { path: 'course/details', component: CourseDetailsComponent },
+      // { path: 'course/details', component: CourseDetailsComponent },
       
   
 
