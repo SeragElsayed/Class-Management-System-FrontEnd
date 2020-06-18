@@ -17,12 +17,82 @@
   <span class="current">Admin</span>
 </div>
 </div>
+<!------------------------->
+<!-- lists-->
+<div class="container" >
+    <div class="row" style="margin: 30px auto; ">
+      
+    <!-- <div style="margin-left: 10px; ">
+      <div class="card m-l-5" style="width: 15rem;border-left: 4px solid rgba(255,0,0,0.3); ">
+        <div class="card-body">
+          <div class="row">
+            <div class=col-6 style="margin-left:5px;"> 
+              <div class="row" style="color: rgba(255,0,0,0.3);">Courses</div>
+              <div class="row">50</div>
+            </div>
+            <div class="col-4" >
+              <i class="fa fa-tasks fa-lg" aria-hidden="true"  style="text-align: center;color: #DFE5E1;"></i>
+            </div>
+          
+          </div>
+        </div>
+      </div> 
+    </div> -->
+     <div style="margin-left: 20px;" class="col">
+       <div class="card  m-l-5" style="width: 15rem;border-left: 4px solid rgba(0,255,0,0.3);">
+        <div class="card-body">
+          <div class="row">
+            <div class=col-6 style="margin-left:5px;"> 
+              <div class="row" style="color: rgba(0,255,0,0.3); font-weight: bold;">Tracks</div>
+              <div class="row" style="font-weight: bold; color: black;">{{tracks}}</div>
+            </div>
+            <div class="col-4">
+              <i class="fa fa-building fa-lg" aria-hidden="true" style="color: rgba(0,255,0,0.3);"></i>    
+            </div>
+           
+          </div>
+        </div>
+      </div> 
+     </div>
+      <div style="margin-left: 20px;" class="col">
+        <div class="card  m-l-5" style="width: 15rem; border-left:4px solid rgba(0,0,255,0.3) ">
+        <div class="card-body">
+          <div class="row">
+            <div class=col-6 style="margin-left:5px;"> 
+              
+              <div class="row" style="color: rgba(0,0,255,0.3); font-weight: bold;">Branch</div>
+              <div class="row" style="font-weight: bold; color: black;">{{ branches}}</div>
+            </div>
+            <div class="col-4">
+      
+              <i class="fa fa-home fa-lg" aria-hidden="true" style="color: rgba(0,0,255,0.3);"></i>
+            </div>
+           
+          </div>
+        </div>
+      </div> 
+      </div>
+       <div style="margin-left: 20px;"class="col">
+        <div class="card  m-l-5" style="width: 15rem;border-left: 4px solid rgba(255,0,0,0.3);">
+          <div class="card-body">
+            <div class="row">
+              <div class=col-6 style="margin-left:5px;"> 
+                <div class=row style="color: rgba(255,0,0,0.3); font-weight: bold;"> Instructor </div>
+                <div class="row" style="font-weight: bold; color: black;">{{instructors}}</div>
+                
+              </div>
+              <div class="col-4 ">
+                <i class="fas fa-project-diagram fa-lg " style="color: rgba(255,0,0,0.3); margin:  auto; "></i>
+              </div>
+            
+            </div>
+          </div>
+        </div> 
+       </div>
+ 
+      </div>
 
-<div class="container-fluid " style="margin-top: 5%;">
-    
-<div>
-  <!--------------------------------------------->
-  <div class=" container m-10 ">
+
   <!--pie chart-->
   <div class="row m-5">
     <div class="col-8">
@@ -39,20 +109,29 @@
       </div>
     </div>
     <div class="col-2 m-5">
-      <div class="card" style="width: 18rem;">
+      <div class="card  m-l-5" style="width: 15rem;border-left: 4px solid rgba(0,255,0,0.3);">
         <div class="card-body">
           <div class="row">
+            <div class=col-6 style="margin-left:5px;"> 
+              <div class="row" style="color: rgba(0,255,0,0.3); font-weight: bold;">Projects</div>
+              <div class="row" style="font-weight: bold; color: black;">{{Projects}}</div>
+            </div>
             <div class="col-4">
-              <i class="fas fa-bell w-50 " style="color: forestgreen;"></i>
+              <i class="fa fa-building fa-lg" aria-hidden="true" style="color: rgba(0,255,0,0.3);"></i>    
             </div>
-            <div class=col-8> 
-              50 projects
-            </div>
+           
           </div>
         </div>
-      </div>  
+      </div> 
     </div>
   </div>
+<!------------------------>
+<div class="container-fluid " style="margin-top: 5%;">
+    
+<div>
+  <!--------------------------------------------->
+  <div class=" container m-10 ">
+  
   <!-- <div>
     <button mat-button mat-raised-button color="primary" (click)="pieChartLegend=!pieChartLegend">Toggle Legend</button>
     <button mat-button mat-raised-button color="primary" (click)="changeLabels()">Change Labels</button>
@@ -80,16 +159,18 @@
 
 </div>
 <div class="col-2 m-5">
-  <div class="card m-t-10" style="width: 18rem;">
+  <div class="card  m-l-5" style="width: 15rem;border-left: 4px solid rgba(0,255,0,0.3);">
     <div class="card-body">
-    <div class="row">
-      <div class="col-4">
-        <i class="fas fa-bell w-50 " style="color: forestgreen;"></i>
+      <div class="row">
+        <div class=col-6 style="margin-left:5px;"> 
+          <div class="row" style="color: rgba(0,255,0,0.3); font-weight: bold;">Courses</div>
+          <div class="row" style="font-weight: bold; color: black;">{{courses}}</div>
+        </div>
+        <div class="col-4">
+          <i class="fa fa-building fa-lg" aria-hidden="true" style="color: rgba(0,255,0,0.3);"></i>    
+        </div>
+       
       </div>
-      <div class=col-8> 
-        200  Course
-      </div>
-    </div>
     </div>
   </div> 
 </div>
