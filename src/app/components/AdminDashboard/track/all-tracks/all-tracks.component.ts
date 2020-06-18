@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {BranchService} from '../../../../../Services/BranchService/branch.service';
 import {TrackService} from '../../../../../Services/TrackService/track.service';
-import {Router} from '@angular/router'
+import {Router} from '@angular/router';
+import { Track } from 'src/Models/TrackModel';
 @Component({
   selector: 'app-all-tracks',
   templateUrl: './all-tracks.component.html',
@@ -14,17 +15,15 @@ export class AllTracksComponent implements OnInit {
   ngOnInit(): void {
     this.GetAllTracks()
   }
-  tracks=[{
-    "id":"",
-    "name":"",
-    "branch":""
-  }]
-
+ 
+  tracks:Track[];
   deleteTrack(i)
   {
+
     console.log("the id to del")
-    var id =this.tracks[i].id;
-    console.log(this.tracks[i].id)
+    console.log(i)
+    var id =this.tracks[i].trackId;
+    console.log(this.tracks[i])
     this.track.DeleteByTrackId(id).subscribe(
       res=>{console.log("success")
       this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
@@ -69,18 +68,24 @@ export class AllTracksComponent implements OnInit {
       res=>{
         console.log("the response")
         console.log(res)
+        this.tracks=res;
         for(let i=0;i<res.length;i++)
         {
+          
            this.branch.getByBranchId(res[i].branchId).subscribe(
               response=>
               {
-                this.tracks.push(
-                  {
-                    "id":res[i].trackId,
-                    "name":res[i].trackName,
-                "branch":response.branchName
+                // this.tracks.push(
+                //   {
+                //     "TrackId":res[i].trackId,
+                //     "TrackName":res[i].trackName,
+                // "BranchName":
                 
-                })
+                // })
+                
+                console.log(this.tracks[i])
+                this.tracks[i].BranchName=response.branchName
+                console.log(this.tracks[i])
               }
             )
           

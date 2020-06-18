@@ -12,31 +12,20 @@ export class CreateProjectComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 SelectedOption
 
 
-// name:any="tasneem";
-//  description:any="any thing";
 @Output() myEvent=new EventEmitter()
 
- 
-//  add(){
-   
-//   let tas={
-//      name:this.name,
-//      description:this.description
-//    }
-//    console.log(tas);
-//   this.myEvent.emit(tas);
-//  }
- add(name,description){
+
+ add(ProjectName,ProjectDescription){
    let project={
-     name,
-     description
+     ProjectName,
+     ProjectDescription
 
    }
    this.myEvent.emit(project)
-console.log(project)
  }
   selectedLevel;
     
@@ -50,9 +39,5 @@ console.log(project)
         console.log($event.target.value);
       }
 
-  //for the file section
-
- 
- 
   
 }

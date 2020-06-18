@@ -1,9 +1,13 @@
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">{{MyProject.ProjectName}}</h5>
-      <p class="card-text">{{MyProject.ProjectDescription}}</p>
-      <button class="btn btn-primary" (click)="OnClickDetails()">Details</button>
-      <button class="btn btn-danger" (click)="OnClickDelete()">Delete</button>
+<div class="card text-white bg-secondary  mb-3" >
+    <div class="card-body  text-center">
+      <h3 class="card-title">{{MyProject.projectName}}</h3>
+      <p class="card-text">{{MyProject.projectDescription}}</p>
+      <div class="d-flex justify-content-between">
+
+        <button class="btn btn-primary" (click)="OnClickDetails()">Details</button>
+        <button class="btn btn-danger" (click)="OnClickDelete()"><span class="glyphicon glyphicon-trash">Delete</span></button>
+        <!-- na2es ngif the user is owner -->
+      </div>
      
     </div>
   </div>

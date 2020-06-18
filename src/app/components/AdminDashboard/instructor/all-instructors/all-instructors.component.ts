@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {InstructorServiceService} from '../../../../../Services/InstructorService/instructor-service.service'
 import { BranchService } from 'src/Services/BranchService/branch.service';
-import {Router} from '@angular/router'
+import {Router} from '@angular/router';
+import { Instructor } from 'src/Models/InstructorModel';
+
 @Component({
   selector: 'app-all-instructors',
   templateUrl: './all-instructors.component.html',
@@ -15,22 +17,22 @@ export class AllInstructorsComponent implements OnInit {
     this.GetAllInstructors();
   }
   //to add instructor on array
-  instructors=[{
-    "id":"",
-    "name":"",
-    "mail":"",
-    "phone":"",
-    "track":"",
-    "branch":""
-  }]
-
+  // instructors=[{
+  //   "id":"",
+  //   "name":"",
+  //   "mail":"",
+  //   "phone":"",
+  //   "track":"",
+  //   "branch":""
+  // }]
+  instructors:Instructor[];
 //to delete instructor
 deleteinstructor(i)
 {
   console.log("the id to del")
   console.log(i)
   var id =this.instructors[i].id;
-  console.log(this.instructors[i].name)
+  console.log(this.instructors[i].UserName)
   this.instructor.DeleteByInstructorId(id).subscribe(
     res=>{console.log("success")
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
@@ -48,33 +50,27 @@ GetAllInstructors()
     res=>{
       console.log("the response")
       console.log(res)
-    
+    this.instructors=res;
       for(let i=0;i<res.length;i++)
       {
        console.log(res[i].id)
-        // this.instructors.push(
-        //   {
-        //     "id":res[i].id,
-        //     "name":res[i].userName,
-        // "mail":res[i].email,
-        // "phone":res[i].phoneNumber,
-        // "track":res[i].trackId,
-        // "branch":res[i].branchId
-        // })
+      
 
         this.branch.getByBranchId(res[i].branchId).subscribe(
           response=>
           {
-            this.instructors.push(
-              {
-                "id":res[i].id,
-                "name":res[i].userName,
-            "mail":res[i].email,
-            "phone":res[i].phoneNumber,
-            "track":res[i].trackId,
-            "branch":response.branchName
+            // this.instructors.push(
+            //   {
+            //     "id":res[i].id,
+            //     "name":res[i].userName,
+            // "mail":res[i].email,
+            // "phone":res[i].phoneNumber,
+            // "track":res[i].trackId,
+            // "branch":
             
-            })
+            // })
+this.instructors[i].branchName=response.branchName
+
           }
         )
 

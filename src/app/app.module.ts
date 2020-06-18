@@ -185,6 +185,7 @@ declare var require: any;
       { path: 'admin', component:DashboardComponent},
       { path: 'student/details', component: StudentDetailsComponent},
       { path: 'explore/courses', component: ExploreCoursesComponent },
+      { path: 'explore/project', component: ExploreProjectsComponent },
 
       { path: 'course/details', component: CourseDetailsComponent },
       { path: 'admin/tracks', component: AllTracksComponent},
@@ -195,7 +196,7 @@ declare var require: any;
 
       { path: 'Project', component: ProjectsListComponent },
       { path: 'Project/Details/:ProjectId', component: ProjectDetailsComponent },
-      { path: 'course/details', component: CourseDetailsComponent }
+      { path: 'course/details', component: CourseDetailsComponent },
       
   
 

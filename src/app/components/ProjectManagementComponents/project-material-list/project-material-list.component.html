@@ -2,30 +2,80 @@
   <div class="row align-items-end">
     <!-- <div class="col-lg-5"> -->
 
+
       <h4 class="mb-0">Add Documentaionn</h4>
       
     </div>
   </div>
-<br>
-<form [formGroup]="ProjectMaterial" (ngSubmit)="onSubmit(ProjectMaterial.value)">
-<div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <button type="submit" class="input-group-text" id="inputGroupFileAddon01"></button>
-    </div>
-    <div class="custom-file">
-      <input [(ngModel)]="currentInput" size="5" multiple="multiple" formControlName="MaterialFiles" (change)="onSelectFile($event)" 
-       type="file" class="custom-file-input" id="files" aria-describedby="inputGroupFileAddon01">
 
-      <label class="custom-file-label" for="inputGroupFile01">{{currentInput}}</label>
-    </div>
-</div>
+<br />
+<form
+  [formGroup]="ProjectMaterial"
+  (ngSubmit)="onSubmit(ProjectMaterial.value)">
+
+  <div class="form-group d-flex flex-column">
+
+        <div>
+          <label for="FilesCategory">Files Category</label>
+          <input
+            type="text"
+            class="form-control"
+            id="FilesCategory"
+            aria-describedby="FilesCategoryHelp"
+            placeholder="Enter Files Category"
+          />
+          <small id="FilesCategoryHelp" class="form-text text-muted"
+            >Ex. videos, source code, documentation... etc</small >
+
+        </div>
+        <br>
+        
+
+        <div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <button
+                type="submit"
+                class="input-group-text"
+                id="inputGroupFileAddon01">
+                Upload
+              </button>
+            </div>
+            <div class="custom-file">
+              <!-- [(ngModel)]="currentInput" -->
+              <input
+              
+                multiple="multiple"
+                formControlName="MaterialFiles"
+                (change)="onSelectFile($event)"
+                type="file"
+                class="custom-file-input"
+                id="files"
+                aria-describedby="inputGroupFileAddon01" />
+      
+              <label class="custom-file-label" for="inputGroupFile01"><span *ngIf="currentInput">files</span></label >
+             
+            </div>
+          </div>
+
+        </div>
+
+        <div >
+          <div class="content">
+            <span >{{ FilesNames.toString() }}</span>
+          </div>
+
+        </div>
+      </div>
 </form>
-
+<br>
+<br>
+<br>
 <div class="row">
-  <div *ngFor="let mater of MyMaterial  ">
-    <app-projects-material-item [MyMaterial]="mater"></app-projects-material-item>
-    <button class="btn-danger"> Delete</button>
+  <div *ngFor="let mater of MyMaterial">
+    <app-projects-material-item
+      [MyMaterial]="mater"
+    ></app-projects-material-item>
+    <button class="btn-danger">Delete</button>
   </div>
-
 </div>
-
