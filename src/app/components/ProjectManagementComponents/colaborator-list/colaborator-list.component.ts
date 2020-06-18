@@ -55,6 +55,8 @@ export class ColaboratorListComponent implements OnInit {
         this.ColabEmailToBeAdded=="";
         this.getProjectColab();
       })
+      this.ColabEmailToBeAdded=""
+
   }
 
   OnRemove($event,colab){

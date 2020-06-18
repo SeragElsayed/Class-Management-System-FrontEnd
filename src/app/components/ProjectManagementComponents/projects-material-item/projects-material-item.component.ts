@@ -9,17 +9,19 @@ import { ProjectMaterialPaths } from 'src/Common/UrlConstants';
 })
 export class ProjectsMaterialItemComponent implements OnInit {
   @Input()MyMaterial:ProjectMaterial;
-  DisplayName:string
+  // DisplayName:string
   DownloadLink:string
 
   constructor() { }
 
   ngOnInit(): void {
 
-    this.DownloadLink=`${ProjectMaterialPaths.DownloadById}/${this.MyMaterial.MaterialId}`
+    // this.DownloadLink=`${ProjectMaterialPaths.DownloadById}/${this.MyMaterial.MaterialId}`
+     this.DownloadLink=`https://localhost:44347/api/ProjectMaterial/Download/${this.MyMaterial.PathOnServer}`
 
-    let splipath=this.MyMaterial.PathOnServer.split('/');
-    this.DisplayName=splipath[splipath.length-1];
+    console.log(this.MyMaterial,"material from material item ")
+    // let splipath=this.MyMaterial.PathOnServer.split('/');
+    // this.DisplayName=splipath[splipath.length-1];
   }
 
 }
