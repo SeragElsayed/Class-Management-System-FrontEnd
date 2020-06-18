@@ -55,9 +55,9 @@ export class CourseService {
 
   }
 
-  DeleteCourse(CourseId:number) {
+  deleteCourse(CourseId:number) {
     console.log("service course id",CourseId)
-    return this.http.delete<Course>(`https://localhost:44374/api/Course/Delete/${CourseId}`)
+    return this.http.delete(`https://localhost:44374/api/Course/Delete/${CourseId}`)
   
   }
 

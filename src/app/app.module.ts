@@ -89,6 +89,7 @@ import { CreateProjectComponent } from './components/ProjectManagementComponents
 import { UpdateProjectComponent } from './components/ProjectManagementComponents/update-project/update-project.component';
 import { ExploreProjectsComponent } from './components/ProjectManagementComponents/explore-projects/explore-projects.component';
 
+
 //for the require keyword
 declare var require: any;
 @NgModule({
@@ -154,7 +155,8 @@ declare var require: any;
     DeleteTasksolutionComponent,
     CreateProjectComponent,
     UpdateProjectComponent,
-    ExploreProjectsComponent
+    ExploreProjectsComponent,
+
 
   ],
   imports: [

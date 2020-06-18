@@ -4,6 +4,6 @@ export interface Course {
     Description: string;
     IntervalInDays: number;
     EnrollmentKey:number;
-    StartingDate:Date;
+  
 
   }
