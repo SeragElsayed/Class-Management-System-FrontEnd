@@ -88,6 +88,7 @@ import { DeleteTasksolutionComponent } from './components/TaskComponents/delete-
 import { CreateProjectComponent } from './components/ProjectManagementComponents/create-project/create-project.component';
 import { UpdateProjectComponent } from './components/ProjectManagementComponents/update-project/update-project.component';
 import { ExploreProjectsComponent } from './components/ProjectManagementComponents/explore-projects/explore-projects.component';
+import { PopularProjectComponent } from './popular-project/popular-project/popular-project.component';
 
 //for the require keyword
 declare var require: any;
@@ -154,7 +155,8 @@ declare var require: any;
     DeleteTasksolutionComponent,
     CreateProjectComponent,
     UpdateProjectComponent,
-    ExploreProjectsComponent
+    ExploreProjectsComponent,
+    PopularProjectComponent
 
   ],
   imports: [
