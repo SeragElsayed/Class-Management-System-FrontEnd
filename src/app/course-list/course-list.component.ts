@@ -23,6 +23,16 @@ export class CourseListComponent implements OnInit {
     )
   }
 
+  DeleteChildCourse(data){
+    console.log(data,"on delete parent")
+    //  this.AllCourses.remove(data)
+    this.courseService.getCourses().subscribe(
+      res=>{
+        this.AllCourses=res;
+      }
+    )
+
+  }
 //   url:any;
 //   readUrl(event:any) {
 //     if (event.target.files && event.target.files[0]) {

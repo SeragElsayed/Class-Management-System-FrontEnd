@@ -26,7 +26,7 @@ export class ColaboratorListComponent implements OnInit {
   }
 
   getProjectColab(){
-    this.ProjManagService.getProjectCollaboratorByProjectId(this.ProjectId).subscribe(
+    this.ProjManagService.getProjectCollaboratorByProjectIdAndProjectId(this.ProjectId).subscribe(
       res=>{
         console.log("inside call colab list",res)
         this.MyColaborators=res;
@@ -55,11 +55,13 @@ export class ColaboratorListComponent implements OnInit {
         this.ColabEmailToBeAdded=="";
         this.getProjectColab();
       })
+      this.ColabEmailToBeAdded=""
+
   }
 
   OnRemove($event,colab){
     console.log(colab,"from remove colab",colab["user"]["id"])
-    this.ProjManagService.DeleteCollaboratorByUserId(colab["user"]["id"]).subscribe(
+    this.ProjManagService.DeleteCollaboratorByUserId(colab["user"]["id"],this.ProjectId).subscribe(
       res=>{
         const index = this.MyColaborators.indexOf(colab);
         if (index > -1) {
@@ -70,7 +72,7 @@ export class ColaboratorListComponent implements OnInit {
 
 
   OnMakeOwner($event,colab){
-    this.ProjManagService.MakeCollaboratorOwnerByUserId(colab["user"]["id"]).subscribe(
+    this.ProjManagService.MakeCollaboratorOwnerByUserId(colab["user"]["id"],this.ProjectId).subscribe(
       res=>{
         this.getProjectColab();
       }

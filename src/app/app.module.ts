@@ -88,7 +88,14 @@ import { DeleteTasksolutionComponent } from './components/TaskComponents/delete-
 import { CreateProjectComponent } from './components/ProjectManagementComponents/create-project/create-project.component';
 import { UpdateProjectComponent } from './components/ProjectManagementComponents/update-project/update-project.component';
 import { ExploreProjectsComponent } from './components/ProjectManagementComponents/explore-projects/explore-projects.component';
+
 import { ExploreDetailsComponent } from './components/ProjectManagementComponents/explore-details/explore-details.component';
+
+import { PopularProjectComponent } from './popular-project/popular-project/popular-project.component';
+import { AddIntakeComponent } from './components/admindashboard/intake/add-intake/add-intake.component';
+import { AllIntakeComponent } from './components/admindashboard/intake/all-intake/all-intake.component';
+
+
 
 //for the require keyword
 declare var require: any;
@@ -156,7 +163,11 @@ declare var require: any;
     CreateProjectComponent,
     UpdateProjectComponent,
     ExploreProjectsComponent,
-    ExploreDetailsComponent
+
+    ExploreDetailsComponent,
+
+    AddIntakeComponent,
+    AllIntakeComponent,
 
   ],
   imports: [
@@ -186,8 +197,8 @@ declare var require: any;
       { path: 'student/details', component: StudentDetailsComponent},
       { path: 'explore/courses', component: ExploreCoursesComponent },
       { path: 'explore/project', component: ExploreProjectsComponent },
-
-      { path: 'course/details', component: CourseDetailsComponent },
+      { path: 'admin/intake', component: AllIntakeComponent },
+      { path: 'course/details/:CourseId', component: CourseDetailsComponent },
       { path: 'admin/tracks', component: AllTracksComponent},
       { path: 'admin/branches', component: AllBranchComponent },
       { path: 'admin/instructors', component: AllInstructorsComponent },
@@ -196,10 +207,14 @@ declare var require: any;
 
       { path: 'Project', component: ProjectsListComponent },
       { path: 'Project/Details/:ProjectId', component: ProjectDetailsComponent },
+
       { path: 'course/details', component: CourseDetailsComponent },
       { path: 'explore/project/details', component: ExploreDetailsComponent },
 
       
+
+      // { path: 'course/details', component: CourseDetailsComponent },
+
       
   
 

@@ -29,7 +29,8 @@ export class RegisterComponent implements OnInit {
       Password: new FormControl(null),
     Email: new FormControl(null),
     branchId:new FormControl(null),
-      trackId:new FormControl(null)
+      trackId:new FormControl(null),
+      IntakeId:new FormControl(null)
     });
     this.GetAllBranches()
     this.GetAllTracks()
@@ -40,7 +41,7 @@ export class RegisterComponent implements OnInit {
   onSubmit(data) {
 console.log("in the submiit func")
     const formData = new FormData();
-    console.log(data.UserName)
+    console.log(data)
     formData.append('UserName', data.UserName);
     formData.append('ProfileImage', this.selectedFile);
     formData.append('City',data.City);
@@ -48,6 +49,7 @@ console.log("in the submiit func")
   formData.append("BranchId",this.bId)
   formData.append("TrackId",this.tId)
   formData.append('Password',data.Password);
+  formData.append('IntakeId',data.IntakeId);
   console.log(FormData,"hdddddddddddddddddddddddddd");
     this.Auth.registerUser(formData).subscribe(
       res=>{
@@ -62,7 +64,7 @@ console.log("in the submiit func")
     },
       err=>{
        console.log("in the error part"); 
-       console.log(err.message)
+       console.log(err)
        this.router.navigateByUrl('/register')
       }
     )

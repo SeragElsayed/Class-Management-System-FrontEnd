@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { CourseService } from '../../Services/Course/course.service';
 
@@ -10,36 +10,45 @@ import { CourseService } from '../../Services/Course/course.service';
 })
 export class CourseCardComponent implements OnInit {
 
-  constructor(private router:Router,private coursesService:CourseService) { }
-  @Input() Course;
-
-
-  btnClick= function () {
-    this.router.navigateByUrl('/course/details');
-
-  };
-
-  DeleteCourseCard = function () {
-  console.log("course id",this.Course.courseId)
-  this.coursesService.DeleteCourse(this.Course.courseId);
-  this.router.navigateByUrl('course');
-    
-  }
-
-
 
   ngOnInit(): void {
 
-console.log("in oninit",this.Course);
-
+    //console.log("in oninit",this.Course.courseId);
+    this.Course.courseId
 
   }
+  @Output() onDeleteCourse: EventEmitter<any> = new EventEmitter<any>();
+  public DeleteCourse(): void {
+    this.onDeleteCourse.emit(this.Course);
+}
+ 
+  @Input() Course;
+  constructor(private router: Router, private coursesService: CourseService) { }
 
 
-  
+
+  OnDetails() {
+    this.router.navigate([`course/details/${this.Course['courseId']}`]);
+
+  };
+
  
 
+  DeleteCourseCard() {
+    debugger;
+    console.log("course id", this.Course.courseId)
+    this.coursesService.deleteCourse(this.Course.courseId).subscribe(
+      res => {
+        console.log(res, "response from delete course")
+        this.DeleteCourse()
+      //  this.router.navigate([''])
+      
+      },
+      err => {
+        console.log(err)
+      }
+    );
 
-
+  }
 
 }

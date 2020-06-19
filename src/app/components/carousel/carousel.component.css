@@ -1,0 +1,23 @@
+#example1 {
+    
+    padding:  300px;
+    background: url(../../../assets/images/home.jpg);
+    background-repeat: no-repeat;
+    background-size:  cover;
+    height: 50px;
+    background-position:center,  bottom;
+  
+  }
+
+strong
+  {
+     color: #51be78;
+     text-align: center;
+      
+  }
+  
+  .text{
+      color: aliceblue;
+     
+       
+  }

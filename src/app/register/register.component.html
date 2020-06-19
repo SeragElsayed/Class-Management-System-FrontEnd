@@ -34,25 +34,35 @@
 				</div>
 				<!---->
 				<div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate="Enter username">
-					<input class="input100" type="text" formControlName="UserName" >
-					<span class="focus-input100" data-placeholder="Username"></span>
+					<label  style="color: #AFB6A6; font-weight: bold;">UserName</label>
+					<input class="input100" type="text" formControlName="UserName" required>
+					<!-- <span class="focus-input100" data-placeholder="Username"></span> -->
 				</div>
 
-				<div class="wrap-input100 validate-input m-b-50" data-validate="Enter Email">
-					<input class="input100" type="text" formControlName="Email">
-					<span class="focus-input100" data-placeholder="Email"></span>
+				<div class="wrap-input100 validate-input m-b-50" data-validate="Enter Email" >
+					<label  style="color: #AFB6A6; font-weight: bold;">Email</label>
+					<input class="input100" type="text" formControlName="Email"required>
+					<!-- <span class="focus-input100" data-placeholder="Email"></span> -->
 				</div>
 				<div class="wrap-input100 validate-input m-b-50" data-validate="Enter City">
-					<input class="input100" type="text" formControlName="City"  >
-					<span class="focus-input100" data-placeholder="City"></span>
+					<label  style="color: #AFB6A6; font-weight: bold;">City</label>
+					<input class="input100" type="text" formControlName="City" required >
+					<!-- <span class="focus-input100" data-placeholder="City"></span> -->
 				</div>
 				<div class="wrap-input100 validate-input m-b-50" data-validate="Enter password">
-					<input class="input100" type="password" formControlName="Password" >
-					<span class="focus-input100" data-placeholder="Password"></span>
+					<label  style="color: #AFB6A6; font-weight: bold;">Password</label>
+					<input class="input100" type="password" formControlName="Password" required>
+					<!-- <span class="focus-input100" data-placeholder="Password"></span> -->
+				</div>
+				<div class="wrap-input100 validate-input m-b-50" data-validate="Enter intake">
+					<label  style="color: #AFB6A6; font-weight: bold;">Intake</label>
+				
+					<input class="input100" type="number" formControlName="IntakeId"required >
+					<!-- <span class="focus-input100" data-placeholder="IntakeId"></span> -->
 				</div>
 				<div class="form-group">
-					<label  style="color: #AFB6A6; font-weight: bold;"for="exampleFormControlSelect2">Instructor Branch</label>
-					<select [(ngModel)]="val" style="border: 0px; outline: 0px;" style="border: 0px; outline: 0px;  border-bottom: 2px solid #CCCCCC;" formControlName="branchId"  class="input100" (ngModelChange)="selectChangeBranch($event)">
+					<label  style="color: #AFB6A6; font-weight: bold;"for="exampleFormControlSelect2"> Branch</label>
+					<select [(ngModel)]="val" style="border: 0px; outline: 0px;" style="border: 0px; outline: 0px;  border-bottom: 2px solid #CCCCCC;" formControlName="branchId"  class="input100" (ngModelChange)="selectChangeBranch($event)"required>
 					  <option *ngFor="let item of branches" [value]="item.id" >
 						{{item.name}}
 					  </option>
@@ -60,8 +70,8 @@
 					</select>
 				  </div>
 				  <div class="form-group">
-					<label style="color: #AFB6A6; font-weight: bold;" for="exampleFormControlSelect2">Instructor Track</label>
-					<select [(ngModel)]="val" style="border: 0px; outline: 0px;  border-bottom: 2px solid #CCCCCC;" formControlName="trackId"  class="input100" (ngModelChange)="selectChangeTrack($event)">
+					<label style="color: #AFB6A6; font-weight: bold;" for="exampleFormControlSelect2"> Track</label>
+					<select [(ngModel)]="val" style="border: 0px; outline: 0px;  border-bottom: 2px solid #CCCCCC;" formControlName="trackId"  class="input100" (ngModelChange)="selectChangeTrack($event)" required>
 					  <option *ngFor="let item of tracks" [value]="item.id" >
 						{{item.name}}
 					  </option>
