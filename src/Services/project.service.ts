@@ -43,6 +43,11 @@ export class ProjectService {
     return this.http.put<Project>(`https://localhost:44374/api/Project/Edit`,Project)
     .pipe( catchError( this.handleError ) )
   }
+
+  getAllProjects() {
+    return this.http.get<Project>('https://localhost:44374/api/selectProjects')
+    .pipe( catchError( this.handleError ) )
+  }
   DeleteProject(ProjectId:number) {
     // return this.http.delete<Project>(`${ProjectPaths.UpdateProject}/${ProjectId}`)
     return this.http.delete<Project>(`https://localhost:44374/api/Project/Delete/${ProjectId}`)
