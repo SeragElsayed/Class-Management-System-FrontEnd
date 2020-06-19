@@ -113,3 +113,23 @@ export const ProjectMaterialPaths={
   DownloadById:`${BaseURL}${ProjectMaterialActions.DownloadById}`,
   DeleteByFileName:`${BaseURL}${ProjectMaterialActions.DeleteByFileName}`,
  }
+
+ 
+ const IntakeActions = {
+  GetAllIntakes: 'api/Intake',
+  GetIntakeByIntakeId: 'api/Intake/Intake',
+  GetIntakeByBranchId: 'api/Intake',
+  AddIntake: 'api/Intake/Add',
+  UpdateIntake: 'api/Intake/Edit',
+  DeleteIntakeById: 'api/Intake/Delete',
+};
+
+export const IntakePaths={
+  //GetAllIntakes:`${BaseURL}${EndPoints.Intake}${IntakeActions.GetAllIntakes}`
+  GetAllIntakes:`${BaseURL}${IntakeActions.GetAllIntakes}`,
+  GetIntakeByIntakeId:`${BaseURL}${IntakeActions.GetIntakeByIntakeId}`,
+  GetIntakeByBranchId:`${BaseURL}${IntakeActions.GetIntakeByBranchId}`,
+  AddIntake:`${BaseURL}${IntakeActions.AddIntake}`,
+  UpdateIntake:`${BaseURL}${IntakeActions.UpdateIntake}`,
+  DeleteIntakeById:`${BaseURL}${IntakeActions.DeleteIntakeById}`,
+}
