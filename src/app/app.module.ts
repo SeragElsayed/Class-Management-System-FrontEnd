@@ -89,6 +89,8 @@ import { CreateProjectComponent } from './components/ProjectManagementComponents
 import { UpdateProjectComponent } from './components/ProjectManagementComponents/update-project/update-project.component';
 import { ExploreProjectsComponent } from './components/ProjectManagementComponents/explore-projects/explore-projects.component';
 import { PopularProjectComponent } from './popular-project/popular-project/popular-project.component';
+import { AddIntakeComponent } from './components/admindashboard/intake/add-intake/add-intake.component';
+import { AllIntakeComponent } from './components/admindashboard/intake/all-intake/all-intake.component';
 
 
 //for the require keyword
@@ -157,6 +159,8 @@ declare var require: any;
     CreateProjectComponent,
     UpdateProjectComponent,
     ExploreProjectsComponent,
+    AddIntakeComponent,
+    AllIntakeComponent,
 
   ],
   imports: [

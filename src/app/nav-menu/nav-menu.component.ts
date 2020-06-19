@@ -8,8 +8,10 @@ import { Component } from '@angular/core';
 export class NavMenuComponent {
   isExpanded = false;
 role;
+token;
 ngOnInit(): void {
   this.role=localStorage.getItem("role")
+  this.token=localStorage.getItem("token")
   console.log(this.role)
 }
 
@@ -19,5 +21,11 @@ ngOnInit(): void {
 
   toggle() {
     this.isExpanded = !this.isExpanded;
+  }
+  logout()
+  {
+    console.log("in the logout function")
+    localStorage.setItem('token','out')
+    localStorage.setItem("role",'out')
   }
 }
