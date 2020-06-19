@@ -18,7 +18,7 @@
           <li class="nav-item active">
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item" *ngIf="role==='Student'">
+          <li class="nav-item" >
             <a class="nav-link" [routerLink]="['/course']">Courses</a>
           </li>
           <li class="nav-item" *ngIf="role==='Student'">
@@ -26,7 +26,7 @@
           </li>
 
           <!---->
-          <li class="nav-item dropdown" *ngIf="role==='Student'">
+          <li class="nav-item dropdown" >
 
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
@@ -56,14 +56,16 @@
 
             <a class="nav-link" [routerLink]="['/admin/instructors']">Instructor</a>
           </li>
-          <li class="nav-item"  >
+          <li class="nav-item" *ngIf="role==='Admin'"  >
             <a class="nav-link" [routerLink]="['/admin/branches']">Branch</a>
           </li>
-          <li class="nav-item"  >
+          <li class="nav-item"  *ngIf="role==='Admin'" >
             <a class="nav-link" [routerLink]="['/admin/tracks']">Track</a>
           </li>
-
-
+       
+          <li class="nav-item"  *ngIf="role==='Admin'" >
+            <a class="nav-link" [routerLink]="['/admin/intake']">Intake</a>
+          </li>
                 <!-- <li class="nav-item">
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                  </li> -->
@@ -75,12 +77,12 @@
   
 
   <div class="col-lg-3 text-right auth">
-    <a [routerLink]="['/profile']" class=" mr-3" style="color: lightgrey;" *ngIf="role!='out'"><span class="auth icon-unlock-alt"></span>
+    <a [routerLink]="['/profile']" class=" mr-3" style="color: lightgrey;" *ngIf="token!='out'"><span class="auth icon-unlock-alt"></span>
       Profile</a>
-      <a  class=" mr-3" style="color: lightgrey;" (click)="logout()" style="cursor: pointer;"><span class="auth icon-unlock-alt"></span>
+      <a  class=" mr-3" style="color: lightgrey;" (click)="logout()" style="cursor: pointer;"*ngIf="token!='out'"><span class="auth icon-unlock-alt"></span>
         Logout</a>
     <a [routerLink]="['/login']" class="auth small mr-3" *ngIf="token==='out'"><span class="auth icon-unlock-alt"></span> Log In</a>
-    <a [routerLink]="['/register']" id="register" class="small btn px-4 py-2 rounded-1"><span class="icon-users"></span>
+    <a [routerLink]="['/register']" id="register" class="small btn px-4 py-2 rounded-1"*ngIf="token==='out'"><span class="icon-users"></span>
       Register</a>
   </div>
 

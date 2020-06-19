@@ -190,7 +190,7 @@ declare var require: any;
       { path: 'student/details', component: StudentDetailsComponent},
       { path: 'explore/courses', component: ExploreCoursesComponent },
       { path: 'explore/project', component: ExploreProjectsComponent },
-
+      { path: 'admin/intake', component: AllIntakeComponent },
       { path: 'course/details/:CourseId', component: CourseDetailsComponent },
       { path: 'admin/tracks', component: AllTracksComponent},
       { path: 'admin/branches', component: AllBranchComponent },
