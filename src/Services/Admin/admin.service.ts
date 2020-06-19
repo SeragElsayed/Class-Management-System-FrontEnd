@@ -54,4 +54,15 @@ export class AdminService {
     console.log("after the services func")
    return j;
   }
+  GetAllIntakes()
+
+  {
+    console.log("in intake");
+  
+    var j=this.http.get<any>("https://localhost:44374/api/admin/Intakes");
+    console.log(j);
+  
+    console.log("after the services func")
+   return j;
+  }
 }
