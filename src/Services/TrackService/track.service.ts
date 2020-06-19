@@ -32,6 +32,12 @@ getAll()
     .pipe( catchError( this.handleError ) )
   }
 
+  getByIntakeId(IntakeId:number) {
+    return this.http.get<any>(`https://localhost:44374/api/Intake/intakeid/${IntakeId}`)
+
+    .pipe( catchError( this.handleError ) )
+  }
+
   getTracksByBranchId(BranchId) {
     return this.http.get<any>(`${TrackPaths.GetTrackByBranchId}/${BranchId}`)
     .pipe( catchError( this.handleError ) )

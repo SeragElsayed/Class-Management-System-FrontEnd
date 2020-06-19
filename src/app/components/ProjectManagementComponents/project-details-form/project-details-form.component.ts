@@ -36,6 +36,7 @@ export class ProjectDetailsFormComponent implements OnInit {
       res=>{
         this.MyProject=res;
 
+        
       })
   }
 }
