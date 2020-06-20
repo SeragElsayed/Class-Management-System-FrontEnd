@@ -15,7 +15,7 @@
 
     <div>
       <label for="FilesCategory">Files Category</label>
-      <input type="text" class="form-control" id="FilesCategory" aria-describedby="FilesCategoryHelp"
+      <input type="text" formControlName="Category" class="form-control" id="FilesCategory" aria-describedby="FilesCategoryHelp"
         placeholder="Enter Files Category" />
       <small id="FilesCategoryHelp" class="form-text text-muted">Ex. videos, source code, documentation... etc</small>
 
@@ -53,9 +53,16 @@
 <br>
 <br>
 <br>
-<div class="row">
-  <div *ngFor="let mater of MyMaterial">
-    <app-projects-material-item [MyMaterial]="mater"></app-projects-material-item>
-    <button class="btn-danger">Delete</button>
+<div *ngIf="MyMaterial" class="d-flex flex-column">
+  <div *ngFor="let category of MaterialCategories">
+
+   <h3>{{category}}</h3>
+    <div *ngFor="let mater of MyMaterial">
+      <div *ngIf="mater.category===category">
+
+        <app-projects-material-item [MyMaterial]="mater"></app-projects-material-item>
+        <button class="btn-danger" (click)="OnDelete(mater)">Delete</button>
+      </div>
+    </div>
   </div>
 </div>
