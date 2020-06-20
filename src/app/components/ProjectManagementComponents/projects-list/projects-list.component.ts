@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Project } from 'src/Models/ProjectModel';
 import { ProjectService } from 'src/Services/project.service';
 import { Router } from '@angular/router';
+import { TrackService } from 'src/Services/TrackService/track.service';
 
 @Component({
   
@@ -31,7 +32,7 @@ export class ProjectsListComponent implements OnInit {
   
   
   tas(t){
-    this.MyProjectService.AddProjectByTrackId(t).subscribe(
+    this.MyProjectService.AddProjectByTrackId(t,1,1).subscribe(
       res=>{
         this.getProjectsByStudentId();
       }

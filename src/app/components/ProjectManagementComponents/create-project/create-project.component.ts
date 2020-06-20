@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { IntakeService } from 'src/Services/intake.service';
+import { TrackService } from 'src/Services/TrackService/track.service';
 
 
 @Component({
@@ -8,35 +10,74 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class CreateProjectComponent implements OnInit {
 
-  constructor() { }
+  constructor(private MyIntakeService:IntakeService,private MyTrackService:TrackService) { }
 
   ngOnInit(): void {
+    this.UserRole=localStorage.getItem("role")
+    if(this.UserRole=="instructor"){
+      this.getAllIntakes();
+      this.getAllTracks();
+    }
+    
   }
 
-SelectedOption
+  SelectedTrack;
 
+  SelectedIntake;
+
+  Intakes;
+  
+  Tracks;
+
+  project;
+    
+  UserRole;
 
 @Output() myEvent=new EventEmitter()
 
+getAllIntakes(){
 
+  this.MyIntakeService.getAll().subscribe(
+    res=>{
+      this.Intakes=res;
+      console.log("allintakes",res)
+
+    }
+  );
+}
+getAllTracks(){
+  this.MyTrackService.getAll().subscribe(
+    res=>{
+      this.Tracks=res;
+      console.log("alltracks",res)
+    }
+  )
+}
  add(ProjectName,ProjectDescription){
-   let project={
+   if(this.UserRole)
+    this.project={
      ProjectName,
-     ProjectDescription
+     ProjectDescription,
+     TrackId:this.SelectedTrack.TrackId,
+     IntakeId:this.SelectedIntake.IntakeId,
+    }
+    else
+    this.project={
+      ProjectName,
+      ProjectDescription,}
 
-   }
-   this.myEvent.emit(project)
+   this.myEvent.emit(this.project)
  }
-  selectedLevel;
-    
-      data= [
-          {id: 0, name: "SD"},
-          {id: 1, name: "UI"},
-          {id: 2, name: "MOBILE"}
-      ];
-    
-      selected($event){
+  
+      OnSelectIntake($event){
         console.log($event.target.value);
+        this.SelectedIntake=$event.target.value
+      }
+
+      OnSelectTrack($event){
+        console.log($event.target.value);
+        this.SelectedTrack=$event.target.value
+
       }
 
   
