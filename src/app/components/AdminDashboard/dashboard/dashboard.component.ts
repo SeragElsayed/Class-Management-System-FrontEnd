@@ -77,6 +77,23 @@ getallinstructors()
       }
   )
 }
+//get all projects
+getallprojects()
+{
+  this.admin.GetAllprojects().subscribe(
+    res=>{
+      console.log("in response")
+      console.log(res)
+
+  this.Projects=res;
+      }
+      ,
+      err=>{
+        console.log("in error")
+        console.log(err)
+      }
+  )
+}
 //get all coursess
 getallcourses()
 {

@@ -8,15 +8,15 @@ export class IntakeServiceService {
   constructor(private http: HttpClient) { }
   getAll() {
     console.log("get all services")
-    return this.http.get<any>("https://localhost:44374/")//http://localhots:8080/api/branches
+    return this.http.get<any>("https://localhost:44374/api/Intake")//http://localhots:8080/api/branches
   
   }
 addintake(intake)
 {
-  return this.http.post<any>("https://localhost:44374/",intake);
+  return this.http.post<any>("https://localhost:44374/api/Intake/Add",intake);
 }
 deleteintake(id)
 {
-  return this.http.get<any>("https://localhost:44374/",id)
+  return this.http.get<any>(`https://localhost:44374/api/Intake/Delete/${id}`)
 }
 }

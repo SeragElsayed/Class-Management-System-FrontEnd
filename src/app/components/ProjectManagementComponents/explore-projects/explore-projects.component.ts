@@ -49,15 +49,15 @@ export class ExploreProjectsComponent implements OnInit {
     // console.log(id);
     // console.log(this.trackId);
     console.log("intake",this.intakeId);
-    this.member.getProjectCollaboratorByProjectId(this.projectModelId)
-    .subscribe(
-      res=>{
-        console.log("members",res)
-        // this.MyProject=res;
-        // console.log(this.MyProject)
-      }
-    )
-    ,
+    // this.member.getProjectCollaboratorByProjectId(this.projectModelId)
+    // .subscribe(
+    //   res=>{
+    //     console.log("members",res)
+    //     // this.MyProject=res;
+    //     // console.log(this.MyProject)
+    //   }
+    // )
+    //,
 
 
     this.track.getByTrackId(this.trackId)
