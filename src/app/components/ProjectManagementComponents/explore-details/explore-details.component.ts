@@ -9,24 +9,27 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./explore-details.component.css']
 })
 export class ExploreDetailsComponent implements OnInit {
-  MyProject:Project;
-  httMyProject:Project;
+  MyProject;
+  // httMyProject:Project;
   ProjectId:number;
 
   constructor(private MyProjectService:ProjectService,private RouteProjectId:ActivatedRoute) { }
 
   ngOnInit(): void {
+    
+    this.RouteProjectId.params.subscribe(params=>{
+      this.ProjectId=Number.parseInt(params["ProjectId"])
+    })
+
     this.getProject();
     
   }
   getProject(){
 
-    this.RouteProjectId.params.subscribe(params=>{
-      this.ProjectId=Number.parseInt(params["ProjectId"])
-    })
-
+console.log(this.ProjectId)
     this.MyProjectService.getProjectProjectId(this.ProjectId).subscribe(
       res=>{
+        console.log(res,"explore details response")
         this.MyProject=res;
 
         

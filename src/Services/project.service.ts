@@ -32,10 +32,10 @@ export class ProjectService {
     .pipe( catchError( this.handleError ) )
   }
 
-  AddProjectByTrackId(Project) {
+  AddProjectByTrackId(Project,TrackId,IntakeId) {
     //return this.http.post<Project>(`${ProjectPaths.AddProjectByTrackId}`,Project)
     
-    return this.http.post<Project>(`https://localhost:44374/api/Project/Add/1`,Project)
+    return this.http.post<Project>(`https://localhost:44374/api/Project/Add/${TrackId}/${IntakeId}`,Project)
     .pipe( catchError( this.handleError ) )
   }
   UpdateProject(Project:Project) {
@@ -45,7 +45,7 @@ export class ProjectService {
   }
 
   getAllProjects() {
-    return this.http.get<Project>('https://localhost:44374/api/selectProjects')
+    return this.http.get('https://localhost:44374/api/selectProjects')
     .pipe( catchError( this.handleError ) )
   }
   DeleteProject(ProjectId:number) {

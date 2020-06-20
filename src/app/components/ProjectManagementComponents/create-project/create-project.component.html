@@ -8,33 +8,50 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body mx-3" >
+      <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <i class=" prefix grey-text"></i>
-          <label data-error="wrong" data-success="right" >Project Name</label>
-          <input type="text" #ProjectName  class="form-control validate" >
+          <label data-error="wrong" data-success="right">Project Name</label>
+          <input type="text" #ProjectName class="form-control validate">
         </div>
 
         <div class="md-form mb-5">
-            <i class=" prefix grey-text"></i>
-            <label data-error="wrong" data-success="right" >Description</label>
-  
-            <input type="text" #ProjectDescription  class="form-control validate">
-          </div>
-<div class="md-form mb-5">
-    <label data-error="wrong" data-success="right" >Track Name</label>
-    
-          <select [(ngModel)]="SelectedOption"  (change)="selected($event)" class="form-control m-b-10">
-            <option *ngFor="let item of data" [value]="item.name"  >{{item.name}}</option>
-          </select>
-        </div>
-  
+          <i class=" prefix grey-text"></i>
+          <label data-error="wrong" data-success="right">Description</label>
 
-        
+          <input type="text" #ProjectDescription class="form-control validate">
+        </div>
+
+        <div *ngIf="UserRole==instructor">
+
+          <div class="md-form mb-5">
+            <label data-error="wrong" data-success="right">Track Name</label>
+            
+            <select [(ngModel)]="SelectedTrack" (change)="OnSelectTrack($event)" class="form-control m-b-10">
+              <option *ngFor="let Track of Tracks" [value]="Track.trackId">{{Track.trackName}}</option>
+            </select>
+          </div>
+          
+          <div class="md-form mb-5">
+            <label data-error="wrong" data-success="right">Intake</label>
+            
+            <select [(ngModel)]="SelectedIntake" (change)="OnSelectIntake($event)" class="form-control m-b-10">
+              <option *ngFor="let Intake of Intakes" [value]="Intake.IntakeId">{{Intake.IntakeName}}</option>
+            </select>
+          </div>
+        </div>
+
+
+        <div *ngIf="UserRole==Student">
+          
+
+        </div>
+
 
       </div>
       <div class="modal-footer d-flex justify-content-center">
-        <button data-toggle="modal" data-target="#modalLoginForm" class="btn btn-outline-primary" (click)="add(ProjectName.value,ProjectDescription.value)">ADD</button>
+        <button data-toggle="modal" data-target="#modalLoginForm" class="btn btn-outline-primary"
+          (click)="add(ProjectName.value,ProjectDescription.value)">ADD</button>
       </div>
     </div>
   </div>

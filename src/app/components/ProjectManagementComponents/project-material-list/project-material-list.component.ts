@@ -12,10 +12,12 @@ import { ProjectMaterial } from 'src/Models/ProjectMaterialModel';
 export class ProjectMaterialListComponent implements OnInit {
 
   MyMaterial:ProjectMaterial[];
+  MaterialCategories=new Array();
 
   ProjectId:number;
   
   selectedFile=new Array();
+  Category
   
   FilesNamesString;
 private ProjectMaterial: FormGroup;
@@ -26,12 +28,14 @@ private ProjectMaterial: FormGroup;
 
   ngOnInit(): void {
     this.ProjectMaterial = new FormGroup({
-      MaterialFiles: new FormControl(null)
+      MaterialFiles: new FormControl(null),
+      Category: new FormControl(null)
     });
 
-    this.RouteProjectId.params.subscribe(params=>{
-      this.ProjectId=Number.parseInt(params["ProjectId"])
-    })
+    this.getProjectIdFromUrl();
+    this.getMaterial();
+   
+
   }
 
   onSelectFile(event) {
@@ -48,18 +52,62 @@ private ProjectMaterial: FormGroup;
 
   onSubmit(data) {
     
-    if(this.selectedFile==null)
+    this.Category=data.Category
+    
+    if(this.selectedFile==null || this.Category==null )
     return
 
-     this.ProjMatService.UploadMaterialByProjectId(this.ProjectId,this.selectedFile).subscribe(
+
+     this.ProjMatService.UploadMaterialByProjectId(this.ProjectId,this.selectedFile,this.Category).subscribe(
       res => {
-        this.MyMaterial=res;
-        console.log(this.MyMaterial,"material from material list")
+        this.MyMaterial.push(res[0]);
+        this.MaterialCategories=[];
+        this.getMaterial();
           alert('Uploaded!!');
+
         })
    
     this.ProjectMaterial.reset();
     this.selectedFile=null;
     this.FilesNamesString=null;
   }
+
+  OnDelete(material){
+    this.ProjMatService.DeleteByMaterialId(material.projectMaterialModelId,this.ProjectId).subscribe(
+      res=>{
+        const index = this.MyMaterial.indexOf(material);
+        if (index > -1) {
+          this.MyMaterial.splice(index, 1);
+        }
+
+        const indexc = this.MaterialCategories.indexOf(material.category);
+        if (indexc > -1) {
+          this.MaterialCategories.splice(indexc, 1);
+       }
+         
+      }
+    )
+  }
+
+  getMaterial(){
+    this.ProjMatService.GetProjectMaterialByProjectId(this.ProjectId).subscribe(
+      res=>{
+        
+        res.forEach(element => {
+          // debugger
+          if(this.MaterialCategories.indexOf(element.category)==-1)
+          this.MaterialCategories.push (element["category"])
+        });
+        this.MyMaterial=res;
+        console.log(res,this.MaterialCategories,"materrrrrrrrrrial by project id")
+      }
+    )
+  }
+  getProjectIdFromUrl(){
+
+    this.RouteProjectId.params.subscribe(params=>{
+      this.ProjectId=Number.parseInt(params["ProjectId"])
+    })
+  }
+
 }
