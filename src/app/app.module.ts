@@ -209,7 +209,7 @@ declare var require: any;
       { path: 'Project/Details/:ProjectId', component: ProjectDetailsComponent },
 
       { path: 'course/details', component: CourseDetailsComponent },
-      { path: 'explore/project/details', component: ExploreDetailsComponent },
+      { path: 'explore/project/details/:ProjectId', component: ExploreDetailsComponent },
 
       
 

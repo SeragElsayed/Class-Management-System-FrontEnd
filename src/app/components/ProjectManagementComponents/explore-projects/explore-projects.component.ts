@@ -19,7 +19,7 @@ export class ExploreProjectsComponent implements OnInit {
   trackId:number
   intakeId:number
   constructor(private services: ProjectService, private router: Router,private member:ProjectManagementService,private track:TrackService) { }
-  MyProjects: Project;
+  MyProjects;
 
   ngOnInit(): void {
     //  console.log( this.getAllProjects());
@@ -42,6 +42,7 @@ export class ExploreProjectsComponent implements OnInit {
     )
   }
   getID(projId:number ,id: number,Intake:number) {
+    this.router.navigate([`explore/project/details/${projId}`])
     
     this.projectModelId = projId;
     this.trackId = id;
@@ -49,7 +50,7 @@ export class ExploreProjectsComponent implements OnInit {
     // console.log(id);
     // console.log(this.trackId);
     console.log("intake",this.intakeId);
-    this.member.getProjectCollaboratorByProjectId(this.projectModelId)
+    this.member.getProjectCollaboratorByProjectIdAndProjectId(this.projectModelId)
     .subscribe(
       res=>{
         console.log("members",res)

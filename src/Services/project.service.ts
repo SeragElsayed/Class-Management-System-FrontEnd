@@ -45,7 +45,7 @@ export class ProjectService {
   }
 
   getAllProjects() {
-    return this.http.get<Project>('https://localhost:44374/api/selectProjects')
+    return this.http.get('https://localhost:44374/api/selectProjects')
     .pipe( catchError( this.handleError ) )
   }
   DeleteProject(ProjectId:number) {
