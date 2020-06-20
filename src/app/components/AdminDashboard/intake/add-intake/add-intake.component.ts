@@ -22,7 +22,7 @@ export class AddIntakeComponent implements OnInit {
     onSubmit(data) {
       console.log("in the submiit func")
           const formData = new FormData();
-          console.log(data.TrackName)
+          console.log(data.IntakeName)
           formData.append('IntakeName', data.IntakeName);
        
   
@@ -32,7 +32,7 @@ export class AddIntakeComponent implements OnInit {
      
            this.closebutton.nativeElement.click();
            this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-            this.router.navigateByUrl('/admin/tracks')
+            this.router.navigateByUrl('/admin/intake')
         });
           },
             err=>{

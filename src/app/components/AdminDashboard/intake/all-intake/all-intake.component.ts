@@ -12,6 +12,7 @@ export class AllIntakeComponent implements OnInit {
   constructor(private intake:IntakeServiceService,private router:Router) { }
 
   ngOnInit(): void {
+   this.GetAllIntakes();
   }
   intakes:Intake[];
   deleteTrack(i)
@@ -36,7 +37,7 @@ export class AllIntakeComponent implements OnInit {
     )}
 
 
-    GetAllTracks()
+    GetAllIntakes()
     {
       this.intake.getAll().subscribe(
         res=>{
