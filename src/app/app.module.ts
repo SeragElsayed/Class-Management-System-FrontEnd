@@ -94,6 +94,7 @@ import { ExploreDetailsComponent } from './components/ProjectManagementComponent
 import { PopularProjectComponent } from './popular-project/popular-project/popular-project.component';
 import { AddIntakeComponent } from './components/admindashboard/intake/add-intake/add-intake.component';
 import { AllIntakeComponent } from './components/admindashboard/intake/all-intake/all-intake.component';
+import { UpdateCourseComponent } from './update-course/update-course.component';
 
 
 
@@ -168,6 +169,7 @@ declare var require: any;
 
     AddIntakeComponent,
     AllIntakeComponent,
+    UpdateCourseComponent,
 
   ],
   imports: [

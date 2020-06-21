@@ -1,42 +1,44 @@
 <div *ngIf="MyProject">
   <!-- <div *ngIf="MyProject | async"> -->
 
-<div >
+  <div>
 
-  <label for="ProjectName">Project Name:</label>
-        <input id="ProjectName" class="form-control" type="text"  placeholder="{{MyProject.projectName}} " readonly>
-<br>
-<br>
+    <label for="ProjectName">Project Name:</label>
+    <input id="ProjectName" class="form-control" type="text" placeholder="{{MyProject.projectName}} " readonly>
+    <br>
+    <br>
 
-        
-<label for="ProjectDescription">Project Description:</label>
 
-        
-<input id="projectDescription" class="form-control" type="text"  placeholder="{{MyProject.projectDescription}} " readonly>
+    <label for="ProjectDescription">Project Description:</label>
 
-<br>
-<br>
 
-        
-<label for="ProjectDescription">Track:</label>
+    <input id="projectDescription" class="form-control" type="text" placeholder="{{MyProject.projectDescription}} "
+      readonly>
 
-        
-<input id="projectDescription" class="form-control" type="text"  placeholder="{{MyProject.projectDescription}} " readonly>
-<br>
-<br>
+    <br>
+    <br>
 
-        
-<label for="ProjectDescription">Intake:</label>
 
-        
-<input id="projectDescription" class="form-control" type="text"  placeholder="{{MyProject.projectDescription}} " readonly>
+    <label for="ProjectDescription">Track:</label>
+
+
+    <input id="projectDescription" class="form-control" type="text" placeholder="{{MyProject.projectDescription}} "
+      readonly>
+    <br>
+    <br>
+
+
+    <label for="ProjectDescription">Intake:</label>
+
+
+    <input id="projectDescription" class="form-control" type="text" placeholder="{{MyProject.projectDescription}} "
+      readonly>
 
 
   </div>
   <br>
   <br>
-  
+
 </div>
 
-  <app-update-project [MyProject]="MyProject"></app-update-project>
-
+<app-update-project [MyProject]="MyProject"></app-update-project>

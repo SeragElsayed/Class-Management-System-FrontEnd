@@ -1,48 +1,22 @@
 <!-- <div class="col-lg-5 ml-auto align-self-center"> -->
-    <div class="center border border-success p-5" >
-        <h2 class="section-title-underline mb-5 text-center">
-                                <span> Material</span>
-                            </h2>
-    
-            <div class="row justify-content-center">
-                <div class="col-mb-5">
-                    <div class="row">
-    
-                        <div class="col-md-12 form-group">
-          <div  *ngFor="let item of path ; let i =index" >
-            <i class="fa fa-download" aria-hidden="true"></i>
-            <a  >
-                <p (click)="download(i)">{{item.name}}</p>
-              </a>
-          </div>
-         
+<div class="center border border-success p-5">
+    <h2 class="section-title-underline mb-5 text-center">
+        <span> Material</span>
+    </h2>
 
-
-         
-<!-- 
-                            "G:\Ereny karam Noshy Cover Letter.pdf"  -->
-                            <!-- <label for="CourseName">Student Name</label> -->
-                            <!-- *ngFor="let p of matrial_pdf"  -->
-                            <!-- <div  class="form-control form-control-lg "  >
-                                <i class="fa fa-home" ></i> {{p.name}}
-                                
-                            </div> -->
-                          </div>
-    
-                       
-                   
-    
-    
-                          
-                          
-    
-                         
-                          
-                         
-    
+    <div class="row justify-content-center">
+        <div class="col-mb-5">
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <app-add-material></app-add-material>
+                    <div *ngFor="let item of path ; let i =index">
+                        <i class="fa fa-download" aria-hidden="true"></i>
+                        <a>
+                            <p (click)="download(i)">{{item.name}}</p>
+                        </a>
                     </div>
-                   
                 </div>
             </div>
-            
         </div>
+    </div>
+</div>
