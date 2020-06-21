@@ -20,6 +20,7 @@ constructor(private router:Router,private admin:AdminService) { }
     this.getallcourses();
     this.getallinstructors();
     this.getalltracks();
+    this.getallprojects();
   }
   //variable to carru data 
   branches;
@@ -82,14 +83,14 @@ getallprojects()
 {
   this.admin.GetAllprojects().subscribe(
     res=>{
-      console.log("in response")
+      console.log("in response project")
       console.log(res)
 
   this.Projects=res;
       }
       ,
       err=>{
-        console.log("in error")
+        console.log("in error project")
         console.log(err)
       }
   )
@@ -99,13 +100,13 @@ getallcourses()
 {
   this.admin.GetAllCourses().subscribe(
     res=>{
-      console.log("in response")
+      console.log("in response couses")
       console.log(res)
      this.courses=res;
       }
       ,
       err=>{
-        console.log("in error")
+        console.log("in error courses")
         console.log(err)
       }
   )
