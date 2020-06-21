@@ -44,7 +44,7 @@ private ProjectMaterial: FormGroup;
     return
 
     for(let i=0 ; i < event.target.files.length ; i++){
-      this.FilesNamesString+=`${event.target.files[i].name}...`;
+      this.FilesNamesString+=`${event.target.files[i].name}`;
       this.selectedFile.push(event.target.files[i]);
      }
  
