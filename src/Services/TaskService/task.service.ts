@@ -19,28 +19,28 @@ export class TaskService {
 
    }
 
-  getAll() {
-    return this.http.get<Task[]>(TaskPaths.GetAllTasks)
+  getAll(CourseId:number) {
+    return this.http.get<Task[]>(`https://localhost:44374/api/course/tasks/all/${CourseId}`)
     .pipe( catchError( this.handleError ) )
   }
 
   getById(TaskId:number) {
-    return this.http.get<Task>(`${TaskPaths.GetAllTasks}/${TaskId}`)
+    return this.http.get<Task>(`https://localhost:44374/api/course/tasks/${TaskId}`)
     .pipe( catchError( this.handleError ) )
   }
 
   DeleteById(TaskId:number) {
-    return this.http.delete(`${TaskPaths.GetAllTasks}/${TaskId}`)
+    return this.http.delete(`api/course/deletetask/${TaskId}`)
     .pipe( catchError( this.handleError ) )
   }
 
   UpdateById(Task:Task) {
-    return this.http.put<Task>(`${TaskPaths.GetAllTasks}/${Task.TaskId}`,Task)
+    return this.http.put<Task>(`api/course/edittask/${Task.TaskId}`,Task)
     .pipe( catchError( this.handleError ) )
   }
 
   AddTask(Task:Task) {
-    return this.http.post<Task>(`${TaskPaths.AddTask}`,Task)
+    return this.http.post<Task>(`api/course/AddTask/${Task.CourseId}`,Task)
     .pipe( catchError( this.handleError ) )
   }
 

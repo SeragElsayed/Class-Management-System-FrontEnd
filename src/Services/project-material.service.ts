@@ -15,7 +15,7 @@ export class ProjectMaterialService {
   UploadMaterialByProjectId(ProjectId:number,files,Category) {
     const fd=new FormData();
     for(let i =0; i < files.length; i++){
-      fd.append("uploads[]", files[0], files[0]['name']);
+      fd.append("uploads[]", files[i], files[i]['name']);
     }
     return this.http.post<ProjectMaterial[]>(`https://localhost:44374/api/ProjectMaterial/Upload/${ProjectId}/${Category}`,fd)
     // return this.http.post<ProjectMaterial[]>(`${ProjectMaterialPaths.UploadByProjectById}/${ProjectId}`,Files)
@@ -24,7 +24,7 @@ export class ProjectMaterialService {
 
   DownloadMaterialById(MaterialId:number) {
     // return this.http.get<any>(`${ProjectMaterialPaths.UploadByProjectById}/${MaterialId}`)
-    return this.http.get<Blob>(`https://localhost:44374/api/ProjectMaterial/Download/Id/${MaterialId}`)
+    return this.http.get(`https://localhost:44374/api/ProjectMaterial/Download/Id/${MaterialId}`)
     .pipe( catchError( this.handleError ) )
   }
 

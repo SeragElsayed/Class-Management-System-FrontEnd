@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-
+import { FileSaverModule } from 'ngx-filesaver';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
@@ -193,7 +193,7 @@ declare var require: any;
       { path: 'course/student', component: MangeStudentComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'contact', component: ContactComponent },
-      { path: 'Task/Add', component: AddTaskFormComponent },
+      { path: 'Task/Add/:CourseId', component: AddTaskFormComponent },
       { path: 'Task/Edit/:TaskId', component: EditTaskFormComponent },
       { path: 'admin', component:DashboardComponent},
       { path: 'student/details', component: StudentDetailsComponent},
@@ -221,7 +221,8 @@ declare var require: any;
   
 
     ]),
-    NgbModule
+    NgbModule,
+    FileSaverModule 
   ],
   providers: [
     AuthenticationService,
