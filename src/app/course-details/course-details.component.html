@@ -8,8 +8,6 @@
         </div>
     </div>
 </div>
-
-
 <div class="custom-breadcrumns border-bottom">
     <div class="container">
         <a href="index.html">Home</a>
@@ -19,7 +17,6 @@
         <span class="current">Details </span>
     </div>
 </div>
-
 <div class="site-section">
     <div class="container">
         <div class="row">
@@ -27,43 +24,31 @@
                 <p>
                     <img src="../../assets/images/course_5.jpg" alt="Image" class="img-fluid">
                 </p>
-
             </div>
             <div class="col-lg-5 ml-auto align-self-center">
-
-                <app-add-material></app-add-material>
-
-                <!-- <h2 class="section-title-underline mb-5">
-                            <span>Course Details</span>
-                        </h2> -->
-
                 <p *ngIf="MyCourse"><strong class="text-black d-block">Course Name:</strong>{{MyCourse.courseName}}</p>
                 <p *ngIf="MyCourse"><strong class="text-black d-block">Description:</strong>{{MyCourse.description}}</p>
-                <p *ngIf="MyCourse"><strong class="text-black d-block">Enrollment key:</strong>{{MyCourse.enrollmentKey}}</p>
-                <p *ngIf="MyCourse"><strong class="text-black d-block">Course duration:</strong>{{MyCourse.intervalInDays}}</p>
-     
-                <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At itaque dolore libero corrupti! Itaque, delectus?</p>
-                        <p>Modi sit dolor repellat esse! Sed necessitatibus itaque libero odit placeat nesciunt, voluptatum totam facere.</p>
-     -->
-
-
+                <p *ngIf="MyCourse"><strong class="text-black d-block">Enrollment
+                        key:</strong>{{MyCourse.enrollmentKey}}</p>
+                <p *ngIf="MyCourse"><strong class="text-black d-block">Course
+                        duration:</strong>{{MyCourse.intervalInDays}}</p>
+                <app-update-course [MyCourse]="MyCourse"></app-update-course>
             </div>
         </div>
     </div>
 </div>
 
 <div class=" container">
-        <div class="row">
-            <div class="w-50 h-50">
-                <p>
-                    <app-submit-task></app-submit-task>
-                </p>
-            </div>
-            <div class="  w-50 h-50">
+    <div class="row">
+        <div class="w-50 h-50">
+            <p>
+                <app-submit-task></app-submit-task>
+            </p>
+        </div>
+        <div class="  w-50 h-50">
             <p>
                 <app-matrial-box></app-matrial-box>
             </p>
-       
         </div>
     </div>
 </div>
