@@ -37,11 +37,13 @@ console.log("in the submiit func")
    this.Auth.loginUser(formData).subscribe(
      res=>{
        console.log("in th response func");
-    console.log(res.token);
+    console.log(res.userrole);
     localStorage.setItem('token',res.token)
     console.log("the token ",res.token)
  console.log( this.Auth.getToken())
-
+//call get function
+this.Auth.get(res.userrole)
+//////////////
  localStorage.setItem("role",res.userrole)
  console.log(localStorage.getItem("role"))
  this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
