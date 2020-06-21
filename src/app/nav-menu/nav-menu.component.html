@@ -16,11 +16,11 @@
           <li class="nav-item active">
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item" >
+          <li class="nav-item" *ngIf="role==='Student'">
             <a class="nav-link" [routerLink]="['/course']">Courses</a>
           </li>
           <!-- <li class="nav-item" [show]="isLoggedIn" *ngIf="role==='Student'"> -->
-            <li class="nav-item" >
+            <li class="nav-item" *ngIf="role==='Student'">
             <a class="nav-link" [routerLink]="['/Project']">Projects</a>
           </li>
 
@@ -76,12 +76,12 @@
   
 
   <div class="col-lg-3 text-right auth">
-    <a [routerLink]="['/profile']" class=" mr-3" style="color: lightgrey;" *ngIf="token!='out'"><span class="auth icon-unlock-alt"></span>
+    <a [routerLink]="['/profile']" class=" mr-3" style="color: lightgrey;" *ngIf="role!='out'"><span class="auth icon-unlock-alt"></span>
       Profile</a>
-      <a  class=" mr-3" style="color: lightgrey;" (click)="logout()" style="cursor: pointer;"*ngIf="token!='out'"><span class="auth icon-unlock-alt"></span>
+      <a  class=" mr-3" style="color: lightgrey;" (click)="logout()" style="cursor: pointer;"*ngIf="role!='out'"><span class="auth icon-unlock-alt"></span>
         Logout</a>
-    <a [routerLink]="['/login']" class="auth small mr-3" *ngIf="token==='out'"><span class="auth icon-unlock-alt"></span> Log In</a>
-    <a [routerLink]="['/register']" id="register" class="small btn px-4 py-2 rounded-1"*ngIf="token==='out'"><span class="icon-users"></span>
+    <a [routerLink]="['/login']" class="auth small mr-3" *ngIf="role==='out'"><span class="auth icon-unlock-alt"></span> Log In</a>
+    <a [routerLink]="['/register']" id="register" class="small btn px-4 py-2 rounded-1"*ngIf="role==='out'"><span class="icon-users"></span>
       Register</a>
   </div>
 
