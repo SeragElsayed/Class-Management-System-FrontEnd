@@ -12,14 +12,14 @@
     </div>
   </div> -->
 <!------------------------->
-<div class="card" style="width: 18rem;">
+<div class="card" style="width: 18rem;  margin:5px; background-color: whitesmoke;">
   <div class="card-body">
-    <h5 class="card-title">{{MyProject.projectName}}</h5>
+    <h5 class="card-title" style="color:darkblue;">{{MyProject.projectName}}</h5>
     <hr/>
     <h6 class="card-subtitle mb-2 text-muted"></h6>
     <p class="card-text">{{MyProject.projectDescription}}</p>
-    <a class="card-link" style="cursor: pointer; color: darkblue;" (click)="OnClickDetails()">Details</a>
-    <a class="card-link" style="cursor: pointer; color:red;" (click)="OnClickDelete()">Delete</a>
+    <a class="card-link" style="cursor: pointer; " (click)="OnClickDetails()"><i class="fa fa-pencil-square-o" aria-hidden="true" style="color: green;"></i></a>
+    <a class="card-link" style="cursor: pointer;" (click)="OnClickDelete()"><i class="fa fa-trash" aria-hidden="true" style="color: red;"></i></a>
    <!-- na2es ngif the user is owner -->
   </div>
 </div>

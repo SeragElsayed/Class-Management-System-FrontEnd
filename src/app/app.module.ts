@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-
+import { FileSaverModule } from 'ngx-filesaver';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
@@ -94,7 +94,11 @@ import { ExploreDetailsComponent } from './components/ProjectManagementComponent
 import { PopularProjectComponent } from './popular-project/popular-project/popular-project.component';
 import { AddIntakeComponent } from './components/admindashboard/intake/add-intake/add-intake.component';
 import { AllIntakeComponent } from './components/admindashboard/intake/all-intake/all-intake.component';
+
 import { ExploreTeamsComponent } from './components/ProjectManagementComponents/explore-teams/explore-teams.component';
+
+import { UpdateCourseComponent } from './update-course/update-course.component';
+
 
 
 
@@ -169,7 +173,10 @@ declare var require: any;
 
     AddIntakeComponent,
     AllIntakeComponent,
+
     ExploreTeamsComponent,
+
+
 
   ],
   imports: [
@@ -193,7 +200,7 @@ declare var require: any;
       { path: 'course/student', component: MangeStudentComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'contact', component: ContactComponent },
-      { path: 'Task/Add', component: AddTaskFormComponent },
+      { path: 'Task/Add/:CourseId', component: AddTaskFormComponent },
       { path: 'Task/Edit/:TaskId', component: EditTaskFormComponent },
       { path: 'admin', component:DashboardComponent},
       { path: 'student/details', component: StudentDetailsComponent},
@@ -221,7 +228,8 @@ declare var require: any;
   
 
     ]),
-    NgbModule
+    NgbModule,
+    FileSaverModule 
   ],
   providers: [
     AuthenticationService,

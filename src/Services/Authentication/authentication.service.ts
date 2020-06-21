@@ -1,13 +1,22 @@
 import { Injectable } from '@angular/core';
 import {HttpClient,HttpInterceptor} from '@angular/common/http';
-
+import { Observable, Subject } from 'rxjs';
+import {BehaviorSubject} from 'rxjs';
 // const jwt = require('jsonwebtoken');
 @Injectable({
   providedIn: 'root'
 })
-export class AuthenticationService  {
-  private _config: { [key: string]: string };
 
+
+
+
+export class AuthenticationService  {
+  //for role part
+  public role = new BehaviorSubject('role');
+  //////////////////////////
+  private _config: { [key: string]: string };
+  private _userDetails: Subject<any> = new Subject<any>();    // consider putting the actual type of the data you will receive
+  public userDetailsObs = this._userDetails.asObservable();
   constructor(private http:HttpClient) {
 
     this._config = { 
@@ -68,7 +77,22 @@ registerUser(user)
 //to get token 
 getToken()
 {
+
  return localStorage.getItem('token');
+}
+// to get role 
+//to get token 
+getRole()
+{
+  console.log("role")
+  this._userDetails.next(localStorage.getItem("role"))
+  
+ return localStorage.getItem("role");
+}
+get(userrole)
+{
+  this.role.next(userrole);
+  // return this._userDetails.asObservable();
 }
 //to verify token 
 verifyToken(req,res,next){

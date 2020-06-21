@@ -53,6 +53,9 @@ console.log("in the submiit func")
   console.log(FormData,"hdddddddddddddddddddddddddd");
     this.Auth.registerUser(formData).subscribe(
       res=>{
+        //call get function
+this.Auth.get(res.userrole)
+//////////////
       console.log("in th res func");
      console.log(res);
      localStorage.setItem('token',res.token)

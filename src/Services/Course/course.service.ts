@@ -69,12 +69,16 @@ export class CourseService {
   }
 
   updateCourse(course:Course) {
-    return this.http.put<Course>(`https://localhost:44374/api/Course/Edit/${course.CourseId}`,course)
+    console.log("service course id to be edited",course.CourseId)
+
+    return this.http.put<Course>(`https://localhost:44374/api/Course/Edit`,course)
   }
 
 
 
-  populateForm(course) {
-    // this.form.setValue(_.omit(course, 'departmentName'));
-  }
+
+
+  // populateForm(course) {
+  //   // this.form.setValue(_.omit(course, 'departmentName'));
+  // }
 }
