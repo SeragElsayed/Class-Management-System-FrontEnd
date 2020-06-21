@@ -49,7 +49,7 @@ export class ExploreProjectsComponent implements OnInit {
     // console.log(id);
     // console.log(this.trackId);
     console.log("intake",this.intakeId);
-    this.member.getProjectCollaboratorByProjectId(this.projectModelId)
+    this.member.getProjectCollaboratorByProjectIdAndProjectId(this.projectModelId)
     .subscribe(
       res=>{
         console.log("members",res)

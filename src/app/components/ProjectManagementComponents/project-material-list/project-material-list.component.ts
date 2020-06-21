@@ -40,7 +40,7 @@ private ProjectMaterial: FormGroup;
 
   onSelectFile(event) {
 
-    if(this.selectedFile==null)
+    if(event.target.files.length<1)
     return
 
     for(let i=0 ; i < event.target.files.length ; i++){
@@ -68,8 +68,8 @@ private ProjectMaterial: FormGroup;
         })
    
     this.ProjectMaterial.reset();
-    this.selectedFile=null;
-    this.FilesNamesString=null;
+    this.selectedFile=new Array();
+    this.FilesNamesString="";
   }
 
   OnDelete(material){
@@ -80,11 +80,6 @@ private ProjectMaterial: FormGroup;
           this.MyMaterial.splice(index, 1);
         }
 
-        const indexc = this.MaterialCategories.indexOf(material.category);
-        if (indexc > -1) {
-          this.MaterialCategories.splice(indexc, 1);
-       }
-         
       }
     )
   }
