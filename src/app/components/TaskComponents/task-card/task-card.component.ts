@@ -7,10 +7,12 @@ import { Task } from 'src/Models/TaskModel';
   styleUrls: ['./task-card.component.css']
 })
 export class TaskCardComponent implements OnInit {
-
   constructor() { }
 @Input() MyTask:Task
   ngOnInit(): void {
+    let index=this.MyTask["dueDate"].indexOf("T");
+
+    this.MyTask["dueDate"]=this.MyTask["dueDate"].slice(0,index)
   }
 
 }

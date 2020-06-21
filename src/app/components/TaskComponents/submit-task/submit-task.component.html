@@ -1,9 +1,16 @@
 <div class="container">
+    
+    
 
 <div class="center border border-success p-5 " >
     <h2 class="section-title-underline mb-5 text-center"> Tasks </h2>
+    <br>
+
+    <button (click)="OnAddTask($event)" class="btn-primary m-b-10 rounded ">Add Task</button>
+       
+    <br>
     
-    <div class="upload-table text-center">
+    <div *ngIf="MyTasks" class="upload-table text-center d-flex flex-column">
 
         <div *ngFor="let task of MyTasks">
 
@@ -13,27 +20,11 @@
              <br>
         </div>
 
-        <!-- <table class="table">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                </tr>
-            </thead>
-            <tbody class="upload-name-style">
-                <tr *ngFor="let task of MyTasks">
-                    <td><strong>{{ task.TaskName }}</strong></td>
-                    <td> <button (click)="OnDelete($event,task)" class="btn-danger">Delete</button> || 
-                     <button (click)="OnEdit($event,task)" class="btn-success">Edit</button></td>
-                </tr>
-            </tbody>
-        </table> -->
+       
 <br>
 
 
 
-        <button (click)="OnAddTask($event)" class="btn-primary m-b-10 rounded ">Add Task</button>
-       
-        <br>
         <br>
         <br>
         <app-task-solution></app-task-solution>
@@ -43,33 +34,7 @@
 
 
 </div>
-  
-  <!-- Modal -->
-  <!-- <div class="modal fade" id="NeaTaskModal" tabindex="-1" role="dialog" aria-labelledby="NeaTaskModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <form #newtaskform (ngSubmit)="onSubmit(newtaskform)" >
-                <div class="modal-header">
-                    <h5 class="modal-title" id="NeaTaskModalLabel">New Task</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Task Name: <input type="text" [(ngModel)]="NewTask.TaskName">
-                    Task Description: <input type="textarea" [(ngModel)]="NewTask.TaskDescriptionn">
-                        
-                    
-                    Due Date: <input type="date" [(ngModel)]="NewTask.DueDate">
-                 </div>
-                <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success" >Add Task</button>
-                </div>
-            </form>
-      </div>
-    </div>
-  </div> -->
+
 
 
  
