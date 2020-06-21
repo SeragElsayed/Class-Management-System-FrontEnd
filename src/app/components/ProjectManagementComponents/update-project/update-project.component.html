@@ -13,33 +13,36 @@
       <div class="modal-body mx-3" >
         <div class="md-form mb-5">
           <i class=" prefix grey-text"></i>
-          <label data-error="wrong" data-success="right" >Project Name</label>
-
+     
+          <label  style="color: #AFB6A6; font-weight: bold;display: block;"data-error="wrong" data-success="right" >Project Name</label>
+  
           <input type="text"  class="form-control validate" [(ngModel)]="MyProject.projectName" >
         </div>
 
         <div class="md-form mb-5">
             <i class=" prefix grey-text"></i>
-            <label data-error="wrong" data-success="right" >Description</label>
+        
+            <label  style="color: #AFB6A6; font-weight: bold;display: block;" data-error="wrong" data-success="right" >Description</label>
   
             <input type="text"  class="form-control validate" [(ngModel)]=MyProject.projectDescription>
           </div>
 
 
         <input class="form-control" type="number" placeholder=" TrackId is  " readonly>
+        <br/>
 
         <input class="form-control" type="number" placeholder=" Intake is  " readonly>
 
       </div>
       <div class="modal-footer d-flex justify-content-center">
-        <button data-toggle="modal" data-target="#modalLoginForm" class="btn btn-outline-primary" (click)="OnEdit()">Edit</button>
+        <button data-toggle="modal" data-target="#modalLoginForm"  (click)="OnEdit()" class="myButtonadd">Edit</button>
       </div>
     </div>
   </div>
 </div>
 
 <div class="text-center">
-  <button class="btn btn-primary mb-4" data-toggle="modal" data-target="#modalLoginForm">Edit Project</button>
+  <button  data-toggle="modal" data-target="#modalLoginForm" class="myButton">Edit Project</button>
 </div>
 
 </div>

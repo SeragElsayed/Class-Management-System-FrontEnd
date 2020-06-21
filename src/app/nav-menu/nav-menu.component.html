@@ -61,7 +61,7 @@
             <a class="nav-link" [routerLink]="['/admin/tracks']">Track</a>
           </li>
        
-          <li class="nav-item"   >
+          <li class="nav-item" *ngIf="role==='Admin'"   >
             <a class="nav-link" [routerLink]="['/admin/intake']">Intake</a>
           </li>
                 <!-- <li class="nav-item">
