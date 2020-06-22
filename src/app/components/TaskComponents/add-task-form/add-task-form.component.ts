@@ -4,6 +4,7 @@ import {Location} from '@angular/common';
 
 import { TaskService } from 'src/Services/TaskService/task.service';
 import { Task } from 'src/Models/TaskModel';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-add-task-form',
@@ -11,30 +12,35 @@ import { Task } from 'src/Models/TaskModel';
   styleUrls: ['./add-task-form.component.css']
 })
 export class AddTaskFormComponent implements OnInit {
+  CourseId:number
 
-  constructor(private MyTaskService:TaskService,private location: Location) { }
+  constructor(private MyTaskService:TaskService,private location: Location,private RouteCourseId:ActivatedRoute) { }
     
     private newTaskForm: FormGroup;
 
     ngOnInit(): void {
       this.newTaskForm = new FormGroup({
         TaskName: new FormControl(null),
-        TaskDescription: new FormControl(null),
+        Description: new FormControl(null),
         DueDate: new FormControl(null),
       });
+    this.getCourseIdFromRoute();  
     }
 
 
-    onSubmit(data) {
-      let newtask:Task={
-        TaskName:data.TaskName,
-        TaskDescription:data.TaskDescription,
-        DueDate:data.DueDate,
-        TaskId:0,
-        CourseId:0
-      }
+    getCourseIdFromRoute(){
+      this.RouteCourseId.params.subscribe(params=>{
+        this.CourseId=Number.parseInt(params["CourseId"])
+        console.log("paraaaaaaaaaaam",this.CourseId)
+      })
+    }
 
-      this.MyTaskService.AddTask(newtask).subscribe(
+    onSubmit(data) {
+   
+console.log("on submit",data)
+      data.CourseId=this.CourseId;
+
+      this.MyTaskService.AddTask(data).subscribe(
         res=>{
           this.location.back();
       },

@@ -1,10 +1,11 @@
-<div class="container">
+<div *ngIf="MyTask" class="container">
 
        <!-- <form [formGroup]="newBlogForm" (ngSubmit)="onSubmit(newBlogForm.value)"> -->
-           <form >
+           
                
 
                    <div class="form-group">
+
 
                        <label for="exampleFormControlInput1" class="col-sm-12 control-label" style="color: gray;">Task Name</label>
               
@@ -21,11 +22,14 @@
                        <label for="exampleFormControlInput1" class="col-sm-12 control-label" style="color: gray;">Due Date</label>
               
                        <input value={{MyTask.DueDate}} type="date" class="form-control" id="DueDate" placeholder="Enter Task Due Date">
+
                    </div>
 
                  
                       
-                       <button  class="myButton" >Save</button>
+
+                       <button (click)="OnEdit()" class="myButton" >Save</button>
+
             
-           </form>
+       
         </div>

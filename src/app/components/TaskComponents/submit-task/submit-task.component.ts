@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from 'src/Services/TaskService/task.service';
 import { Task } from 'src/Models/TaskModel';
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 @Component({
   selector: 'app-submit-task',
   templateUrl: './submit-task.component.html',
@@ -9,36 +9,41 @@ import {Router} from '@angular/router';
 })
 export class SubmitTaskComponent implements OnInit {
 
-  MyTasks:Task[]
-  MyTask:Task
-  PassedTask:Task= {
-    TaskName:"Enter Task Name",
-    TaskId:0,
-    TaskDescription:"Enter Task Desc.",
-    CourseId:0,
-    DueDate:new Date(),
-  }
-  constructor(private MyTaskService:TaskService,private router: Router) { 
+  MyTasks
+  MyTask
+  CourseId:number;
+
+ 
+  constructor(private MyTaskService:TaskService,private router: Router,private RouteCourseId:ActivatedRoute) { 
 
   }
 
   ngOnInit(): void {
-    this.MyTaskService.getAll()
-      .subscribe((tasks) => {this.MyTasks = tasks;console.log(this.MyTasks)});
+
+    this.RouteCourseId.params.subscribe(params=>{
+      this.CourseId=Number.parseInt(params["CourseId"])
+      console.log("paraaaaaaaaaaam",this.CourseId)
+    })
+    
+    this.MyTaskService.getAll(this.CourseId).subscribe(
+      res => {
+        this.MyTasks = res;
+        console.log(this.MyTasks);
+      });
   }
 
 
   OnEdit($event:Event,Task:Task):void{
-    this.router.navigate([`/Task/Edit/${Task.TaskId}`])
+    this.router.navigate([`/Task/Edit/${Task["taskId"]}`])
    
   }
   OnAddTask($event){
-    this.router.navigate(['/Task/Add'])
+    this.router.navigate([`/Task/Add/${this.CourseId}`])
   }
   OnDelete($event:Event,Task:Task):void{
     
     
-    this.MyTaskService.DeleteById(Task.TaskId)
+    this.MyTaskService.DeleteById(Task["taskId"])
     .subscribe(
         res=>{let IndexOfTask=this.MyTasks.indexOf(Task)
         this.MyTasks.splice(IndexOfTask,1)} );

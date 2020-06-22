@@ -1,6 +1,6 @@
-import { Component, OnInit, Output, Input } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 
-import { Project } from 'src/Models/ProjectModel';
+
 import { Router } from '@angular/router';
 import { ProjectService } from 'src/Services/project.service';
 import { ProjectManagementService } from 'src/Services/project-management.service';

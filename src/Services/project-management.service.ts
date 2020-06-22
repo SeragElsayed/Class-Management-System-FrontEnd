@@ -15,7 +15,7 @@ export class ProjectManagementService {
   
   getProjectCollaboratorByProjectIdAndProjectId(ProjectId:number) {
     // return this.http.get<any[]>(ProjectManagPaths.GetCollabByProjId)
-    return this.http.get<any[]>(`https://localhost:44374/api/PM/${ProjectId}`)
+    return this.http.get<any[]>(`https://localhost:44374/api/Collaborator/${ProjectId}`)
     .pipe( catchError( this.handleError ) )
   }
 
