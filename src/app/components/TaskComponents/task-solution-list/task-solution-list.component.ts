@@ -31,13 +31,13 @@ this.getTaskSolutions()
   OnDelete(ts){
     this.taskSolutionService.deleteTaskSolution(ts.taskSolutionId).subscribe(
       res=>{
-        const index = this.taskSolutions.indexOf(this.taskSolutions);
-        console.log(this.taskSolutions)
+        const index = this.taskSolutions.indexOf(ts);
+        console.log(this.taskSolutions,index,"list before delete and index")
 
         if (index > -1) {
           this.taskSolutions.splice(index, 1);
         }
-        console.log(this.taskSolutions)
+        console.log(this.taskSolutions,"list after delete and index")
       }
     )
   }
