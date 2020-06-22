@@ -37,8 +37,15 @@
                 <app-task-card [MyTask]="task"></app-task-card>
                 <button (click)="OnDelete($event,task)" class="btn-danger">Delete</button> ||
                 <button (click)="OnEdit($event,task)" class="btn-success">Edit</button>||
-                <app-task-solution [CourseId]="CourseId" [TaskId]="task.taskId"></app-task-solution>
-                {{task.taskId}}
+                <!-- <app-task-solution   [MyTask]="task"> {{task.taskId}}  compppppppp</app-task-solution> -->
+               
+                <br>
+            </div>
+            <div *ngFor="let task of MyTasks">
+
+                
+                <app-task-solution   [MyTask]="task"> {{task.taskId}}  compppppppp</app-task-solution>
+               
                 <br>
             </div>
 
