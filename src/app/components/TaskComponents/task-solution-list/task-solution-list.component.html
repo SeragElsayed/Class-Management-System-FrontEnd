@@ -1,0 +1,10 @@
+<div *ngIf="taskSolutions">
+
+    <div class="d-flex flex-row" *ngFor="let ts of taskSolutions">
+        <button class="btn btn-secondary">
+            {{ts.fileName}}
+        </button>
+        <button class="btn btn-danger" (click)="OnDelete(ts)">Delete</button>
+        
+    </div>
+</div>>

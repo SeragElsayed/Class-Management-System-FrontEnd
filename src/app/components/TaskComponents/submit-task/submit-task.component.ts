@@ -9,8 +9,8 @@ import {Router, ActivatedRoute} from '@angular/router';
 })
 export class SubmitTaskComponent implements OnInit {
 
-  MyTasks:Task[]
-  MyTask:Task
+  MyTasks
+  MyTask
   CourseId:number;
 
  
@@ -34,16 +34,16 @@ export class SubmitTaskComponent implements OnInit {
 
 
   OnEdit($event:Event,Task:Task):void{
-    this.router.navigate([`/Task/Edit/${Task.TaskId}`])
+    this.router.navigate([`/Task/Edit/${Task["taskId"]}`])
    
   }
   OnAddTask($event){
-    this.router.navigate([`/Task/Add${this.CourseId}`])
+    this.router.navigate([`/Task/Add/${this.CourseId}`])
   }
   OnDelete($event:Event,Task:Task):void{
     
     
-    this.MyTaskService.DeleteById(Task.TaskId)
+    this.MyTaskService.DeleteById(Task["taskId"])
     .subscribe(
         res=>{let IndexOfTask=this.MyTasks.indexOf(Task)
         this.MyTasks.splice(IndexOfTask,1)} );

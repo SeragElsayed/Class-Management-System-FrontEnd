@@ -20,7 +20,7 @@ export class TaskService {
    }
 
   getAll(CourseId:number) {
-    return this.http.get<Task[]>(`https://localhost:44374/api/course/tasks/all/${CourseId}`)
+    return this.http.get(`https://localhost:44374/api/course/tasks/all/${CourseId}`)
     .pipe( catchError( this.handleError ) )
   }
 
@@ -30,7 +30,7 @@ export class TaskService {
   }
 
   DeleteById(TaskId:number) {
-    return this.http.delete(`api/course/deletetask/${TaskId}`)
+    return this.http.delete(`https://localhost:44374/api/course/deletetask/${TaskId}`)
     .pipe( catchError( this.handleError ) )
   }
 

@@ -21,7 +21,7 @@ export class AddTaskFormComponent implements OnInit {
     ngOnInit(): void {
       this.newTaskForm = new FormGroup({
         TaskName: new FormControl(null),
-        TaskDescription: new FormControl(null),
+        Description: new FormControl(null),
         DueDate: new FormControl(null),
       });
     this.getCourseIdFromRoute();  
@@ -37,7 +37,7 @@ export class AddTaskFormComponent implements OnInit {
 
     onSubmit(data) {
    
-
+console.log("on submit",data)
       data.CourseId=this.CourseId;
 
       this.MyTaskService.AddTask(data).subscribe(

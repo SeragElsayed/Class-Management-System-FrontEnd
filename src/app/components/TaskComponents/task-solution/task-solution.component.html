@@ -3,7 +3,7 @@
 <!-- <button type="button" class="btn  btn-lg"  style="background-color: #2eb82e;" data-toggle="modal" data-target="#myModal>tasneem">Add Task Solution</button> -->
 
         <!-- Button trigger modal -->
-        <div>
+        <!-- <div>
 
           <div class="upload-table">
             <table class="table">
@@ -18,20 +18,33 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
+        </div> -->
 
 
+<<<<<<< HEAD
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
     Add Task Solution
-  </button>||
-  <button type="button" class="btn btn-primary" (click)="deleteTaskSolution()">
+  </button>
+
+  <app-task-solution-list  [TaskId]="TaskId"></app-task-solution-list>
+
+
+  <!-- <button type="button" class="btn btn-primary" (click)="deleteTaskSolution()">
     Delete Task Solution
-  </button>||
+  </button>|| -->
+=======
+<button type="button" class="btn " data-toggle="modal" data-target="#exampleModal" style="margin-left: 5px;background-color: honeydew;">
+  <i class="fa fa-plus" aria-hidden="true" style="color:#183661 ; "></i> Solution
+  </button>
+  <button type="button" class="btn " (click)="deleteTaskSolution()" style="margin-left: 5px;background-color: honeydew;">
+    <i class="fa fa-trash" aria-hidden="true" style="color: red; "></i> Solution
+  </button>
+>>>>>>> f2ac95ad9ea42d7c23935c2887fee358beff5eb1
   <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" value="">
     Update Task Solution
   </button> -->
   
-</div>
+<!-- </div> -->
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -72,7 +85,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="deleteTaskSolution()">Close</button>
-          <button type="button" class="btn btn-primary" (click)=Add() #taskSolution>ADD</button>
+          <button type="button" data-dismiss="modal" class="btn btn-primary" (click)=Add() #taskSolution>ADD</button>
         </div>
       </div>
     </div>

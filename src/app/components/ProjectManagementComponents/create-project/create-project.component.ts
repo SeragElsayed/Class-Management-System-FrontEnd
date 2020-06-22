@@ -54,14 +54,14 @@ getAllTracks(){
   )
 }
  add(ProjectName,ProjectDescription){
-   if(this.UserRole)
-    this.project={
-     ProjectName,
-     ProjectDescription,
-     TrackId:this.SelectedTrack.TrackId,
-     IntakeId:this.SelectedIntake.IntakeId,
-    }
-    else
+  //  if(this.UserRole)
+  //   this.project={
+  //    ProjectName,
+  //    ProjectDescription,
+  //    TrackId:this.SelectedTrack.TrackId,
+  //    IntakeId:this.SelectedIntake.IntakeId,
+  //   }
+  //   else
     this.project={
       ProjectName,
       ProjectDescription,}
