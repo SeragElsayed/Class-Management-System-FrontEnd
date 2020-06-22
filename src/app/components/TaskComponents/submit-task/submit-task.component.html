@@ -1,6 +1,19 @@
 <div class="container">
 
+<<<<<<< HEAD
 
+=======
+<div class="center border border-success p-5 " >
+
+    <!-- <h2 class="section-title-underline mb-5 text-center"> Tasks </h2> -->
+
+    <h2 class="section-title-underline mb-5 text-center">
+        <span>Tasks</span>
+    </h2>
+
+    
+    <div *ngIf="MyTasks" class="upload-table text-center d-flex flex-column">
+>>>>>>> f2ac95ad9ea42d7c23935c2887fee358beff5eb1
 
     <div class="center border border-success p-5 ">
         <h2 class="section-title-underline mb-5 text-center"> Tasks </h2>
@@ -8,7 +21,16 @@
         <!--  -->
         <button (click)="OnAddTask($event)" class="btn-primary m-b-10 rounded ">Add Task</button>
 
+<<<<<<< HEAD
         <br>
+=======
+            <app-task-card [MyTask]="task"></app-task-card>
+            <a (click)="OnDelete($event,task)" style="cursor: pointer;"> <i class="fa fa-trash" aria-hidden="true" style="color: red; margin:5px"></i></a>
+<a (click)="OnEdit($event,task)"style="cursor: pointer;"><i class="fa fa-pencil-square-o" aria-hidden="true" style="color: green; margin:5px"></i></a>
+         
+             <br>
+        </div>
+>>>>>>> f2ac95ad9ea42d7c23935c2887fee358beff5eb1
 
         <div *ngIf="MyTasks" class="upload-table text-center d-flex flex-column">
 
@@ -21,6 +43,17 @@
                 <br>
             </div>
 
+<<<<<<< HEAD
+=======
+
+        <button (click)="OnAddTask($event)" class="myButtonadd "><i class="fa fa-plus" aria-hidden="true"></i> Task</button>
+       
+        <br>
+
+        <br>
+        <br>
+        <app-task-solution></app-task-solution>
+>>>>>>> f2ac95ad9ea42d7c23935c2887fee358beff5eb1
 
             <br>
             <br>
