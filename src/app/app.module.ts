@@ -98,6 +98,7 @@ import { AllIntakeComponent } from './components/admindashboard/intake/all-intak
 import { ExploreTeamsComponent } from './components/ProjectManagementComponents/explore-teams/explore-teams.component';
 
 import { UpdateCourseComponent } from './update-course/update-course.component';
+import { TaskSolutionListComponent } from './components/TaskComponents/task-solution-list/task-solution-list.component';
 
 
 
@@ -175,6 +176,8 @@ declare var require: any;
     AllIntakeComponent,
 
     ExploreTeamsComponent,
+
+    TaskSolutionListComponent,
 
 
 

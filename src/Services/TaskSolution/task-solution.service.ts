@@ -22,14 +22,23 @@ export class TaskSolutionService {
     .pipe( catchError( this.handleError ) )
   }
 
-  addTaskSolution(NewTaskSolution:TaskSolution) {
-    return this.http.post<TaskSolution>(`https://localhost:44374/api/course/tasksStd/`,NewTaskSolution)
+  GetTaskSolutionByTaskId(TaskId:number) {
+    return this.http.get(`https://localhost:44374/api/course/TaskSolution/${TaskId}`)
+    .pipe( catchError( this.handleError ) )
+  }
+
+  addTaskSolution(files,TaskId,CourseId) {
+    let fd=new FormData();
+    files.forEach(element => {
+      fd.append(element.name,element,element.name)
+    });
+    return this.http.post(`https://localhost:44374/api/course/tasksStd/${TaskId}/${CourseId}`,fd)
     .pipe( catchError( this.handleError ) )
   }
 
 
   deleteTaskSolution(TaskSolutionId:number) {
-    return this.http.get<[]>(`https://localhost:44374/api/course/tasksStd/${TaskSolutionId}`)
+    return this.http.delete(`https://localhost:44374/api/course/TaskSolution/${TaskSolutionId}`)
     .pipe( catchError( this.handleError ) )
   }
 
