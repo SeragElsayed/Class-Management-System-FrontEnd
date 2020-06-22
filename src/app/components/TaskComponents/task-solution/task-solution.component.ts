@@ -3,6 +3,7 @@ import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 
 import { TaskSolutionService } from 'src/Services/TaskSolution/task-solution.service';
 import { TaskSolution } from 'src/Models/TaskSolution';
 import { TaskSolutionListComponent } from '../task-solution-list/task-solution-list.component';
+import { ActivatedRoute } from '@angular/router';
 
 
 
@@ -13,14 +14,14 @@ import { TaskSolutionListComponent } from '../task-solution-list/task-solution-l
 })
 export class TaskSolutionComponent implements OnInit {
 
-  constructor(private service:TaskSolutionService) { 
+  constructor(private service:TaskSolutionService,private RouteCourseId:ActivatedRoute) { 
     
   }
 
 public files: NgxFileDropEntry[] = [];
 
-  @Input() TaskId;
-  @Input() CourseId;
+  @Input() MyTask;
+   CourseId;
 myTaskSolution=new Array();
 input=new Array();
 id:any
@@ -29,6 +30,11 @@ id:any
 
   ngOnInit(): void {
 
+    
+    this.RouteCourseId.params.subscribe(params=>{
+      this.CourseId=Number.parseInt(params["CourseId"])
+      console.log("paraaaaaaaaaaam",this.CourseId)
+    })
     
   }
   ngAfterViewInit() {
@@ -46,16 +52,18 @@ id:any
       }
     )
   }
-Add(){
+  AddTaskSolution(){
 debugger;
-  this.service.addTaskSolution(this.input,this.TaskId,this.CourseId)  
+console.log("from add method in task solutionn comp",this.MyTask)
+
+  this.service.addTaskSolution(this.input,this.MyTask.taskId,this.CourseId)  
   .subscribe(data => {  
     this.tasksolutionlist.getTaskSolutions()
   },  
   error => {  
     console.log("error")  
   });
-  console.log("from add method in task solutionn comp",this.TaskId)
+  console.log("from add method in task solutionn comp",this.MyTask.taskId)
 }
 
   getByTaskSolutionId(id){
