@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
 import { TaskSolutionService } from 'src/Services/TaskSolution/task-solution.service';
 import { TaskSolution } from 'src/Models/TaskSolution';
+import { TaskSolutionListComponent } from '../task-solution-list/task-solution-list.component';
 
 
 
@@ -15,12 +16,24 @@ export class TaskSolutionComponent implements OnInit {
   constructor(private service:TaskSolutionService) { 
     
   }
-myTaskSolution:TaskSolution[];
-input:any
+
+public files: NgxFileDropEntry[] = [];
+
+  @Input() TaskId;
+  @Input() CourseId;
+myTaskSolution=new Array();
+input=new Array();
 id:any
+
+@ViewChild(TaskSolutionListComponent) tasksolutionlist:TaskSolutionListComponent;
+
   ngOnInit(): void {
 
     
+  }
+  ngAfterViewInit() {
+    // child is set
+    // this.child.doSomething();
   }
 
   getAll(){
@@ -34,13 +47,15 @@ id:any
     )
   }
 Add(){
-  this.service.addTaskSolution(this.input)  
-      .subscribe(data => {  
-       console.log(data)
-      },  
-      error => {  
-        console.log("error")  
-      });
+debugger;
+  this.service.addTaskSolution(this.input,this.TaskId,this.CourseId)  
+  .subscribe(data => {  
+    this.tasksolutionlist.getTaskSolutions()
+  },  
+  error => {  
+    console.log("error")  
+  });
+  console.log("from add method in task solutionn comp",this.TaskId)
 }
 
   getByTaskSolutionId(id){
@@ -68,43 +83,42 @@ deleteTaskSolution(){
 }
 
 
-////save in db
-addTaskSolution(input){
-      for (const droppedFile of this.files) {
+// ////save in db
+// addTaskSolution(input){
+//       for (const droppedFile of this.files) {
       
-    console.log("filename:  ",droppedFile.relativePath);
-    input=droppedFile.relativePath;
+//     console.log("filename:  ",droppedFile.relativePath);
+//     input=droppedFile.relativePath;
 
-console.log("input",input);
-        this.service.addTaskSolution(input)
-        .subscribe(res=>{
-          input.push(input);
+// console.log("input",input);
+//         // this.service.addTaskSolution(input)
+//         // .subscribe(res=>{
+//         //   input.push(input);
 
 
-          // input['id']=res.json().id;
-          // console.log("res",res.json())
-          this.files.splice(0,0,input);
-          console.log("this",this.files.splice(0,0,input));
-        }),
-        err=>{
-         console.log("error in add task solution"); 
-         console.log(err.message)}
+//           // input['id']=res.json().id;
+//           // console.log("res",res.json())
+//           this.files.splice(0,0,input);
+//           console.log("this",this.files.splice(0,0,input));
+//         }),
+//         err=>{
+//          console.log("error in add task solution"); 
+//          console.log(err.message)}
 
 
          
       
-    }
+//     }
 
    
     
  
-}
+// }
     
 
 
 
 
-  public files: NgxFileDropEntry[] = [];
  
   public dropped(files: NgxFileDropEntry[]) {
     this.files = files;
@@ -117,6 +131,7 @@ console.log("input",input);
  
           // Here you can access the real file
           console.log(droppedFile.relativePath, file);
+          this.input.push(file);
  
         
  

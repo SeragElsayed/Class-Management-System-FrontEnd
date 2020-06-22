@@ -27,8 +27,9 @@ export class SubmitTaskComponent implements OnInit {
     
     this.MyTaskService.getAll(this.CourseId).subscribe(
       res => {
+        
         this.MyTasks = res;
-        console.log(this.MyTasks);
+        console.log(this.MyTasks,"from submit task componnent");
       });
   }
 

@@ -2,8 +2,8 @@
 
 <!-- <button type="button" class="btn  btn-lg"  style="background-color: #2eb82e;" data-toggle="modal" data-target="#myModal>tasneem">Add Task Solution</button> -->
 
-        <!-- Button trigger modal -->
-        <div>
+<!-- Button trigger modal -->
+<!-- <div>
 
           <div class="upload-table">
             <table class="table">
@@ -18,62 +18,79 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
+        </div> -->
 
 
-<button type="button" class="btn " data-toggle="modal" data-target="#exampleModal" style="margin-left: 5px;background-color: honeydew;">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Add Task Solution
+</button>
+
+<app-task-solution-list [TaskId]="TaskId"></app-task-solution-list>
+{{TaskId}} from task solution comp
+
+
+<!-- <button type="button" class="btn btn-primary" (click)="deleteTaskSolution()">
+    Delete Task Solution
+  </button>|| -->
+
+<!-- ereny -->
+<!-- <button type="button" class="btn " data-toggle="modal" data-target="#exampleModal" style="margin-left: 5px;background-color: honeydew;">
   <i class="fa fa-plus" aria-hidden="true" style="color:#183661 ; "></i> Solution
   </button>
   <button type="button" class="btn " (click)="deleteTaskSolution()" style="margin-left: 5px;background-color: honeydew;">
     <i class="fa fa-trash" aria-hidden="true" style="color: red; "></i> Solution
-  </button>
-  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" value="">
+  </button> -->
+
+<!-- ereny -->
+
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" value="">
     Update Task Solution
   </button> -->
-  
-</div>
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Task Solution </h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          
 
-            <div class="center">
-                <ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)" 
-                (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
-                    <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
-                      <!-- Optional custom content that replaces the the entire default content. -->
-                      <button type="button"  (click)="openFileSelector()">Browse Files</button>
-                    </ng-template>
-                </ngx-file-drop>
-                <div class="upload-table">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                              
-                                <th>Name</th>
-                            </tr>
-                        </thead>
-                        <tbody class="upload-name-style">
-                            <tr *ngFor="let item of files; let i=index">
-                                <td><strong>{{ item.relativePath }}</strong></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-              </div>
+<!-- </div> -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Task Solution </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+        <div class="center">
+          <ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)"
+            (onFileLeave)="fileLeave($event)">
+            <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+              <!-- Optional custom content that replaces the the entire default content. -->
+              <button type="button" (click)="openFileSelector()">Browse Files</button>
+            </ng-template>
+          </ngx-file-drop>
+          <div class="upload-table">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                </tr>
+              </thead>
+              <tbody class="upload-name-style">
+                <tr *ngFor="let item of files; let i=index">
+                  <td><strong>{{ item.relativePath }}</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="deleteTaskSolution()">Close</button>
-          <button type="button" class="btn btn-primary" (click)=Add() #taskSolution>ADD</button>
-        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"
+          (click)="deleteTaskSolution()">Close</button>
+        <button type="button" data-dismiss="modal" class="btn btn-primary" (click)=Add() #taskSolution>ADD</button>
       </div>
     </div>
   </div>
+</div>
