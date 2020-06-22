@@ -15,19 +15,19 @@ export class MatrialBoxComponent implements OnInit {
 
   constructor(private Auth:TextMaterialService,private down:DownloadTxtFileService,private http:HttpClient) { }
 TxtFilePath="C:/Users/Ereny/source/repos/E-learnProjectBackend/onlinelearningbackend";
-path=[{'name':'lala',
-'url':'K:\\iti 9 month program material\\communication skills\\Email Example.docx'
+path=[{
+
 }];
 filename;
-
+filepath;
 /////////////////
 download(index)
 {
- this. filename=this.path[index].name;
+//  this. filename=this.path[index].name;
   console.log( this. filename)
-  var filepath=this.path[index].url;
+  // var filepath=this.path[index].url;
 
-this.down.downloadfile(filepath, this. filename).subscribe(
+this.down.downloadfile(this.filepath, this. filename).subscribe(
   res=>{
     
     console.log(res);
