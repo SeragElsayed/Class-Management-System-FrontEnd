@@ -94,7 +94,12 @@ import { ExploreDetailsComponent } from './components/ProjectManagementComponent
 import { PopularProjectComponent } from './popular-project/popular-project/popular-project.component';
 import { AddIntakeComponent } from './components/admindashboard/intake/add-intake/add-intake.component';
 import { AllIntakeComponent } from './components/admindashboard/intake/all-intake/all-intake.component';
+
+import { ExploreTeamsComponent } from './components/ProjectManagementComponents/explore-teams/explore-teams.component';
+
 import { UpdateCourseComponent } from './update-course/update-course.component';
+import { TaskSolutionListComponent } from './components/TaskComponents/task-solution-list/task-solution-list.component';
+
 
 
 
@@ -169,7 +174,12 @@ declare var require: any;
 
     AddIntakeComponent,
     AllIntakeComponent,
-    UpdateCourseComponent,
+
+    ExploreTeamsComponent,
+
+    TaskSolutionListComponent,
+
+
 
   ],
   imports: [

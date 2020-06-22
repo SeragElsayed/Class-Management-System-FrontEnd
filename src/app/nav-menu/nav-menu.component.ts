@@ -18,7 +18,7 @@ constructor(private auth:AuthenticationService,private router:Router){}
 ngOnInit(): void {
   // this.role=localStorage.getItem("role")
   this.token=localStorage.getItem("token")
-  // console.log(this.role)
+ // console.log(this.role)
 this.auth.role.subscribe(
   res=>{
     console.log("in response header.......................")
@@ -35,10 +35,8 @@ this.role=res[0];
 console.log(this.role)
     }
 ///////////////
-this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-  this.router.navigateByUrl('/course')
-});
-/////////////
+
+///////////
 }
 ,err=>
 {console.log("error")})

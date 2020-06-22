@@ -1,13 +1,16 @@
-<div class="site-section ftco-subscribe-1 site-blocks-cover pb-4" style="background-image: url('images/bg_1.jpg')">
+
+
+<div class="site-section ftco-subscribe-1 site-blocks-cover pb-4" style="background-image: url('../../assets/images/bg_1.jpg')">
     <div class="container">
-        <div class="row align-items-end">
-            <div class="col-lg-7">
-                <h2 class="mb-0">Course Details</h2>
-                <p>See the course material .</p>
-            </div>
+      <div class="row align-items-end">
+        <div class="col-lg-7">
+            <h2 class="mb-0">Course Details</h2>
+<p>See project details.</p>
         </div>
+      </div>
     </div>
-</div>
+  </div> 
+
 <div class="custom-breadcrumns border-bottom">
     <div class="container">
         <a href="index.html">Home</a>
@@ -26,11 +29,14 @@
                 </p>
             </div>
             <div class="col-lg-5 ml-auto align-self-center">
-                <p *ngIf="MyCourse"><strong class="text-black d-block">Course Name:</strong>{{MyCourse.courseName}}</p>
-                <p *ngIf="MyCourse"><strong class="text-black d-block">Description:</strong>{{MyCourse.description}}</p>
-                <p *ngIf="MyCourse"><strong class="text-black d-block">Enrollment
+                <p *ngIf="MyCourse"><strong class=" d-block" style="color: gray; font-weight: bold;">Course Name
+
+                </strong>{{MyCourse.courseName}}</p>
+                <p *ngIf="MyCourse"><strong class=" d-block"style="color: gray;font-weight: bold;">Description
+                </strong>{{MyCourse.description}}</p>
+                <p *ngIf="MyCourse"><strong class=" d-block"style="color: gray;font-weight: bold;">Enrollment
                         key:</strong>{{MyCourse.enrollmentKey}}</p>
-                <p *ngIf="MyCourse"><strong class="text-black d-block">Course
+                <p *ngIf="MyCourse"><strong class=" d-block"style="color: gray;font-weight: bold;">Course
                         duration:</strong>{{MyCourse.intervalInDays}}</p>
                 <app-update-course [MyCourse]="MyCourse"></app-update-course>
             </div>
@@ -38,17 +44,17 @@
     </div>
 </div>
 
-<div class=" container">
-    <div class="row">
-        <div class="w-50 h-50">
+<div class=" d-flex flex-column">
+    
+        <div >
             <p>
                 <app-submit-task></app-submit-task>
             </p>
         </div>
-        <div class="  w-50 h-50">
+        <div >
             <p>
                 <app-matrial-box></app-matrial-box>
             </p>
         </div>
-    </div>
+   
 </div>
