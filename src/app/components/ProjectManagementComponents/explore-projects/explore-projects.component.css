@@ -1,6 +1,6 @@
 body
 {
-	background:#00bcd4;
+	background:lightgray;
 }
 
 h1
@@ -14,7 +14,7 @@ h1
 {
 	width:80%;
 	height:auto;
-	border-bottom:5px #323233 solid;
+	border-bottom:5px #183661 solid;
 	background:#fff;
 	text-align:center;
 	border-radius:10px;
@@ -52,7 +52,7 @@ h1
 	left:0;
 	padding:50px 50px 90px 90px;
 	text-align:left;
-	background: lightskyblue;
+	background:lightgray;
 	
 }
 

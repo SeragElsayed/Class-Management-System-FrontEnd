@@ -2,7 +2,7 @@
     <div class="course-1-item">
         <figure class="thumnail">
             <a href="course-single.html"><img src="../../assets/images/bg_1.jpg" alt="Image" class="img-fluid"></a>
-            <div class="price">Duration {{Course.intervalInDays}} Days</div>
+            <div class="price">{{Course.intervalInDays}} Days</div>
             <div class="category">
                 <h3>{{Course.courseName}}</h3>
             </div>
@@ -10,12 +10,12 @@
         <div class="course-1-content">
             <p class="desc mb-4">{{Course.description}}</p>
             <!-- <a class="nav-link btn btn-primary rounded-2 " style="color: white;" [routerLink]="['/course/details']" >Details</a> -->
-            <button type="button" (click)="OnDetails();" class="btn btn-success mr-2">Details</button>
+            <button type="button" (click)="OnDetails();" class="myButtonadd">Details</button>
             <!-- <button type="button" (click)="DeleteCourseCard();" class="btn btn-danger mr-2" >Delete</button>  -->
             <app-enroll-key id="{{Course.courseId}}"></app-enroll-key>
             <!-- Button trigger modal -->
-            <button type="button" class=" btn btn-danger " data-toggle="modal" data-target="#exampleModalCenter2">
-                Delete
+            <button type="button" class=" myButtondel" data-toggle="modal" data-target="#exampleModalCenter2">
+                <i class="fa fa-trash" aria-hidden="true" ></i>
             </button>
 
             <!-- Modal -->
@@ -38,7 +38,8 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="button" class=" btn btn-danger mr-2" 
-                                (click)="DeleteCourseCard(); " data-dismiss="modal">Delete</button>
+                                (click)="DeleteCourseCard(); " data-dismiss="modal">
+                                <i class="fa fa-trash" aria-hidden="true" style="color: red;"></i></button>
                         </div>
                     </div>
                 </div>
