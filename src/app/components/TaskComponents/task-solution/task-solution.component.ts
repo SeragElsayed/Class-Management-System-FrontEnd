@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
 import { TaskSolutionService } from 'src/Services/TaskSolution/task-solution.service';
 import { TaskSolution } from 'src/Models/TaskSolution';
+import { TaskSolutionListComponent } from '../task-solution-list/task-solution-list.component';
 
 
 
@@ -24,10 +25,15 @@ myTaskSolution=new Array();
 input=new Array();
 id:any
 
-GetAllTaskSolutions=false;
+@ViewChild(TaskSolutionListComponent) tasksolutionlist:TaskSolutionListComponent;
+
   ngOnInit(): void {
 
     
+  }
+  ngAfterViewInit() {
+    // child is set
+    // this.child.doSomething();
   }
 
   getAll(){
@@ -41,13 +47,15 @@ GetAllTaskSolutions=false;
     )
   }
 Add(){
+debugger;
   this.service.addTaskSolution(this.input,this.TaskId,this.CourseId)  
-      .subscribe(data => {  
-       this.GetAllTaskSolutions=true;
-      },  
-      error => {  
-        console.log("error")  
-      });
+  .subscribe(data => {  
+    this.tasksolutionlist.getTaskSolutions()
+  },  
+  error => {  
+    console.log("error")  
+  });
+  console.log("from add method in task solutionn comp",this.TaskId)
 }
 
   getByTaskSolutionId(id){
