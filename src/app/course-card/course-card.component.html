@@ -12,9 +12,9 @@
             <!-- <a class="nav-link btn btn-primary rounded-2 " style="color: white;" [routerLink]="['/course/details']" >Details</a> -->
             <button type="button" (click)="OnDetails();" class="myButtonadd">Details</button>
             <!-- <button type="button" (click)="DeleteCourseCard();" class="btn btn-danger mr-2" >Delete</button>  -->
-            <app-enroll-key id="{{Course.courseId}}"></app-enroll-key>
+            <app-enroll-key  *ngIf="UserRole==='Student'" id="{{Course.courseId}}"></app-enroll-key>
             <!-- Button trigger modal -->
-            <button type="button" class=" myButtondel" data-toggle="modal" data-target="#exampleModalCenter2">
+            <button  *ngIf="UserRole==='Instructor'" type="button" class=" myButtondel" data-toggle="modal" data-target="#exampleModalCenter2">
                 <i class="fa fa-trash" aria-hidden="true" ></i>
             </button>
 

@@ -21,12 +21,12 @@
         </div> -->
 
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+<button type="button" class="btn btn-primary m-2" data-toggle="modal" data-target="#exampleModal">
   Add Task Solution
 </button>
 
-<app-task-solution-list [TaskId]="TaskId"></app-task-solution-list>
-{{TaskId}} from task solution comp
+<app-task-solution-list [TaskId]="MyTask.taskId"></app-task-solution-list>
+
 
 
 <!-- <button type="button" class="btn btn-primary" (click)="deleteTaskSolution()">
@@ -89,7 +89,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal"
           (click)="deleteTaskSolution()">Close</button>
-        <button type="button" data-dismiss="modal" class="btn btn-primary" (click)=Add() #taskSolution>ADD</button>
+        <button type="button" data-dismiss="modal" class="btn btn-primary" (click)=AddTaskSolution() #taskSolution>ADD</button>
       </div>
     </div>
   </div>

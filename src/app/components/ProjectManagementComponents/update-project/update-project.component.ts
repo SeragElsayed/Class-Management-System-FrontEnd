@@ -9,6 +9,8 @@ import { ProjectService } from 'src/Services/project.service';
 })
 export class UpdateProjectComponent implements OnInit {
   @Input() MyProject:Project;
+  @Input() MyIntake;
+  @Input() MyTrack;
  
   constructor(private ProjectService:ProjectService) { }
 

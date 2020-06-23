@@ -7,9 +7,13 @@ import { Router } from '@angular/router';
 })
 export class CourseComponent implements OnInit {
 
+  UserRole
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+
+    this.UserRole=localStorage.getItem("role")
+    console.log(this.UserRole," user role in course")
   }
   btnClick1= function () {
     this.router.navigateByUrl('/course/add');

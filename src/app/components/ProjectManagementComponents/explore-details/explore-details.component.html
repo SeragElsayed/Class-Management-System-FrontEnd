@@ -29,48 +29,51 @@
 
 
 
+<div class="d-flex flex-row justify-content-around">
 
 
-<div>
-  <label for="exampleFormControlInput1" class="col-sm-12 control-label" style="color: gray;">Project Name</label>
-
-  <input id="ProjectName" class="form-control" type="text" placeholder="{{MyProject.projectName}} " readonly>
-
-
-
-
-  <label for="exampleFormControlInput1" class="col-sm-12 control-label" style="color: gray;">Project Description</label>
-
-
-  <input id="ProjectDescription" class="form-control" type="text" placeholder="{{MyProject.projectDescription}} "
-    readonly>
-  <br>
-  <br>
-</div>
-<div *ngIf="tracks">
-
-  <label for="TrackName" style="color:red;">Track Name</label>
-
-
-  <input id="TrackName" class="form-control" type="text" placeholder="{{tracks.trackName}} " readonly>
-  <br>
-  <br>
-</div>
-
-<div *ngIf="intake">
-
-  <label for="IntakeName" style="color:red;">Intake</label>
-
-  <input id="IntakeName" class="form-control" type="text" placeholder="{{intake.intakeName}} " readonly>
-  <br>
-  <br>
-
-</div>
-
-<div>
-
-  <div style="color:red;">Project Material</div>
   <div>
-    <app-explore-teams></app-explore-teams>
+    <label for="exampleFormControlInput1" class="col-sm-12 control-label" style="color:red;">Project Name</label>
+
+    <input id="ProjectName" class="form-control" type="text" placeholder="{{MyProject.projectName}} " readonly>
+
+
+
+
+    <label for="exampleFormControlInput1" class="col-sm-12 control-label" style="color:red;">Project
+      Description</label>
+
+
+    <input id="ProjectDescription" class="form-control" type="text" placeholder="{{MyProject.projectDescription}} "
+      readonly>
+    <br>
+    <br>
+  
+  <div *ngIf="tracks">
+
+    <label for="TrackName" style="color:red;">Track Name</label>
+
+
+    <input id="TrackName" class="form-control" type="text" placeholder="{{tracks.trackName}} " readonly>
+    <br>
+    <br>
+  </div>
+
+  <div *ngIf="intake">
+
+    <label for="IntakeName" style="color:red;">Intake</label>
+
+    <input id="IntakeName" class="form-control" type="text" placeholder="{{intake.intakeName}} " readonly>
+    <br>
+    <br>
+
   </div>
 </div>
+  <div>
+
+    <div style="color:red;">Project Material</div>
+  </div>
+    <div>
+      <app-explore-teams></app-explore-teams>
+    </div>
+  </div>

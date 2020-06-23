@@ -35,6 +35,11 @@ export class IntakeService {
    return this.http.put<any>(`${IntakePaths.UpdateIntake}/${EditedIntake.IntakeId}`,EditedIntake)
     
  }
+ 
+ getintakebyintakeid(IntakeId)
+ {
+   return this.http.get<any>(`https://localhost:44374/api/Intake/intakeid/${IntakeId}`);
+ }
  DeleteByIntakeId(IntakeId) {
    console.log(IntakeId)
    console.log("in services")

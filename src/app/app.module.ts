@@ -125,7 +125,7 @@ declare var require: any;
     PopularCoursesComponent,
     FooterComponent,
     CourseListComponent,
-
+    UpdateCourseComponent,
     CourseCardComponent,
     CourseListComponent,
     AboutOurUnivComponent,
