@@ -3,7 +3,7 @@
     <div class="row align-items-end">
       <div class="col-lg-7">
         <h2 class="mb-0">Branches</h2>
-        <p>Add .. Update .. Delete Beanch.</p>
+        <p>Add .. Update .. Delete Branch.</p>
       </div>
     </div>
   </div>
@@ -72,8 +72,9 @@
       <td style="color:#183661; font-weight: bold;">BRANCHNAME</td>
       <td style="color:#183661;font-weight: bold;">BranchEMAIL</td>
       <td style="color:#183661;font-weight: bold;">NRANCHPHONE</td>
+      <td style="color:#183661;font-weight: bold;">DELETEEDIT</td>
       <td style="color:#183661;font-weight: bold;">DELETEBRANCH</td>
-      <td></td>
+  
 
      
     </tr>
@@ -85,7 +86,9 @@
       <td>{{item.branchTelephone}}</td>
       
   
-   
+      <td class="controlTd text-center">      
+        <i class="fa fa-pencil-square-o" aria-hidden="true" (click)="getid(item.branchId)"></i> 
+       </td>
       <td class="controlTd text-center">      
        
         <i class="fa fa-times" aria-hidden="true" (click)=" deletebranchs(i)"></i>

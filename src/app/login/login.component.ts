@@ -46,9 +46,9 @@ this.Auth.get(res.userrole)
 //////////////
  localStorage.setItem("role",res.userrole)
  console.log(localStorage.getItem("role"))
- this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-  this.router.navigateByUrl('/course')
-});
+
+  this.router.navigateByUrl('/')
+
 
   },
      err=>{

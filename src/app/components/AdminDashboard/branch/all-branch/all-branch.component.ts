@@ -26,9 +26,9 @@ getid(id)
            
               localStorage.setItem("branchval",res.branchId)
               localStorage.setItem("branchname",res.branchName)
-              this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+
                 this.router.navigateByUrl('/branch/edit');
-            });
+          
            
             }
             ,err=>{
@@ -48,15 +48,20 @@ getid(id)
     this.branch.DeleteByBranchId(id).subscribe(
       res=>{console.log("success")
       console.log(res)
-      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-        this.router.navigateByUrl('/admin/branches')
-    });
+  
+      
+        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          this.router.navigateByUrl('/admin/branches')
+      }); 
+
+
     },
     err=>{console.log("error part"),
   console.log(err)
+
   this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
     this.router.navigateByUrl('/admin/branches')
-});
+}); 
 }
     )
   }

@@ -47,6 +47,7 @@ import { CompCourseComponent } from './comp-course/comp-course.component';
 import { CourseComponent } from './course/course.component';
 import { CourseDetailsComponent } from './course-details/course-details.component';
 import { ReactiveFormsModule } from '@angular/forms';
+//////////////
 
 //importing the services
 import {AuthenticationService} from '../Services/Authentication/authentication.service';
@@ -99,6 +100,7 @@ import { ExploreTeamsComponent } from './components/ProjectManagementComponents/
 
 import { UpdateCourseComponent } from './update-course/update-course.component';
 import { TaskSolutionListComponent } from './components/TaskComponents/task-solution-list/task-solution-list.component';
+import { EditComponent } from './components/admindashboard/branch/edit/edit.component';
 
 
 
@@ -179,6 +181,8 @@ declare var require: any;
 
     TaskSolutionListComponent,
 
+    EditComponent,
+
 
 
   ],
@@ -215,7 +219,7 @@ declare var require: any;
       { path: 'admin/branches', component: AllBranchComponent },
       { path: 'admin/instructors', component: AllInstructorsComponent },
       { path: 'track/edit', component: EditTrackComponent },
-      { path: 'branch/edit', component: EditBranchComponent },
+      { path: 'branch/edit', component: EditComponent},
 
       { path: 'Project', component: ProjectsListComponent },
       { path: 'Project/Details/:ProjectId', component: ProjectDetailsComponent },

@@ -45,9 +45,9 @@ export class AddInstructorsComponent implements OnInit {
           res=>{console.log("in th res func");
          console.log(res);
          this.closebutton.nativeElement.click();
-         this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+ 
           this.router.navigateByUrl('/admin/instructors')
-      });
+
         },
           err=>{
            console.log("in the error part"); 

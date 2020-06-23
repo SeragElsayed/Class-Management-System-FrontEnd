@@ -29,6 +29,7 @@ this.auth.role.subscribe(
     this.role='out'
     console.log(this.role)
     }
+   
     else
     {
 this.role=res[0];

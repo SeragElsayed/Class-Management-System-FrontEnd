@@ -1,24 +1,23 @@
 
-import { NgModule, Component,Pipe, OnInit} from '@angular/core';
-import { ReactiveFormsModule,FormsModule,FormGroup,FormControl,Validators,FormBuilder} from '@angular/forms';
-import {BrowserModule} from '@angular/platform-browser';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BranchService} from '../../../../../Services/BranchService/branch.service';
 import {Router} from '@angular/router';
-import {NgForm} from '@angular/forms';
-@Component({
-  selector: 'app-edit-branch',
-  templateUrl: './edit-branch.component.html',
-  styleUrls: ['./edit-branch.component.css']
-})
-export class EditBranchComponent implements OnInit {
+import { NgModule, Component,Pipe, OnInit} from '@angular/core';
+import { ReactiveFormsModule,FormsModule,FormGroup,FormControl,Validators,FormBuilder} from '@angular/forms';
 
+@Component({
+  selector: 'app-edit',
+  templateUrl: './edit.component.html',
+  styleUrls: ['./edit.component.css']
+})
+export class EditComponent implements OnInit {
+
+  
   constructor(private branch:BranchService,private router:Router,private formBuilder: FormBuilder) { }
   private newBlogForm: FormGroup;
   id=  localStorage.getItem("branchval")
   ngOnInit(): void {
 this.id=localStorage.getItem("branchval");
-    this.newBlogForm = this.formBuilder.group({
+    this.newBlogForm = new FormGroup({
       BranchName: new FormControl(null),
       BranchEmail: new FormControl(null),
       BranchTelephone: new FormControl(null),
@@ -42,16 +41,14 @@ this.phone=res.branchTelephone;
   err=>{console.log("error in gettih branches")}
 )
   }
-  bid;
-  bname="new";
-  bmail="new@new.com";
-  bphone="44444";
+ bid;
+
 
   //public open(event, item) {
     //alert('Open ' + item);
   //}
 //addFabric(data){
-  onSubmit(data : FormData) {
+  onSubmit(data ) {
     event.preventDefault();
     console.log("-------------------------------------------")
     console.log("in the submiit func")
@@ -62,23 +59,34 @@ this.phone=res.branchTelephone;
        // console.log(this.bphone)
         this.bid=localStorage.getItem("branchval")
         formData.append('BranchId',this.bid);
-        formData.append('BranchName', this.bname);
-        // formData.append('IsActive', "1");
-      formData.append('BranchEmail',this.bmail);
-     formData.append('BranchTelephone',this.bphone);
+        if(data.BranchName==null)
+        formData.append('BranchName', this.name);
+        else
+        formData.append('BranchName', data.BranchName);
+        if(data.BranchEmail==null)
+        formData.append('BranchEmail', this.mail);
+        else
+        formData.append('BranchEmail', data.BranchEmail);
+        if(data.BranchTelephone==null)
+        formData.append('BranchTelephone', this.phone);
+        else
+        formData.append('BranchTelephone', data.BranchTelephone);
    
-    //     this.branch.EditBranch(formData).subscribe(
-    //       res=>{console.log("in th res func");
-    //      console.log(res);
-    //  //   this.router.navigateByUrl('/admin/branches')
-    //     },
-    //       err=>{
-    //        console.log("in the error part"); 
-    //        console.log(err)
-    // //       this.router.navigateByUrl('/branch/edit')
-    //       }
-    //     )
+   
+        this.branch.EditBranch(formData).subscribe(
+          res=>{console.log("in th res func");
+         console.log(res);
+       this.router.navigateByUrl('/admin/branches')
+        },
+          err=>{
+           console.log("in the error part"); 
+           console.log(err)
+        this.router.navigateByUrl('/branch/edit')
+          }
+        )
       
         this.newBlogForm.reset();
       }
+
+
 }

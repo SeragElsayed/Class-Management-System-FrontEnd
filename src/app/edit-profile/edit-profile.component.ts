@@ -96,9 +96,9 @@ console.log("in the submiit func")
      console.log(res);
     
      this.closebutton.nativeElement.click();
-     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+
       this.router.navigateByUrl('/profile')
-  });
+
     
     },
       err=>{
