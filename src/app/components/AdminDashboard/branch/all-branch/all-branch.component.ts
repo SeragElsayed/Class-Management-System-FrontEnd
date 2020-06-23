@@ -49,14 +49,19 @@ getid(id)
       res=>{console.log("success")
       console.log(res)
   
-        this.router.navigateByUrl('/admin/branches')
-   
+      
+        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          this.router.navigateByUrl('/admin/branches')
+      }); 
+
+
     },
     err=>{console.log("error part"),
   console.log(err)
 
+  this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
     this.router.navigateByUrl('/admin/branches')
-
+}); 
 }
     )
   }
