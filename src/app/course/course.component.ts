@@ -11,7 +11,9 @@ export class CourseComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+
     this.UserRole=localStorage.getItem("role")
+    console.log(this.UserRole," user role in course")
   }
   btnClick1= function () {
     this.router.navigateByUrl('/course/add');

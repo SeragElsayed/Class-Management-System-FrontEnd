@@ -19,9 +19,9 @@ export class ColaboratorListComponent implements OnInit {
   ngOnInit(): void {
     this.RouteProjectId.params.subscribe(params=>{
       this.ProjectId=Number.parseInt(params["ProjectId"])
+      this.getProjectColab()
     })
 
-    this.getProjectColab()
     
   }
 

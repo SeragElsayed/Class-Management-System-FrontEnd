@@ -9,10 +9,12 @@ import { CourseService } from '../../Services/Course/course.service';
   styleUrls: ['./course-card.component.css']
 })
 export class CourseCardComponent implements OnInit {
-
+  UserRole
 
   ngOnInit(): void {
-
+    
+    this.UserRole=localStorage.getItem("role")
+    console.log(this.UserRole,"user role")
     //console.log("in oninit",this.Course.courseId);
     this.Course.courseId
 

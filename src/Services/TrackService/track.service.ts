@@ -27,7 +27,7 @@ getAll()
   return this.http.get<any>("https://localhost:44374/api/Track");
 }
   getByTrackId(TrackId) {
-    return this.http.get<any>(`${TrackPaths.GetTrackByTrackId}/${TrackId}`)
+    return this.http.get<any>(`https://localhost:44374/api/Track/Track/${TrackId}`)
 
     .pipe( catchError( this.handleError ) )
   }

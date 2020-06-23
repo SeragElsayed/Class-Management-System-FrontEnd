@@ -11,11 +11,13 @@ export class CourseDetailsComponent implements OnInit {
 
   MyCourse;
   MyCourseId;
+  UserRole;
   constructor(private RouteCourseId:ActivatedRoute,private CourseService:CourseService) { }
 
   ngOnInit(): void {
     this.getCourse()
 
+   this.UserRole= localStorage.getItem('role')
   }
   
   getCourse(){

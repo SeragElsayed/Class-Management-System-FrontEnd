@@ -12,10 +12,10 @@ export class UpdateCourseComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  @Input() MyCourse: Course;
+  @Input() MyCourse;
 
   OnEdit() {
-    console.log("myproject from update project ", this.MyCourse)
+    console.log("my course from update course ", this.MyCourse)
     this.courseService.updateCourse(this.MyCourse).subscribe(
       res => {
         console.log(res);

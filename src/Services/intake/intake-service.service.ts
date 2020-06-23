@@ -11,6 +11,12 @@ export class IntakeServiceService {
     return this.http.get<any>("https://localhost:44374/api/Intake")//http://localhots:8080/api/branches
   
   }
+
+  getintakebyintakeid(IntakeId)
+{
+  return this.http.get<any>(`https://localhost:44374/api/Intake/intakeid/${IntakeId}`);
+}
+
 addintake(intake)
 {
   return this.http.post<any>("https://localhost:44374/api/Intake/Add",intake);

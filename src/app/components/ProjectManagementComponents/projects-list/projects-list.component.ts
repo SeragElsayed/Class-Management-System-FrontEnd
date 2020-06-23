@@ -15,7 +15,7 @@ export class ProjectsListComponent implements OnInit {
   constructor(private MyProjectService: ProjectService) { }
   @Input() projects
 
-  MyProjects:Project[];
+  MyProjects;
 
   ngOnInit(): void {
 
@@ -25,11 +25,18 @@ export class ProjectsListComponent implements OnInit {
   getProjectsByStudentId(){
     this.MyProjectService.GetProjectByStudentId().subscribe(
       res=>{
-        this.MyProjects=res;
+        this.MyProjects=res;//["project"];
       }
     )
   }
   
+
+  OnProjectDeleted(project){
+    let index =this.MyProjects.indexOf(project)
+    if(index>-1){
+      this.MyProjects.splice(index, 1);
+    }
+  }
   
   tas(t){
     this.MyProjectService.AddProjectByTrackId(t,1,1).subscribe(
