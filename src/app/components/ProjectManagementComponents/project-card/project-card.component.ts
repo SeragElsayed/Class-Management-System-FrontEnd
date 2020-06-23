@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Project } from 'src/Models/ProjectModel';
 import { Router } from '@angular/router';
 import { ProjectService } from 'src/Services/project.service';
@@ -10,7 +10,7 @@ import { ProjectService } from 'src/Services/project.service';
 })
 export class ProjectCardComponent implements OnInit {
 
-  @Input() MyProject:Project;
+  @Input() MyProject;
  
   
 
@@ -21,12 +21,21 @@ export class ProjectCardComponent implements OnInit {
   }
 
   OnClickDetails(){
-    this.router.navigate([`/Project/Details/${this.MyProject["projectModelId"]}`]);
+    this.router.navigate([`/Project/Details/${this.MyProject["project"]["projectModelId"]}`]);
   }
 
+
+  @Output() onDeleteProject: EventEmitter<any> = new EventEmitter<any>();
   OnClickDelete(){
 
-    this.MyProjectService.DeleteProject(this.MyProject.ProjectId);
+    // console.log(this.MyProject)
+
+    this.MyProjectService.DeleteProject(this.MyProject["project"]["projectModelId"]).subscribe(
+      res=>{
+        console.log("deleteeeeeeeeeeeeeeeeeeeeeeeeeed")
+        this.onDeleteProject.emit(this.MyProject);
+      }
+    );
   }
  
 }

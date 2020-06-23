@@ -28,10 +28,10 @@
           </div>
 
 
-        <input class="form-control" type="number" placeholder=" TrackId is  " readonly>
+        <input *ngIf="MyTrack" class="form-control" type="number" placeholder={{MyTrack.trackName}} readonly>
         <br/>
 
-        <input class="form-control" type="number" placeholder=" Intake is  " readonly>
+        <input *ngIf="MyIntake" class="form-control" type="number" placeholder={{MyIntake.intakeName}} readonly>
 
       </div>
       <div class="modal-footer d-flex justify-content-center">

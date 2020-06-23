@@ -12,6 +12,7 @@ export class SubmitTaskComponent implements OnInit {
   MyTasks
   MyTask
   CourseId:number;
+  UserRole
 
  
   constructor(private MyTaskService:TaskService,private router: Router,private RouteCourseId:ActivatedRoute) { 
@@ -19,10 +20,12 @@ export class SubmitTaskComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.UserRole = localStorage.getItem('role')
 
     this.RouteCourseId.params.subscribe(params=>{
       this.CourseId=Number.parseInt(params["CourseId"])
       console.log("paraaaaaaaaaaam",this.CourseId)
+
     })
     
     this.MyTaskService.getAll(this.CourseId).subscribe(
