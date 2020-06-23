@@ -26,15 +26,15 @@ export class AllTracksComponent implements OnInit {
     console.log(this.tracks[i])
     this.track.DeleteByTrackId(id).subscribe(
       res=>{console.log("success")
-      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+ 
         this.router.navigateByUrl('/admin/tracks')
-    });
+  
     },
     err=>{console.log("error part"),
   console.log(err)
-  this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+
     this.router.navigateByUrl('/admin/tracks')
-});
+
 }
     )
   }

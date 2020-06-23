@@ -31,9 +31,9 @@ export class AddIntakeComponent implements OnInit {
            console.log(res);
      
            this.closebutton.nativeElement.click();
-           this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+       
             this.router.navigateByUrl('/admin/intake')
-        });
+     
           },
             err=>{
              console.log("in the error part"); 

@@ -33,7 +33,7 @@ export class RegisterComponent implements OnInit {
       IntakeId:new FormControl(null)
     });
     this.GetAllBranches()
-    this.GetAllTracks()
+    // this.GetAllTracks()
   }
   onSelectFile(fileInput: any) {
     this.selectedFile = <File>fileInput.target.files[0];
@@ -63,7 +63,7 @@ this.Auth.get(res.userrole)
   console.log( this.Auth.getToken())
     localStorage.setItem("role",res.userrole)
     console.log(localStorage.getItem("role"))
-    this.router.navigateByUrl('/course')
+    this.router.navigateByUrl('/')
     },
       err=>{
        console.log("in the error part"); 
@@ -113,11 +113,15 @@ ProfileImage:null
     }
   }
  ////////////////////////////////////////////////track part//////////////////////////////////////////
- tracks=[{}]
+ tracks=[{
+  "trackId":"",
+  "trackName":"",
+  "branch":""
+ }]
  tId;
         //get selected value from dropdown list
         selectChangeTrack (event: any) {
-         console.log("in the function to get value drop")
+         console.log("in the function track")
          //update the ui
          this.tId=event;
          console.log( this.tId);
@@ -125,42 +129,75 @@ ProfileImage:null
  //to get all branches
      // to get the branch name
     
- GetAllTracks()
- {
-   this.track.getAll().subscribe(
-     res=>{
-       console.log("the response")
-       console.log(res)
-       for(let i=0;i<res.length;i++)
-       {
+//  GetAllTracks()
+//  {
+//    this.track.getAll().subscribe(
+//      res=>{
+//        console.log("the response")
+//        console.log(res)
+//        for(let i=0;i<res.length;i++)
+//        {
         
-         this.tracks.push(
-           {
-             "id":res[i].trackId,
-             "name":res[i].trackName,
-         "branch":res[i].branchId
+//          this.tracks.push(
+//            {
+//              "id":res[i].trackId,
+//              "name":res[i].trackName,
+//          "branch":res[i].branchId
          
-         })
+//          })
  
-       }
-       console.log(this.tracks)
-     },
-     err=>
-     {
- console.log("th error ")
- console.log(err)
-     }
-   )
- }
+//        }
+//        console.log(this.tracks)
+//      },
+//      err=>
+//      {
+//  console.log("th error ")
+//  console.log(err)
+//      }
+//    )
+//  }
  ////////////////////////////////////////////branch part/////////////////////////////////////////
  branches=[{}]
 bId;
       //get selected value from dropdown list
       selectChangeBranch(event: any) {
-       console.log("in the function to get value drop")
+        this.tracks=[{
+          "trackId":"",
+          "trackName":"",
+          "branch":""
+         }]
+       console.log("in the function branch")
        //update the ui
        this.bId=event;
        console.log( this.bId);
+       this.track.getTracksByBranchId(this.bId).subscribe(
+        res=>{
+          console.log("the response of track branch")
+          console.log(res.length)
+
+console.log("tttttttttttttttttt")
+console.log(this.tracks)
+          for(let i=0;i<res.length;i++)
+          {
+           console.log(res[i].trackName)
+            this.tracks.push(
+              {
+                "trackId":res[i].trackId,
+                "trackName":res[i].trackName,
+            "branch":res[i].branchId
+            
+            })
+    
+          }
+          console.log("+++++++++++++++++++++++++++++++++")
+          console.log(this.tracks)
+        },
+        err=>
+        {
+    console.log("th error ")
+    console.log(err)
+        }
+       )
      }
 //to get all branches
    // to get the branch name
