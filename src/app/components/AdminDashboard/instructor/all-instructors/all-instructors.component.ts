@@ -35,8 +35,10 @@ deleteinstructor(i)
   console.log(this.instructors[i].UserName)
   this.instructor.DeleteByInstructorId(id).subscribe(
     res=>{console.log("success")
- 
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this.router.navigateByUrl('/admin/instructors')
+    }); 
+
 
   },
   err=>{console.log("error part"),

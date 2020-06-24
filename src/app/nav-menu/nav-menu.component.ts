@@ -29,8 +29,11 @@ this.auth.role.subscribe(
     this.role='out'
     console.log(this.role)
     }
-   
-    else
+   else if(res=='role')
+{
+  this.role='Student'
+}
+   else
     {
 this.role=res[0];
 console.log(this.role)
