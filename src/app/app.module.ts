@@ -101,6 +101,7 @@ import { ExploreTeamsComponent } from './components/ProjectManagementComponents/
 import { UpdateCourseComponent } from './update-course/update-course.component';
 import { TaskSolutionListComponent } from './components/TaskComponents/task-solution-list/task-solution-list.component';
 import { EditComponent } from './components/admindashboard/branch/edit/edit.component';
+import { CourseMaterialService } from 'src/Services/course-material.service';
 
 
 
@@ -243,6 +244,7 @@ declare var require: any;
     TrackService,
     BranchService,
     TaskService,
+    CourseMaterialService,
 {
   provide:HTTP_INTERCEPTORS,
   useClass:TokeninterceptService,

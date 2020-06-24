@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
 import { FormGroup, FormControl, Validators, FormBuilder }  from '@angular/forms';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {TextMaterialService} from '../../Services/TextMaterial/text-material.service';
 import * as $ from '../../../node_modules/jquery/dist/jquery';
+import { CourseMaterialService } from 'src/Services/course-material.service';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-add-material',
   templateUrl: './add-material.component.html',
@@ -11,47 +13,60 @@ import * as $ from '../../../node_modules/jquery/dist/jquery';
 })
 export class AddMaterialComponent implements OnInit {
 
-  constructor(private TxtMaterial:TextMaterialService) { }
-  selectedFile: File = null;
+  constructor(public courseMaterialService:CourseMaterialService,private RouteCourseId:ActivatedRoute) { }
+  selectedFile=new Array();
   private newBlogForm: FormGroup;
+  Category=""
+  courseId
+  UserRole
+  @Output() onAddingNewMaterial = new EventEmitter();
   ngOnInit(): void {
+    this.UserRole = localStorage.getItem("role");
 
+    this.getCourseIdFromUrl()
     this.newBlogForm = new FormGroup({
      
-      MaterialFile: new FormControl(null)
+      MaterialFile: new FormControl(null),
+      // Category: new FormControl(null)
     
     });
   }
  
+
+  getCourseIdFromUrl(){
+
+    this.RouteCourseId.params.subscribe(params=>{
+      this.courseId=Number.parseInt(params["CourseId"])
+    })
+  }
+
+  @ViewChild('closeModal') private closeModal: ElementRef;
+public hideModel() {
+        this.closeModal.nativeElement.click();      
+}
   onSubmit(data) {
-    if(this.selectedLevel.name="Text"){
-    console.log("in the submiit func")
-        const formData = new FormData();
-        console.log("the files")
-        console.log(this.selectedFile);
-        formData.append('MaterialFile', this.selectedFile);
-     
-      console.log(FormData);
-        this.TxtMaterial.AddTextMaterial(formData).subscribe(
-          res=>{console.log("in th res func");
-         console.log(res);},
-          err=>{
-           console.log("in the error part"); 
-           console.log(err.message)}
-        )
-      
+    // this.Category=data.Category
+    console.log(this.Category,this.selectedFile)
+    
+    if(this.selectedFile==null || this.Category==null )
+    return
+
+    this.courseMaterialService.UploadMaterialByCourseId(this.courseId,this.selectedFile,this.Category).subscribe(
+      res => {
+
+        this.hideModel()
+        alert('Uploaded!!');
+        this.onAddingNewMaterial.emit();
+        })
+        this.selectedFile=new Array();
+   
         this.newBlogForm.reset();
-      }
+      
     }
 
-      selectedLevel;
-      data:Array<Object> = [
-          {id: 0, name: "Text"},
-          {id: 1, name: "Vedio"}
-      ];
+    
     
       selected(){
-        console.log(this.selectedLevel.name)
       }
 
   //for the file section
@@ -66,13 +81,8 @@ export class AddMaterialComponent implements OnInit {
       if (droppedFile.fileEntry.isFile) {
         const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
         fileEntry.file((file: File) => {
-          this.selectedFile = file;
+          this.selectedFile.push(file);
    
-          // Here you can access the real file
-        //  console.log(droppedFile.relativePath, file);
- 
-          
- 
         });
       } else {
         // It was a directory (empty directories are added, otherwise only files)

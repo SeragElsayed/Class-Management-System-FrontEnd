@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TaskSolutionService } from 'src/Services/TaskSolution/task-solution.service';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-task-solution-list',
@@ -11,6 +12,7 @@ export class TaskSolutionListComponent implements OnInit {
   constructor(private taskSolutionService: TaskSolutionService) { 
   }
   taskSolutions;
+  filename
   @Input() TaskId
 
   ngOnInit(): void {
@@ -25,6 +27,33 @@ this.getTaskSolutions()
       res=>{
         this.taskSolutions= res;
       }
+    )
+  }
+
+
+  
+
+  download(material) {
+
+
+    this.taskSolutionService.DownloadMaterialById(material["taskSolutionId"]).subscribe(
+      res => {
+
+        console.log(res);
+        const byteCharacters = atob(res);
+        const byteNumbers = new Array(byteCharacters.length);
+        for (let i = 0; i < byteCharacters.length; i++) {
+          byteNumbers[i] = byteCharacters.charCodeAt(i);
+        }
+
+        const byteArray = new Uint8Array(byteNumbers);
+
+        const blob = new Blob([byteArray], { type: 'application/pdf' });
+
+        saveAs(blob, this.filename)
+
+      },
+      err => console.log(err)
     )
   }
 

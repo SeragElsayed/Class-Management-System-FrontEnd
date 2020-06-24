@@ -19,10 +19,9 @@
       <h2>Build skills with courses, certificates,</h2>
       <h3>  and degrees online from world-class universities and companies</h3>
    
-      
   </div> 
   
-  <button type="button" class="btn btn-light" [routerLink]="['/login']"> <strong >Join for Free</strong></button>
-  
+  <button *ngIf="token==='out'" type="button" class="btn btn-light" [routerLink]="['/register']"> <strong >Join for Free</strong></button>
+  {{token}}
   
 </div>
