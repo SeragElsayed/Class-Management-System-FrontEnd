@@ -154,8 +154,12 @@
 		</div>
 		<div class="col">
 			<div class="wrap-input100 validate-input m-b-50" data-validate="Enter password">
+			
 				<label style="color: #AFB6A6; font-weight: bold;">Password</label>
-				<input class="input100" type="password" formControlName="Password">
+				<input class="input100" type="password" formControlName="Password" id="Password">
+				<div *ngIf="Password?.errors.minlength">
+					Name must be at least 6 characters long.
+				  </div>
 				<!-- <span class="focus-input100" data-placeholder="Password"></span> -->
 			</div>
 		</div>
