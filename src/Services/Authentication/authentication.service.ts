@@ -45,12 +45,9 @@ registerUser(user)
   {
     console.log("in func ser");
       console.log(user);
-    var j=this.http.post<any>("https://localhost:44374/api/user/Login",user).subscribe(
-err=>{
-  alert(err)
-}
+    var j=this.http.post<any>("https://localhost:44374/api/user/Login",user)
 
-    );
+
     console.log(j);
   
     console.log("after the services func")
@@ -110,13 +107,6 @@ verifyToken(req,res,next){
   {
   return res.status(401).send("unauthorize request")
   }
-//   let payload=jwt.verify(Token,'secretKey')
-//   if(!payload){
-//     return res.status(401).send("unauthorize request")
-//   }
-// req.userId=payload.sugject
-// console.log("the user id ")
-// console.log(req.userId)
 next()
 }
   
