@@ -48,9 +48,15 @@ export class CourseService {
 
   }
 
+
+  getCoursesByInstructorId() {
+    //   this.courseList = this.firebase.list('courses');
+    return this.http.get<any>(`https://localhost:44374/api/Course/ByInstructorId`);
+
+  }
   getCourses() {
     //   this.courseList = this.firebase.list('courses');
-    return this.http.get<Course[]>(`https://localhost:44374/api/Course/GetCourses`);
+    return this.http.get(`https://localhost:44374/api/Course/GetCourses`);
 
   }
   EnrollInCourse(CourseId,EnrollmentKey) {

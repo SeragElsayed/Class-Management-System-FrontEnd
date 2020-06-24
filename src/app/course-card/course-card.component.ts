@@ -39,7 +39,7 @@ export class CourseCardComponent implements OnInit {
  
 
   DeleteCourseCard() {
-    debugger;
+  
     console.log("course id", this.Course['courseId'])
     this.coursesService.deleteCourse(this.Course['courseId']).subscribe(
       res => {
@@ -64,9 +64,13 @@ export class CourseCardComponent implements OnInit {
     console.log(this.Course,"coursein course card modal")
     this.coursesService.EnrollInCourse(this.Course.courseId,this.EnrollmentKey).subscribe(
       res=>{
-        console.log(res,"respone of enroolment")
-        if(res["res"]==="enrolled")
-        this.router.navigate[`course/details/${this.Course.courseId}`]
+       let x= (res["res"]==="enrolled")
+        console.log(res,x,"respone of enroolment")
+        if(res["res"]==="enrolled"){
+          this.router.navigate([`course/details/${this.Course['courseId']}`]);
+
+          //this.router.navigateByUrl[`course/details/${this.Course.courseId}`]
+        }
         else 
         alert("wrong enrollment key")
       }
