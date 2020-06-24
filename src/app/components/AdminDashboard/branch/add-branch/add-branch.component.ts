@@ -36,8 +36,9 @@ export class AddBranchComponent implements OnInit {
           res=>{console.log("in th res func");
          console.log(res);
          this.closebutton.nativeElement.click();
-   
+         this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {  
           this.router.navigateByUrl('/admin/branches')
+         });
  
         },
           err=>{
