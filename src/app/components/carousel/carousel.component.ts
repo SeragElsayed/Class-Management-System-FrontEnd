@@ -1,28 +1,54 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
-
+import {AuthenticationService} from '../../../Services/Authentication/authentication.service';
 
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.css']
 })
-export class CarouselComponent implements OnInit {
-  ngOnInit(): void {
-    this.token=localStorage.getItem("token")
-    console.log(this.token,"this.token")
-  }
+export class CarouselComponent {
+//////////////////
+role;
+ngOnInit(): void {
+
+this.auth.role.subscribe(
+  res=>{
+    console.log("in home.......................")
+    console.log(res)
+    if(res=='out')
+    {
+    console.log("out kda ")
+    this.role='out'
+    console.log(this.role)
+    }
+  else if(res=='role')
+{
+  this.role='Student'
+}
+   else
+    {
+this.role=res[0];
+console.log(this.role)
+    }
+///////////////
+
+///////////
+}
+,err=>
+{console.log("error")})
+
+}
+
+///////////////////
   images = [62, 83, 466, 965, 982, 1043, 738].map((n) => `https://picsum.photos/id/${n}/1700/600`);
 
   paused = false;
   unpauseOnArrow = false;
   pauseOnIndicator = false;
   pauseOnHover = true;
-  token 
-
-
-
+  constructor(private auth:AuthenticationService){}
   @ViewChild('carousel', {static : true}) carousel: NgbCarousel;
 
   togglePaused() {

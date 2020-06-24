@@ -15,13 +15,16 @@
    
   <div class="rc-HeroBanner__container">
     <div class="text">
-      <h1>E-learning is Future</h1>
-      <h2>Build skills with courses, certificates,</h2>
-      <h3>  and degrees online from world-class universities and companies</h3>
+
+     <h1> Facilitating the education process </h1>
+      <h2> following up with students remotely, </h2>
+    <h3> documenting students’ projects for reference at any time.</h3>
+
    
   </div> 
   
-  <button *ngIf="token==='out'" type="button" class="btn btn-light" [routerLink]="['/register']"> <strong >Join for Free</strong></button>
-  {{token}}
+  <button type="button" class="btn btn-light" [routerLink]="['/login']" *ngIf="role==='out'">
+     <strong >Join for Free</strong></button>
+  
   
 </div>

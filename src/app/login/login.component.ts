@@ -30,7 +30,8 @@ export class LoginComponent implements OnInit {
  onSubmit(data) {
 console.log("in the submiit func")
    const formData = new FormData();
- 
+ console.log(data.UserName)
+ console.log(data.Password)
    formData.append('UserName', data.UserName);
  formData.append('Password',data.Password);
  console.log(FormData);
@@ -53,7 +54,7 @@ this.Auth.get(res.userrole)
   },
      err=>{
       console.log("in the error part"); 
-      console.log(err.message)
+      console.log(err)
       
       this.router.navigateByUrl('/login')
     }
