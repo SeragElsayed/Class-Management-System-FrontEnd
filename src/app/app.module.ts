@@ -102,6 +102,7 @@ import { UpdateCourseComponent } from './update-course/update-course.component';
 import { TaskSolutionListComponent } from './components/TaskComponents/task-solution-list/task-solution-list.component';
 import { EditComponent } from './components/admindashboard/branch/edit/edit.component';
 import { CourseMaterialService } from 'src/Services/course-material.service';
+import { ExploreCourseDetailsComponent } from './components/explore-course-details/explore-course-details.component';
 
 
 
@@ -184,6 +185,8 @@ declare var require: any;
 
     EditComponent,
 
+    ExploreCourseDetailsComponent,
+
 
 
   ],
@@ -221,7 +224,7 @@ declare var require: any;
       { path: 'admin/instructors', component: AllInstructorsComponent },
       { path: 'track/edit', component: EditTrackComponent },
       { path: 'branch/edit', component: EditComponent},
-
+      { path: 'Explore/Courses/Details/:couseId', component: ExploreCourseDetailsComponent },
       { path: 'Project', component: ProjectsListComponent },
       { path: 'Project/Details/:ProjectId', component: ProjectDetailsComponent },
 

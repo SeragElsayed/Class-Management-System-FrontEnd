@@ -46,7 +46,7 @@
 
                 <ul *ngFor="let course of MyCourses"  class="nested" style="list-style-type:none">
                   <li *ngIf="(course.trackId == track.trackId)">
-                    <span><i class="fa fa-book " aria-hidden="true"></i>  {{course.courseName}}</span>
+                    <a (click)="getcourse(course.courseId)" style="cursor: pointer;"><i class="fa fa-book " aria-hidden="true"></i>  {{course.courseName}}</a>
     
                   </li>
                 </ul>

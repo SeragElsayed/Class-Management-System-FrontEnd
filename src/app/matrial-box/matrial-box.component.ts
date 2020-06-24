@@ -35,6 +35,7 @@ export class MatrialBoxComponent implements OnInit {
 
     this.routeCourseId.params.subscribe(params => {
       this.courseId = Number.parseInt(params["CourseId"])
+      console.log("in material box",this.courseId )
     })
   }
 

@@ -10,6 +10,7 @@
     </div>
   </div>
 
+</div>
 
 
 
@@ -28,7 +29,7 @@
 
 
 
-
+<div>
 <div class="d-flex flex-row justify-content-around">
 
 
@@ -51,7 +52,7 @@
   
   <div *ngIf="tracks">
 
-    <label for="TrackName" style="color:red;">Track Name</label>
+    <label for="TrackName" >Track Name</label>
 
 
     <input id="TrackName" class="form-control" type="text" placeholder="{{tracks.trackName}} " readonly>
@@ -61,7 +62,7 @@
 
   <div *ngIf="intake">
 
-    <label for="IntakeName" style="color:red;">Intake</label>
+    <label for="IntakeName" >Intake</label>
 
     <input id="IntakeName" class="form-control" type="text" placeholder="{{intake.intakeName}} " readonly>
     <br>
@@ -71,9 +72,10 @@
 </div>
   <div>
 
-    <div style="color:red;">Project Material</div>
+    <div >Project Material</div>
   </div>
     <div>
       <app-explore-teams></app-explore-teams>
     </div>
   </div>
+</div>
