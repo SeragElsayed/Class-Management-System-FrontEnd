@@ -38,8 +38,6 @@ export class ExploreCoursesComponent implements OnInit {
     //Explore/Courses/Details
     console.log("in get  course ")
     console.log(couseId)
-   
-
     this.router.navigate([`Explore/Courses/Details/${couseId}`])
   }
 

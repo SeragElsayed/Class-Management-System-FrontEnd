@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
       UserName: new FormControl(null),
       ProfileImage: new FormControl(null),
       City: new FormControl(null),
-      Password: new FormControl(null),
+      Password: new FormControl(null,Validators.minLength(6)),
     Email: new FormControl(null),
     branchId:new FormControl(null),
       trackId:new FormControl(null),
@@ -41,6 +41,7 @@ export class RegisterComponent implements OnInit {
   onSubmit(data) {
 console.log("in the submiit func")
     const formData = new FormData();
+  
     console.log(data)
     formData.append('UserName', data.UserName);
     formData.append('ProfileImage', this.selectedFile);
@@ -68,7 +69,10 @@ this.Auth.get(res.userrole)
       err=>{
        console.log("in the error part"); 
        console.log(err)
-       this.router.navigateByUrl('/register')
+       alert("Please, Enter valid data\n"+err.error)
+
+       //this.router.navigateByUrl('/register')
+
       }
     )
   
@@ -95,8 +99,8 @@ ProfileImage:null
      err=>{
       console.log("in the error part"); 
       console.log(err.message)}
-   )
-   console.log("after comp func finish");
+      )
+      alert("Plaese, Enter valid data");
    }
   // to handel the image upload
   url:any;
