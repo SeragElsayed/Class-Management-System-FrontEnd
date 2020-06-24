@@ -42,6 +42,11 @@ export class TaskSolutionService {
     .pipe( catchError( this.handleError ) )
   }
 
+  DownloadMaterialById(TaskSolutionId:number) {
+    // return this.http.get<any>(`${ProjectMaterialPaths.UploadByProjectById}/${MaterialId}`)
+    return this.http.get<any>(`https://localhost:44374/api/TaskSolution/Download/Id/${TaskSolutionId}`)
+    .pipe( catchError( this.handleError ) )
+  }
 
  
   private handleError(errorResponse: HttpErrorResponse) {

@@ -31,7 +31,6 @@ export class CourseListComponent implements OnInit {
         this.AllCourses=res;
       }
     )
-
   }
 //   url:any;
 //   readUrl(event:any) {

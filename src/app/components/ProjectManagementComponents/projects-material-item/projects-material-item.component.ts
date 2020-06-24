@@ -3,6 +3,7 @@ import { ProjectMaterial } from 'src/Models/ProjectMaterialModel';
 import { ProjectMaterialPaths } from 'src/Common/UrlConstants';
 import { ProjectMaterialService } from 'src/Services/project-material.service';
 import { FileSaverService } from 'ngx-filesaver';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-projects-material-item',
@@ -13,6 +14,7 @@ export class ProjectsMaterialItemComponent implements OnInit {
   @Input()MyMaterial;
   // DisplayName:string
   DownloadLink:string
+  filename
 
   constructor(private ProjMatServ:ProjectMaterialService, private _FileSaverService: FileSaverService) { }
 
@@ -22,6 +24,33 @@ export class ProjectsMaterialItemComponent implements OnInit {
      this.DownloadLink=`https://localhost:44347/api/ProjectMaterial/Download/${this.MyMaterial.PathOnServer}`
 
   }
+
+  
+
+  download(material) {
+
+
+    this.ProjMatServ.DownloadMaterialById(this.MyMaterial.projectMaterialModelId).subscribe(
+      res => {
+
+        console.log(res);
+        const byteCharacters = atob(res);
+        const byteNumbers = new Array(byteCharacters.length);
+        for (let i = 0; i < byteCharacters.length; i++) {
+          byteNumbers[i] = byteCharacters.charCodeAt(i);
+        }
+
+        const byteArray = new Uint8Array(byteNumbers);
+
+        const blob = new Blob([byteArray], { type: 'application/pdf' });
+
+        saveAs(blob, this.filename)
+
+      },
+      err => console.log(err)
+    )
+  }
+
   OnClick(){
 
     this.ProjMatServ.DownloadMaterialById(this.MyMaterial.projectMaterialModelId).subscribe(
