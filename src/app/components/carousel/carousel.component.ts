@@ -8,13 +8,20 @@ import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/n
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.css']
 })
-export class CarouselComponent {
+export class CarouselComponent implements OnInit {
+  ngOnInit(): void {
+    this.token=localStorage.getItem("token")
+    console.log(this.token,"this.token")
+  }
   images = [62, 83, 466, 965, 982, 1043, 738].map((n) => `https://picsum.photos/id/${n}/1700/600`);
 
   paused = false;
   unpauseOnArrow = false;
   pauseOnIndicator = false;
   pauseOnHover = true;
+  token 
+
+
 
   @ViewChild('carousel', {static : true}) carousel: NgbCarousel;
 

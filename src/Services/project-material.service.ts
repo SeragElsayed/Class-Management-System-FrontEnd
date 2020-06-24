@@ -24,7 +24,7 @@ export class ProjectMaterialService {
 
   DownloadMaterialById(MaterialId:number) {
     // return this.http.get<any>(`${ProjectMaterialPaths.UploadByProjectById}/${MaterialId}`)
-    return this.http.get(`https://localhost:44374/api/ProjectMaterial/Download/Id/${MaterialId}`)
+    return this.http.get<any>(`https://localhost:44374/api/ProjectMaterial/Download/Id/${MaterialId}`)
     .pipe( catchError( this.handleError ) )
   }
 

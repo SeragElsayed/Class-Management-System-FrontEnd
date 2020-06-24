@@ -1,78 +1,86 @@
-<!-- <div class="col-lg-4 col-md-6 mb-4"> -->
-    <div class="course-1-item">
-        <figure class="thumnail">
-            <a href="course-single.html"><img src="../../assets/images/bg_1.jpg" alt="Image" class="img-fluid"></a>
-            <div class="price">{{Course.intervalInDays}} Days</div>
-            <div class="category">
-                <h3>{{Course.courseName}}</h3>
-            </div>
-        </figure>
-        <div class="course-1-content">
-            <p class="desc mb-4">{{Course.description}}</p>
-            <!-- <a class="nav-link btn btn-primary rounded-2 " style="color: white;" [routerLink]="['/course/details']" >Details</a> -->
-            <button type="button" (click)="OnDetails();" class="myButtonadd">Details</button>
-            <!-- <button type="button" (click)="DeleteCourseCard();" class="btn btn-danger mr-2" >Delete</button>  -->
-            <app-enroll-key  *ngIf="UserRole==='Student'" id="{{Course.courseId}}"></app-enroll-key>
-            <!-- Button trigger modal -->
-            <button  *ngIf="UserRole==='Instructor'" type="button" class=" myButtondel" data-toggle="modal" data-target="#exampleModalCenter2">
-                <i class="fa fa-trash" aria-hidden="true" ></i>
-            </button>
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog"
-                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Confirm Delete?</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <!-- <div class="modal-body">
-            <div class="form-group">
-                <label for="exampleInputEmail1">Enrollment Key</label>
-                <input type="text" class="form-control" aria-describedby="keyHelp" placeholder="Enter Key">
-                  </div>
-        </div> -->
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class=" btn btn-danger mr-2" 
-                                (click)="DeleteCourseCard(); " data-dismiss="modal">
-                                <i class="fa fa-trash" aria-hidden="true" style="color: red;"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+<div class="course-1-item">
+  <figure class="thumnail">
+    <a href="course-single.html"><img src="../../assets/images/bg_1.jpg" alt="Image" class="img-fluid"></a>
+    <div class="price">{{Course.intervalInDays}} Days</div>
+    <div class="category">
+      <h3>{{Course.courseName}}</h3>
     </div>
+  </figure>
+  <div class="course-1-content">
+    <p class="desc mb-4">{{Course.description}}</p>
+    <button type="button" (click)="OnDetails();" class="myButtonadd">Details</button>
+    <!-- Button trigger Enrool modal -->
+    <button type="button" *ngIf="UserRole==='Student'" class="myButton" data-toggle="modal"
+      data-target="#exampleModalCenter">
+      Enroll
+    </button>
+    <div  *ngIf="UserRole==='Student'">
+      <button (click)="OnEnroll()" type="button" class="myButtonadd">Enroll</button>
+      <input  [(ngModel)]="EnrollmentKey" type="text" class="form-control" aria-describedby="keyHelp">
+    </div>
+    <!-- <app-enroll-key #child *ngIf="UserRole==='Student'" ></app-enroll-key> -->
+    <!-- {{Course.courseId}}
+    {{Course.enrollmentKey}}
+    [attr.data-target]="'#'+p" and [attr.id]="p" -->
+
+    <!-- Button trigger modal -->
+    <button *ngIf="UserRole==='Instructor'" type="button" class=" myButtondel" (click)="DeleteCourseCard(); ">
+      <i class="fa fa-trash" aria-hidden="true"></i>
+    </button>
+
+    <!-- Modal -->
+    <!-- <div class="modal fade" [attr.id]="Course.courseId" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Confirm Delete?</h5>{{Course.courseId}}
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class=" btn btn-danger mr-2" (click)="DeleteCourseCard(); " data-dismiss="modal">
+              <i class="fa fa-trash" aria-hidden="true" style="color: red;"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div> -->
 <!-- </div> -->
 
 
 
 
+<!--Enroll Modal -->
+<!-- <div *ngIf="UserRole==='Student'" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Key</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="exampleFormControlInput1" class="col-sm-12 control-label" style="color: gray;">Enrollment
+            Key</label>
 
 
-
-<!-- 
-<div class="course-1-item" *ngFor="let course of courselist">
-    <figure class="thumnail">
-    <a href="course-single.html"><img src="../../assets/images/bg_1.jpg" alt="Image" class="img-fluid"></a>
-    <div class="price">{{Course.Price}}</div>
-    <div class="category"><h3>{{Course.Category}}</h3></div>  
-    </figure>
-    <div class="course-1-content pb-4">
-    <h2>{{Course.name}}</h2>
-    <div class="rating text-center mb-3">
-        <span class="icon-star2 text-warning"></span>
-        <span class="icon-star2 text-warning"></span>
-        <span class="icon-star2 text-warning"></span>
-        <span class="icon-star2 text-warning"></span>
-        <span class="icon-star2 text-warning"></span>
+          <input [(ngModel)]="EnrollmentKey" type="text" class="form-control" aria-describedby="keyHelp"
+            placeholder="Enter Key">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button (click)="OnEnroll()" type="button" class="myButtonadd">Enroll</button>
+      </div>
     </div>
-    <p class="desc mb-4">{{Course.Description}}</p>
-    <p></p>
-    <p><a href="course-single.html" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
-    </div>
+  </div>
 </div> -->
