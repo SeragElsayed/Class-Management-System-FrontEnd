@@ -14,13 +14,26 @@ export class CourseListComponent implements OnInit {
 //   imgsrc:any="assets/images/bg_1.jpg";
   constructor(private courseService : CourseService) { }
   AllCourses;
+  isenrolled;
+  UserRole
   ngOnInit(): void {
+    this.UserRole=localStorage.getItem("role")
+    // this.courseService.getCourses().subscribe(
+    //   res=>{
+    //     this.AllCourses=res;
+    //     console.log(this.AllCourses,"all courses after service call ")
+    //   }
+    // )
+  }
+
+  getStudentCourses(){
     this.courseService.getCourses().subscribe(
       res=>{
         this.AllCourses=res;
         console.log(this.AllCourses,"all courses after service call ")
       }
     )
+
   }
 
   DeleteChildCourse(data){

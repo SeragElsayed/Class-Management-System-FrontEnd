@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient,HttpInterceptor} from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import {BehaviorSubject} from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 // const jwt = require('jsonwebtoken');
 @Injectable({
   providedIn: 'root'
@@ -44,7 +45,12 @@ registerUser(user)
   {
     console.log("in func ser");
       console.log(user);
-    var j=this.http.post<any>("https://localhost:44374/api/user/Login",user);
+    var j=this.http.post<any>("https://localhost:44374/api/user/Login",user).subscribe(
+err=>{
+  alert(err)
+}
+
+    );
     console.log(j);
   
     console.log("after the services func")
