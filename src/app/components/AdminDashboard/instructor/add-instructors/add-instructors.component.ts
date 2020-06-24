@@ -16,7 +16,7 @@ export class AddInstructorsComponent implements OnInit {
   private newBlogForm: FormGroup;
   ngOnInit(): void {
     this.GetAllBranches()
-    this.GetAllTracks()
+   // this.GetAllTracks()
     this.newBlogForm = new FormGroup({
       UserName: new FormControl(null),
       branchId:new FormControl(null),
@@ -45,8 +45,9 @@ export class AddInstructorsComponent implements OnInit {
           res=>{console.log("in th res func");
          console.log(res);
          this.closebutton.nativeElement.click();
- 
+         this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
           this.router.navigateByUrl('/admin/instructors')
+        }); 
 
         },
           err=>{
@@ -57,79 +58,116 @@ export class AddInstructorsComponent implements OnInit {
         this.newBlogForm.reset();
       }
   ////////////////////////////////////////////////track part//////////////////////////////////////////
-  tracks=[{}]
-  tId;
-         //get selected value from dropdown list
-         selectChangeTrack (event: any) {
-          console.log("in the function to get value drop")
-          //update the ui
-          this.tId=event;
-          console.log( this.tId);
-        }
-  //to get all branches
-      // to get the branch name
-     
-  GetAllTracks()
-  {
-    this.track.getAll().subscribe(
-      res=>{
-        console.log("the response")
-        console.log(res)
-        for(let i=0;i<res.length;i++)
-        {
+ tracks=[{
+  "trackId":"",
+  "trackName":"",
+  "branch":""
+ }]
+ tId;
+        //get selected value from dropdown list
+        selectChangeTrack (event: any) {
+         console.log("in the function track")
+         //update the ui
+         this.tId=event;
+         console.log( this.tId);
+       }
+ //to get all branches
+     // to get the branch name
+    
+//  GetAllTracks()
+//  {
+//    this.track.getAll().subscribe(
+//      res=>{
+//        console.log("the response")
+//        console.log(res)
+//        for(let i=0;i<res.length;i++)
+//        {
+        
+//          this.tracks.push(
+//            {
+//              "id":res[i].trackId,
+//              "name":res[i].trackName,
+//          "branch":res[i].branchId
          
-          this.tracks.push(
-            {
-              "id":res[i].trackId,
-              "name":res[i].trackName,
-          "branch":res[i].branchId
-          
-          })
-  
-        }
-        console.log(this.tracks)
-      },
-      err=>
-      {
-  console.log("th error ")
-  console.log(err)
-      }
-    )
-  }
-  ////////////////////////////////////////////branch part/////////////////////////////////////////
-  branches=[{}]
+//          })
+ 
+//        }
+//        console.log(this.tracks)
+//      },
+//      err=>
+//      {
+//  console.log("th error ")
+//  console.log(err)
+//      }
+//    )
+//  }
+ ////////////////////////////////////////////branch part/////////////////////////////////////////
+ branches=[{}]
 bId;
-       //get selected value from dropdown list
-       selectChangeBranch(event: any) {
-        console.log("in the function to get value drop")
-        //update the ui
-        this.bId=event;
-        console.log( this.bId);
-      }
-//to get all branches
-    // to get the branch name
-    GetAllBranches()
-    {
-      this.branch.getAll().subscribe(
+      //get selected value from dropdown list
+      selectChangeBranch(event: any) {
+        this.tracks=[{
+          "trackId":"",
+          "trackName":"",
+          "branch":""
+         }]
+       console.log("in the function branch")
+       //update the ui
+       this.bId=event;
+       console.log( this.bId);
+       this.track.getTracksByBranchId(this.bId).subscribe(
         res=>{
-          console.log("the response")
-          console.log(res)
+          console.log("the response of track branch")
+          console.log(res.length)
+
+console.log("tttttttttttttttttt")
+console.log(this.tracks)
           for(let i=0;i<res.length;i++)
           {
-           
-            this.branches.push(
-              {"id":res[i].branchId,
-                "name":res[i].branchName
+           console.log(res[i].trackName)
+            this.tracks.push(
+              {
+                "trackId":res[i].trackId,
+                "trackName":res[i].trackName,
+            "branch":res[i].branchId
+            
             })
     
           }
-          console.log(this.branches)
+          console.log("+++++++++++++++++++++++++++++++++")
+          console.log(this.tracks)
         },
         err=>
         {
     console.log("th error ")
     console.log(err)
         }
-      )
-    }
+       )
+     }
+//to get all branches
+   // to get the branch name
+   GetAllBranches()
+   {
+     this.branch.getAll().subscribe(
+       res=>{
+         console.log("the response")
+         console.log(res)
+         for(let i=0;i<res.length;i++)
+         {
+          
+           this.branches.push(
+             {"id":res[i].branchId,
+               "name":res[i].branchName
+           })
+   
+         }
+         console.log(this.branches)
+       },
+       err=>
+       {
+   console.log("th error ")
+   console.log(err)
+       }
+     )
+   }
 }

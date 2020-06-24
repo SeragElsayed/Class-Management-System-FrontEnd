@@ -41,7 +41,7 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/about']">Aboout Us</a>
+            <a class="nav-link" [routerLink]="['/about']">About Us</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['/contact']">Contact</a>
@@ -76,9 +76,9 @@
   
 
   <div class="col-lg-3 text-right auth">
-    <a [routerLink]="['/profile']" class=" mr-3" style="color: lightgrey;" *ngIf="role!='out'"><span class="auth icon-unlock-alt"></span>
+    <a [routerLink]="['/profile']" class=" mr-3" style="color: lightgrey;" *ngIf="role==='Student'||role==='Instructor'||role==='Admin'"><span class="auth icon-unlock-alt"></span>
       Profile</a>
-      <a  class=" mr-3" style="color: lightgrey;" (click)="logout()" style="cursor: pointer;"*ngIf="role!='out'"><span class="auth icon-unlock-alt"></span>
+      <a  class=" mr-3" style="color: lightgrey;" (click)="logout()" style="cursor: pointer;"*ngIf="role==='Student'||role==='Instructor'||role==='Admin'"><span class="auth icon-unlock-alt"></span>
         Logout</a>
     <a [routerLink]="['/login']" class="auth small mr-3" *ngIf="role==='out'"><span class="auth icon-unlock-alt"></span> Log In</a>
     <a [routerLink]="['/register']" id="register" class="small btn px-4 py-2 rounded-1"*ngIf="role==='out'"><span class="icon-users"></span>
