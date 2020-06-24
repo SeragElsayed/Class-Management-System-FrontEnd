@@ -53,8 +53,9 @@ this.Auth.get(res.userrole)
 
   },
      err=>{
-      console.log("in the error part"); 
-      console.log(err)
+     
+      alert("Invalid login info")
+
       
       this.router.navigateByUrl('/login')
     }
