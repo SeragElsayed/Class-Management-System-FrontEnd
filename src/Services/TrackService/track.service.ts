@@ -20,7 +20,7 @@ export class TrackService {
    }
 getcoursesbytrackid()
 {
- return this.http.get<any>(`https://localhost:44374/api/Course/GetCourses`);
+ return this.http.get<any>(`https://localhost:44374/api/Course/GetExploreCourses`);
 }
 getAll()
 {

@@ -3,6 +3,10 @@ a.navbar-brand {
   text-align: center;
   word-break: break-all;
 }
+a{
+  font-size: 18px;
+  font-weight: bold;
+}
 
 .auth{
  color: #51be78;

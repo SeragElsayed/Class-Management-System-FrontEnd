@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProjectService } from 'src/Services/project.service';
 import { ActivatedRoute } from '@angular/router';
 import { TrackService } from 'src/Services/TrackService/track.service';
+import { ProjectMaterialService } from 'src/Services/project-material.service';
 
 @Component({
   selector: 'app-explore-details',
@@ -13,21 +14,22 @@ export class ExploreDetailsComponent implements OnInit {
   MyProject;
   tracks;
   intake;
- 
+  mymaterials
   // httMyProject:Project;
   ProjectId:number;
   intakeId:number
   trackId:number
   projectName:string
-  constructor(private MyProjectService:ProjectService,private RouteProjectId:ActivatedRoute,private track:TrackService) { }
+  constructor(private ProjMatService:ProjectMaterialService,private MyProjectService:ProjectService,private RouteProjectId:ActivatedRoute,private track:TrackService) { }
 
   ngOnInit(): void {
     
     this.RouteProjectId.params.subscribe(params=>{
       this.ProjectId=Number.parseInt(params["ProjectId"])
+      this.getProject();
+      this.getProjectMaterial()
     })
 
-    this.getProject();
    
   }
   getProject(){
@@ -63,4 +65,12 @@ console.log("track in details project",this.tracks.trackName)
   }
     )}
   
+    getProjectMaterial(){
+      this.ProjMatService.GetProjectMaterialByProjectId(this.ProjectId).subscribe(
+        res=>{
+          console.log(res,"project mateeeeeeeeeeeeeeeeerial")
+          this.mymaterials=res;
+        }
+      )
+    }
 }

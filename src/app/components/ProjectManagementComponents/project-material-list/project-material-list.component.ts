@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ProjectMaterialService } from 'src/Services/project-material.service';
 import { ActivatedRoute } from '@angular/router';
 import { ProjectMaterial } from 'src/Models/ProjectMaterialModel';
@@ -54,8 +54,18 @@ private ProjectMaterial: FormGroup;
     
     this.Category=data.Category
     
-    if(this.selectedFile==null || this.Category==null )
-    return
+    if(this.selectedFile.length==0 )
+    {
+
+      alert("please, choose files to upload")
+      return
+     }
+    if( this.Category==null )
+   {
+
+     alert("please, enter files category")
+     return
+    }
 
 
      this.ProjMatService.UploadMaterialByProjectId(this.ProjectId,this.selectedFile,this.Category).subscribe(
@@ -85,6 +95,7 @@ private ProjectMaterial: FormGroup;
   }
 
   getMaterial(){
+    
     this.ProjMatService.GetProjectMaterialByProjectId(this.ProjectId).subscribe(
       res=>{
         

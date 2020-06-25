@@ -18,7 +18,7 @@ export class AddInstructorsComponent implements OnInit {
     this.GetAllBranches()
    // this.GetAllTracks()
     this.newBlogForm = new FormGroup({
-      UserName: new FormControl(null),
+      UserName: new FormControl('',Validators.required),
       branchId:new FormControl(null),
       trackId:new FormControl(null),
       Password:new FormControl(null),
