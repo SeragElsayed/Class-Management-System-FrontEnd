@@ -58,7 +58,7 @@ clicked(event) {
         var filename = $("#inputGroupFile01").val();
         filename = filename.substring(filename.lastIndexOf('\\') + 1);
         reader.onload = function (e) {
-            debugger;
+            // debugger;
             $('#preview').attr('src', e.target.result);
             $('#preview').hide();
             $('#preview').fadeIn(500);
