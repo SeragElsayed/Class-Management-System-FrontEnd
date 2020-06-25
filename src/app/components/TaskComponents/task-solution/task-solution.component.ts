@@ -53,11 +53,12 @@ id:any
     )
   }
   AddTaskSolution(){
-debugger;
+// debugger;
 console.log("from add method in task solutionn comp",this.MyTask)
 
   this.service.addTaskSolution(this.input,this.MyTask.taskId,this.CourseId)  
   .subscribe(data => {  
+    alert("uploaded")
     this.tasksolutionlist.getTaskSolutions()
   },  
   error => {  

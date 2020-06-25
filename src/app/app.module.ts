@@ -103,6 +103,8 @@ import { TaskSolutionListComponent } from './components/TaskComponents/task-solu
 import { EditComponent } from './components/admindashboard/branch/edit/edit.component';
 import { CourseMaterialService } from 'src/Services/course-material.service';
 import { ExploreCourseDetailsComponent } from './components/explore-course-details/explore-course-details.component';
+import { NameStudentUploadedSolutionComponent } from './components/TaskComponents/name-student-uploaded-solution/name-student-uploaded-solution.component';
+import { StudentSolutionsListComponent } from './components/TaskComponents/student-solutions-list/student-solutions-list.component';
 
 
 
@@ -186,6 +188,10 @@ declare var require: any;
     EditComponent,
 
     ExploreCourseDetailsComponent,
+
+    NameStudentUploadedSolutionComponent,
+
+    StudentSolutionsListComponent,
 
 
 

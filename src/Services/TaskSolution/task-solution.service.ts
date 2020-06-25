@@ -27,6 +27,16 @@ export class TaskSolutionService {
     .pipe( catchError( this.handleError ) )
   }
 
+  GetStudentNameUploadedSolutionByTaskId(TaskId:number) {
+    return this.http.get(`https://localhost:44374/api/course/tasksStd/names/${TaskId}`)
+    .pipe( catchError( this.handleError ) )
+  }
+
+  gettasksolutionbytaskidandstudentid(TaskId:number,StudentId) {
+    return this.http.get(`https://localhost:44374/api/course/tasksStd/perstudent/${TaskId}/${StudentId}`)
+    .pipe( catchError( this.handleError ) )
+  }
+
   addTaskSolution(files,TaskId,CourseId) {
     let fd=new FormData();
     files.forEach(element => {
