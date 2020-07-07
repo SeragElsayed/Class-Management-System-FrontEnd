@@ -1,27 +1,22 @@
-# WebApplication2
+# Class Mangament System
+A platform for online class management system where instructor can create course ,add material and tasks, then students can enroll in the course and view the material and upload tasks' solution.
+Users can create projects, upload material and add members registered in the platform.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
+### Project's Features.
+- Admin module
+control CRUD operations for Instructors, tracks, branches and intakes.
+- Instructor module
+control CRUD operations for courses, tasks and course's material.
+- Student module
+Control CRUD operations for tasks solution.
+- Project module
+users can create project and control CRUD operations of project's details, material and members.
 
-## Development server
+### Backend Technologies.
+- ASP.NET API Core.
+- Enitity FrameWork Core.
+- MS SQL Server  (deployed on Azure Cloud).
+- ASP.NET Identity.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
